@@ -6,7 +6,7 @@ image::./openscad/test-copy.png[]
 
 .Openscad source
 ----
-include::openscad/test-copy.scad[]
+include::./test-copy.scad[]
 ----
 
 
@@ -19,3 +19,4 @@ image::./openscad/test.png[]
 ----
 include::./test.scad[]
 ----
+
