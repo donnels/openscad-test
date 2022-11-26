@@ -5,6 +5,7 @@ $fn=100;
 kbD=82;
 kbW=210;
 kbH=7;
+library=true;
 
 odH=10;
 odW=156;
