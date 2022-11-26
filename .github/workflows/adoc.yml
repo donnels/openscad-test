@@ -28,24 +28,30 @@ jobs:
       - name: Pul the containers required to build
         id: pull-containers
         run: |
-          docker pull ghcr.io/donnels/asciidoc:main &
+          docker pull $container-asciidoc &
+          docker pull container-openscad &
           wait
+        env:
+          container-asciidoc: ghcr.io/donnels/asciidoc:main
+          container-openscad: ghcr.io/donnels/openscad:main
 
       - name: run container against this repo
         run: |
-          echo "$container"
-          docker pull $container
           cd openscad
-          docker run --rm --name "openscad" --volume $PWD:/data $container openscad -o /data/test.stl /data/*scad
-          docker run --rm --name "openscad" --volume $PWD:/data $container openscad --colorscheme Tomorrow -o /data/test.png /data/*scad
+          docker run --rm --name "openscad" --volume $PWD:/data $container-openscad openscad -o /data/test.stl /data/*scad
+          docker run --rm --name "openscad" --volume $PWD:/data $container-openscad openscad --colorscheme Tomorrow -o /data/test.png /data/*scad
         env:
-          container: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:main
+          container-asciidoc: ghcr.io/donnels/asciidoc:main
+          container-openscad: ghcr.io/donnels/openscad:main
 
       - name: Make the PDFs and HTMLs
         id: asciidoc-2-html-and-pdf
         run: |
-          docker run -v "$PWD":/documents/ --name asciidoc-to-pdf ghcr.io/donnels/asciidoc:main asciidoctor-pdf -D /documents/docs *.asciidoc
-          docker run -v "$PWD":/documents/ --name asciidoc-to-html ghcr.io/donnels/asciidoc:main asciidoctor -D /documents/docs *.asciidoc
+          docker run -v "$PWD":/documents/ --name asciidoc-to-pdf $container-asciidoc asciidoctor-pdf -D /documents/docs *.asciidoc
+          docker run -v "$PWD":/documents/ --name asciidoc-to-html $container-asciidoc asciidoctor -D /documents/docs *.asciidoc
+        env:
+          container-asciidoc: ghcr.io/donnels/asciidoc:main
+          container-openscad: ghcr.io/donnels/openscad:main
 
       - name: Check for modified files
         id: git-check
