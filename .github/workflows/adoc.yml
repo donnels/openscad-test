@@ -42,7 +42,7 @@ jobs:
           basename --help
           for scadfile in *.scad
           do
-          file="$(basename $scadfile .scad)"
+          file="$(basename -s .scad $scadfile)"
           docker run --rm --name "openscad" --volume $PWD:/data $container_openscad openscad -o /data/${file}.stl /data/${scadfile}
           docker run --rm --name "openscad" --volume $PWD:/data $container_openscad openscad --colorscheme Tomorrow -o /data/${file}.png /data/${scadfile}
           done
