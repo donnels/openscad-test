@@ -183,4 +183,7 @@ module containerVertSlot(x,y,z,rimThick,bottomThick,nibYN,nibR) {
 //containerVertSlot(odW,odD,odH,caseRim,odJSH-caseRim,"nibY",.6);
 //cube([odW,odD,odH]);
 
-if (library) {} else  echo("trying to complile a library!");
+if (library) {} else  {
+	echo("trying to compile a library!");
+	text("trying to compile a library!");
+	}
