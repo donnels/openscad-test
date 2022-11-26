@@ -28,30 +28,30 @@ jobs:
       - name: Pul the containers required to build
         id: pull-containers
         run: |
-          docker pull $container-asciidoc &
-          docker pull container-openscad &
+          docker pull $container_asciidoc &
+          docker pull container_openscad &
           wait
         env:
-          container-asciidoc: ghcr.io/donnels/asciidoc:main
-          container-openscad: ghcr.io/donnels/openscad:main
+          container_asciidoc: ghcr.io/donnels/asciidoc:main
+          container_openscad: ghcr.io/donnels/openscad:main
 
       - name: run container against this repo
         run: |
           cd openscad
-          docker run --rm --name "openscad" --volume $PWD:/data $container-openscad openscad -o /data/test.stl /data/*scad
-          docker run --rm --name "openscad" --volume $PWD:/data $container-openscad openscad --colorscheme Tomorrow -o /data/test.png /data/*scad
+          docker run --rm --name "openscad" --volume $PWD:/data $container_openscad openscad -o /data/test.stl /data/*scad
+          docker run --rm --name "openscad" --volume $PWD:/data $container_openscad openscad --colorscheme Tomorrow -o /data/test.png /data/*scad
         env:
-          container-asciidoc: ghcr.io/donnels/asciidoc:main
-          container-openscad: ghcr.io/donnels/openscad:main
+          container_asciidoc: ghcr.io/donnels/asciidoc:main
+          container_openscad: ghcr.io/donnels/openscad:main
 
       - name: Make the PDFs and HTMLs
         id: asciidoc-2-html-and-pdf
         run: |
-          docker run -v "$PWD":/documents/ --name asciidoc-to-pdf $container-asciidoc asciidoctor-pdf -D /documents/docs *.asciidoc
-          docker run -v "$PWD":/documents/ --name asciidoc-to-html $container-asciidoc asciidoctor -D /documents/docs *.asciidoc
+          docker run -v "$PWD":/documents/ --name asciidoc-to-pdf $container_asciidoc asciidoctor-pdf -D /documents/docs *.asciidoc
+          docker run -v "$PWD":/documents/ --name asciidoc-to-html $container_asciidoc asciidoctor -D /documents/docs *.asciidoc
         env:
-          container-asciidoc: ghcr.io/donnels/asciidoc:main
-          container-openscad: ghcr.io/donnels/openscad:main
+          container_asciidoc: ghcr.io/donnels/asciidoc:main
+          container_openscad: ghcr.io/donnels/openscad:main
 
       - name: Check for modified files
         id: git-check
