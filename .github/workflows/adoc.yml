@@ -28,8 +28,9 @@ jobs:
       - name: Pul the containers required to build
         id: pull-containers
         run: |
+          #This really just makes the pull shorter if there are more than one to pull
           docker pull $container_asciidoc &
-          docker pull container_openscad &
+          docker pull $container_openscad &
           wait
         env:
           container_asciidoc: ghcr.io/donnels/asciidoc:main
