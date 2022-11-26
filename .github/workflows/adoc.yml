@@ -39,6 +39,7 @@ jobs:
       - name: run container against this repo
         run: |
           cd openscad
+          basename --help
           for scadfile in *.scad
           do
           file="$(basename $scadfile .scad)"
