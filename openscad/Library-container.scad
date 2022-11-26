@@ -185,5 +185,7 @@ module containerVertSlot(x,y,z,rimThick,bottomThick,nibYN,nibR) {
 
 if (library) {} else  {
 	echo("trying to compile a library!");
-	text("trying to compile a library!");
+	linear_extrude(height = 4) {
+		text("trying to compile a library!");
+		}
 	}
