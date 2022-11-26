@@ -17,7 +17,7 @@ image::./openscad/${short}.png[]
 
 .Openscad source
 ----
-include::./openscad/${file}[]
+include::./${file}[]
 ----
 
 _EOF_
