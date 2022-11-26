@@ -39,12 +39,13 @@ jobs:
       - name: run container against this repo
         run: |
           cd openscad
-          basename --help
           for scadfile in *.scad
           do
-          file="$(basename -s .scad $scadfile)"
-          docker run --rm --name "openscad" --volume $PWD:/data $container_openscad openscad -o /data/${file}.stl /data/${scadfile}
-          docker run --rm --name "openscad" --volume $PWD:/data $container_openscad openscad --colorscheme Tomorrow -o /data/${file}.png /data/${scadfile}
+          echo "${scadfile}"
+          file="$(basename -s ".scad" "${scadfile}")"
+          echo "${file}"
+          docker run --rm --name "openscad" --volume $PWD:/data $container_openscad openscad -o "/data/${file}.stl" "/data/${scadfile}"
+          docker run --rm --name "openscad" --volume $PWD:/data $container_openscad openscad --colorscheme Tomorrow -o "/data/${file}.png" "/data/${scadfile}"
           done
         env:
           container_asciidoc: ghcr.io/donnels/asciidoc:main
