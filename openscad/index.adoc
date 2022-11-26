@@ -1,4 +1,5 @@
-= Object - test-copy
+
+=== Object - test-copy
 
 .image
 image::./openscad/test-copy.png[]
@@ -8,7 +9,8 @@ image::./openscad/test-copy.png[]
 include::./openscad/test-copy.scad[]
 ----
 
-= Object - test
+
+=== Object - test
 
 .image
 image::./openscad/test.png[]
