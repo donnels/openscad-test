@@ -1,4 +1,59 @@
 = openscad-test
+//
+//General DOC INFO
+:year: 2022
+:org: VSR
+:copyright: (C){year} {org} All Rights Reserved
+:classification: {org} - Un-classified
+:GH-org: donnels
+:GH-repo: openscad-test
+:repo-file: README
+//
+// URLs
+:GH-url: https://github.com
+:GH-url-pages: https://{GH-org}.github.io
+:url-org: {GH-url}/{GH-org}
+:url-repo: {url-org}/{GH-repo}
+:url-repo-pages: {GH-url-pages}/{GH-repo}/{repo-file}.html
+:url-repo-pages-pdf: {GH-url-pages}/{GH-repo}/{repo-file}.pdf
+//
+//GITHUB settings
+ifdef::env-github[]
+:toc:
+:toc-placement!:
+:status:
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+include::includes/asciidoc-format-header.adoc[]
+
+ifdef::env-github[toc::[]]
+
+== Document information
+
+====
+.Links to Document
+ifndef::env-github[]
+:hardbreaks-option:
+icon:compass[2x,link="{url-repo-pages}"] Document online
+icon:github[2x,link="{url-repo}"] Document Source
+icon:file-pdf-o[2x,link="{url-repo-pages-pdf}"] Document PDF
+
+:!hardbreaks-option:
+endif::env-github[]
+ifdef::env-github[]
+* link:{url-repo-pages}[Document online ^]
+* link:{url-repo}[Document Source ^]
+* link:{url-repo-pages-pdf}[Document PDF ^]
+endif::env-github[]
+====
+
+//
+// MAIN DOC
+//
 
 test repo for building openscad files into different outputs
 This is still work in progress but can already build a png and stl of each stl file in the opescad directory.
