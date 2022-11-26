@@ -3,7 +3,7 @@
 //General DOC INFO
 :year: 2022
 :org: VSR
-:copyright: (CC BY-NC 4.0){year} {org} All Rights Reserved
+:copyright: (CC BY-NC 4.0){year} Sean Donnellan
 :classification: {org} - Un-classified
 :GH-org: donnels
 :GH-repo: openscad-test
