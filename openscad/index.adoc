@@ -1,0 +1,20 @@
+= Object - test-copy
+
+.image
+image::./openscad/test-copy.png[]
+
+.Openscad source
+----
+include::./openscad/test-copy.scad[]
+----
+
+= Object - test
+
+.image
+image::./openscad/test.png[]
+
+.Openscad source
+----
+include::./openscad/test.scad[]
+----
+

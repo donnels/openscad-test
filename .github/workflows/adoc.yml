@@ -48,6 +48,7 @@ jobs:
           docker run --rm --name "openscad" --volume $PWD:/data $container_openscad openscad -o "/data/${file}.stl" "/data/${scadfile}"
           docker run --rm --name "openscad" --volume $PWD:/data $container_openscad openscad --colorscheme Tomorrow -o "/data/${file}.png" "/data/${scadfile}"
           done
+          . ./indexer.sh
         env:
           container_asciidoc: ghcr.io/donnels/asciidoc:main
           container_openscad: ghcr.io/donnels/openscad:main
