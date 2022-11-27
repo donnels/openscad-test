@@ -1,0 +1,4 @@
+This is a fastener for a writing Desk.
+The idea is to add a magnet to hold it up and to print it so that it does not require a bearing.
+V1 is the first prototype for a first print test and fitting test.
+
