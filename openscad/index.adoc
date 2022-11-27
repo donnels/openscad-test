@@ -21,6 +21,17 @@ include::./case.scad[]
 ----
 
 
+=== Object - ikeabung
+
+.image
+image::./openscad/ikeabung.png[]
+
+.Openscad source
+----
+include::./ikeabung.scad[]
+----
+
+
 === Object - test
 
 .image
