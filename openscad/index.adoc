@@ -1,6 +1,8 @@
 
 === Object - Library-container
 
+
+
 .image
 image::./openscad/Library-container.png[]
 
@@ -11,6 +13,10 @@ include::./Library-container.scad[]
 
 
 === Object - case
+
+A case for an odroid handgeld console and accessories.
+
+The edges are rounded and there are cutouts for the parts that protrude from the console.
 
 .image
 image::./openscad/case.png[]
@@ -23,6 +29,10 @@ include::./case.scad[]
 
 === Object - ikeabung
 
+This was a replacement foot for an IKEA shelf.
+
+The actual foot was screwed in with a bolt on the underside.
+
 .image
 image::./openscad/ikeabung.png[]
 
@@ -34,6 +44,8 @@ include::./ikeabung.scad[]
 
 === Object - test
 
+
+
 .image
 image::./openscad/test.png[]
 
@@ -44,6 +56,8 @@ include::./test.scad[]
 
 
 === Object - test2
+
+
 
 .image
 image::./openscad/test2.png[]
