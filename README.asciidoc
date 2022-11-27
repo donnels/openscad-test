@@ -56,9 +56,21 @@ endif::env-github[]
 //
 
 test repo for building openscad files into different outputs
-This is still work in progress but can already build a png and stl of each stl file in the opescad directory.
+This is still work in progress but can already build a png and stl of each scad file in the opescad directory.
+See the online or pdf versions for the images as te readme is realy only the source and right now is not WYSIWYG!
 
 == Objects
 
 include::./openscad/index.adoc[]
 
+== To do
+
+* Right now the github source is not perfect as the readme does not display the images when viewed in github.
+* Need to add further process steps for the images like meshlabserver to do furhter processing:
+** glass rendering
+** cleaning up the mesh
+** Simplifying the mesh
+** Stats
+* Need to add animation options.
+* [x] Need to add text display option for each item.
+* Need to add view parameters as options.
