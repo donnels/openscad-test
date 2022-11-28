@@ -33,12 +33,11 @@ module clip() {
 		holderW=19;
 		holderRin=33;
 		holderRout=holderRin+holderW;
-		difference(){
+		#difference(){
 			translate([0,0,-.1]) cylinder(h=2+.1,r=holderRout);
-			translate([0,0,-.1]) cylinder(h=2+.2,r=holderRin);
+			translate([0,0,-.11]) cylinder(h=2+.22,r=holderRin);
 		}
 	}
-	
 }
 
 //add the clip
