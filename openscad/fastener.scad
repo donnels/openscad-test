@@ -24,20 +24,30 @@ module clip() {
 				translate([mainLength,0,0]) cylinder(d=mainD,h=mainH);
 			}
 			translate([10,-5,mainH]) linear_extrude (height=2) {
-				text("V2");
+				text("V3");
 			}
 		}
 		//magnet
 		translate([mainLength-magnetX,-magnetZ/2,(mainH-magnetY)/2]) cube([magnetX,magnetZ,magnetY+10]);
 		//holder
-		translate([mainLength-magnetX-1,-(mainD/2)-1,-.1]) cube([magnetX+2,magnetZ+mainD,2]);
+		holderW=19;
+		holderRin=33;
+		holderRout=holderRin+holderW;
+		difference(){
+			translate([0,0,-.1]) cylinder(h=2+.1,r=holderRout);
+			translate([0,0,-.1]) cylinder(h=2+.2,r=holderRin);
+		}
 	}
 	
 }
+
+//add the clip
 difference () {
 	clip();
 	axle(1,1);
 }
+
+//add the axle and drill a hole in it for a srew
 difference(){
 	axle(0,0);
 	translate([0,0,-.05]) cylinder(h=mainH+.1,d=2);
