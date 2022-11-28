@@ -42,8 +42,8 @@ module clip() {
 module magnetCap(){
 	//magnet cap
 	difference(){
-		cylinder(h=3,d=11);
-		translate([0,0,-.1]) cylinder(h=2.1,d=10);
+		cylinder(h=2.8,d=11);
+		translate([0,0,-.1]) cylinder(h=2,d=10);
 	}
 }
 module screwCap() {
