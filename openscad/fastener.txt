@@ -7,3 +7,5 @@ The idea is to add a magnet to hold it up and to print it so that it does not re
 * V3 added a better cutout and is printed
 ** The cutout is currently a dummy pending getting the axle to work to try it out with magnets taped into place
 ** axle prints freely so moving on to screw holes, magnets, and covers
+* V4 Added final OCD logo and screw caps etc.
+** Mounted and working.

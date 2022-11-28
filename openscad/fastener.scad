@@ -64,8 +64,8 @@ difference(){
 	translate([0,0,-.05]) cylinder(h=mainH+.1,d=4);
 	translate([0,0,mainH/2]) cylinder(h=(mainH/2)+.1,d=7.5);
 	//next two lines just a visual
-	#translate([0,0,mainH+2]) screwCap();
-	#translate([42,0,-.5]) magnetCap();
+	//#translate([0,0,mainH+2]) screwCap();
+	//#translate([42,0,-.5]) magnetCap();
 }
 translate([0,27,3]) rotate([0,180,0]) screwCap();
 translate([0,15,3]) rotate([0,180,0]) magnetCap();
