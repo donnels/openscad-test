@@ -1,4 +1,8 @@
 This is a fastener for a writing Desk.
 The idea is to add a magnet to hold it up and to print it so that it does not require a bearing.
-V1 is the first prototype for a first print test and fitting test.
 
+* V1 is the first prototype for a first print test and fitting test
+** fits well and axle didn't print free so need update
+* V2 added a better axle but didn't get printed
+* V3 added a better cutout and is being printed
+** The cutout is currently a dummy pending getting the axle to work to try it out with magnets taped into place
