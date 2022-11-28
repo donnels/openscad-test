@@ -67,5 +67,5 @@ difference(){
 	//#translate([0,0,mainH+2]) screwCap();
 	//#translate([42,0,-.5]) magnetCap();
 }
-translate([0,27,3]) rotate([0,180,0]) screwCap();
-translate([0,15,3]) rotate([0,180,0]) magnetCap();
+translate([0,-27,3]) rotate([0,180,0]) screwCap();
+translate([0,-15,3]) rotate([0,180,0]) magnetCap();
