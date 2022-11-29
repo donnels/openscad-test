@@ -207,29 +207,3 @@ image::./openscad/tesa.png[]
 include::./tesa.scad[]
 ----
 
-
-=== Object - test
-
-
-
-.image
-image::./openscad/test.png[]
-
-.Openscad source
-----
-include::./test.scad[]
-----
-
-
-=== Object - test2
-
-
-
-.image
-image::./openscad/test2.png[]
-
-.Openscad source
-----
-include::./test2.scad[]
-----
-
