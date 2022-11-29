@@ -24,7 +24,7 @@
 :pdf-theme: theme-{org}.yml
 :pdf-themesdir: {libdir}/themes
 :pdf-fontsdir: {libdir}/fonts
-:title-logo-image: image:openscad/test.png[pdfwidth=2in,align=right]
+:title-logo-image: image:includes/test.png[pdfwidth=2in,align=right]
 //
 //HTML options
 :!reproducible:
