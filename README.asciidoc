@@ -1,4 +1,4 @@
-= openscad-test
+= OpenScad examples
 //
 //General DOC INFO
 :year: 2022
