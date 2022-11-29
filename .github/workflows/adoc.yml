@@ -25,7 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Pul the containers required to build
+      - name: Pull the containers required to build
         id: pull-containers
         run: |
           #This really just makes the pull shorter if there are more than one to pull
@@ -36,7 +36,7 @@ jobs:
           container_asciidoc: ghcr.io/donnels/asciidoc:main
           container_openscad: ghcr.io/donnels/openscad:main
 
-      - name: run container against this repo
+      - name: run openscad container against this repo
         run: |
           cd openscad
           basename -s ".test" "test123.test"
