@@ -22,43 +22,32 @@ ScreenTopX=141;
 ScreenTopZ=1;
 ScreenEdge=1;
 ScreenMaxDepth=7;
-module waveshareHDMIscreen(){
+module waveshareHDMIscreen(wiggle){
     //full hd screen top face
     //and yes it has rounded corners but let's just start simple.
     union(){
         //Screen dimensions
-        color([0.2,.2,.2])
-            cube([ScreenTopY,ScreenTopX,ScreenTopZ]);
-        //max clearing behind screen without cables
-        color([0.2,.5,.5])
-            translate([ScreenEdge,ScreenEdge,-ScreenMaxDepth])
-                cube([ScreenTopY-(2*ScreenEdge),ScreenTopX-(2*ScreenEdge),ScreenMaxDepth]);
-        //connecting cable at the edge.
-        color([0.1,.1,.1])
-            translate([57,0,-ScreenMaxDepth])
-                cube([7,7,ScreenMaxDepth]);
+  		cube([ScreenTopY,ScreenTopX,ScreenTopZ+wiggle]);
+		translate([ScreenEdge,ScreenEdge,-ScreenMaxDepth])
+			cube([ScreenTopY-(2*ScreenEdge),ScreenTopX-(2*ScreenEdge),ScreenMaxDepth+wiggle]);
+		//connecting cable at the edge.
+		translate([57,0,-ScreenMaxDepth]) cube([7,7,ScreenMaxDepth]);
         //USB for touch with offseted connector - wiggle through
-        color([0.9,.9,.9])
-            translate([12,19,-ScreenMaxDepth-10])
-                cube([30,9,ScreenMaxDepth+10]);
-        color([0.9,.9,.9])
-            translate([12,10,-ScreenMaxDepth-10])
-                cube([15,12,ScreenMaxDepth+10]);
+		translate([12,19,-ScreenMaxDepth-10])
+			cube([30,9,ScreenMaxDepth+10]);
+		translate([12,10,-ScreenMaxDepth-10])
+			cube([15,12,ScreenMaxDepth+10]);
         //USB for power - wriggle thrrough
-        color([0.9,.9,.9])
-            translate([65,95,-ScreenMaxDepth-10])
-                cube([5,15,ScreenMaxDepth+10]);
-        color([0.9,.9,.9])
-            translate([57,97,-ScreenMaxDepth-10])
-                cube([17,11,ScreenMaxDepth+10]);
+		translate([65,95,-ScreenMaxDepth-10])
+			cube([5,15,ScreenMaxDepth+10]);
+		translate([57,97,-ScreenMaxDepth-10])
+			cube([17,11,ScreenMaxDepth+10]);
         //HDMI connector - Wriggle through might not work... might have to make hole larger
-        color([0.9,.9,.9])
-            translate([44,72,-ScreenMaxDepth-10])
-                cube([30,20,ScreenMaxDepth+10]);
+		translate([44,72,-ScreenMaxDepth-10])
+			cube([30,20,ScreenMaxDepth+10]);
         //Audio?
-        color([0.9,.9,.9])
-            translate([51,56.75,-ScreenMaxDepth-4])
-                cube([23,7.5,ScreenMaxDepth+4]);
+		translate([51,56.75,-ScreenMaxDepth-4])
+			cube([23,7.5,ScreenMaxDepth+4]);
         //The screw holes
         Standoffs();
         //The mounting holes for the displaycover
@@ -77,17 +66,14 @@ StandoffSpace=1;
 StandoffScrewHead=2;
 module HolePeg(offset1){
     //standoff
-    color([.9,.9,.9])
-        translate([0,0,-StandoffDepth+1]+offset1)
-            cylinder(h=StandoffDepth-1,r=3.05);
+	translate([0,0,-StandoffDepth+1]+offset1)
+		cylinder(h=StandoffDepth-1,r=3.05);
     //screwwshaft
-    color([0,0,0])
-        translate([0,0,-StandoffDepth-StandoffSpace+1]+offset1)
-            cylinder(h=StandoffDepth+StandoffSpace-1,r=1);
+	translate([0,0,-StandoffDepth-StandoffSpace+1]+offset1)
+		cylinder(h=StandoffDepth+StandoffSpace-1,r=1);
     //Screw head
-    color([0,0,0])
-        translate([0,0,-StandoffDepth-StandoffSpace-StandoffScrewHead+1]+offset1)
-            cylinder(h=StandoffScrewHead,r=3);
+	translate([0,0,-StandoffDepth-StandoffSpace-StandoffScrewHead+1]+offset1)
+		cylinder(h=StandoffScrewHead,r=3);
 }
 module Standoffs(){
     //Outside holes
@@ -108,7 +94,7 @@ module Standoffs(){
 
 // Midleton box measurements
 //Real total Height
-BoxHeight=61;
+//BoxHeight=61;
 //Display inset Height
 BoxHeight=10.5;
 //testprint
@@ -131,19 +117,21 @@ module Displaymodule() {
     LLnotch(LowerLNotchLengthOffset);
     LRnotch(LowerRNotchLengthOffset);
 }
-
+//Displaymodule();
+//Standoffs();
+//waveshareHDMIscreen();
 
 // put it all together
 difference(){
-    color([0.1,0.1,1]) Displaymodule();
+    Displaymodule();
     //Screen
     translate([(BoxWidth-ScreenTopY)/2,(BoxWidth-ScreenTopY)/2+6,BoxHeight-ScreenTopZ])
-        waveshareHDMIscreen();
-    //remove after testprint
+        waveshareHDMIscreen(.1);
+    //for testprint only
     *translate([-10,10,2.5])cube([100,130,15]);
     *translate([10,-10,2.5])cube([65,160,15]);
 }
 //remove for print... only for animation
-*translate([((BoxWidth-ScreenTopY)/2),(BoxWidth-ScreenTopY)/2+6,(BoxHeight-ScreenTopZ)+30*(1-$t)]) waveshareHDMIscreen();
+*translate([((BoxWidth-ScreenTopY)/2),(BoxWidth-ScreenTopY)/2+6,(BoxHeight-ScreenTopZ)+30*(1-$t)]) waveshareHDMIscreen(0);
  
 
