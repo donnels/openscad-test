@@ -50,6 +50,19 @@ include::./fastener.scad[]
 ----
 
 
+=== Object - geoTest
+
+
+
+.image
+image::./openscad/geoTest.png[]
+
+.Openscad source
+----
+include::./geoTest.scad[]
+----
+
+
 === Object - ikeabung
 
 This was a replacement foot for an IKEA shelf.
