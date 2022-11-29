@@ -1,7 +1,7 @@
 
 === Object - Axle
 
-
+required a screw and didn't have one.
 
 .image
 image::./openscad/Axle.png[]
@@ -98,7 +98,7 @@ include::./VacuumPreAmplifierBase.scad[]
 
 === Object - buttonBack
 
-
+Button backing for the monitor.
 
 .image
 image::./openscad/buttonBack.png[]
@@ -190,7 +190,7 @@ include::./ikeabung.scad[]
 
 === Object - internal-volume
 
-
+the internal Volume of a presentation box to test ideas on.
 
 .image
 image::./openscad/internal-volume.png[]
