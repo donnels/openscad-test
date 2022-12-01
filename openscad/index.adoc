@@ -25,6 +25,19 @@ include::./CasingLED.scad[]
 ----
 
 
+=== Object - Hose_Adaptor
+
+
+
+.image
+image::./openscad/Hose_Adaptor.png[]
+
+.Openscad source
+----
+include::./Hose_Adaptor.scad[]
+----
+
+
 === Object - KitchenDoorHoleStopper
 
 
