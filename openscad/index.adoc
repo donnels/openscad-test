@@ -12,6 +12,19 @@ include::./Axle.scad[]
 ----
 
 
+=== Object - CasingLED
+
+
+
+.image
+image::./openscad/CasingLED.png[]
+
+.Openscad source
+----
+include::./CasingLED.scad[]
+----
+
+
 === Object - KitchenDoorHoleStopper
 
 
@@ -53,6 +66,7 @@ include::./Library-container.scad[]
 
 === Object - RPi_zero_mount
 
+This also is NOT one of mine but I've cleaned it up a bit as it wasn't displaying correctly. I needed it for a pi cluster and as it's quite good I didn't reinvent the wheel here.
 
 
 .image
@@ -162,7 +176,8 @@ include::./fridgeDoorInterimHandle.scad[]
 
 === Object - geoTest
 
-
+This is not one of mine and I just kiked it as a good example.
+I did correct some mistakes in it though.
 
 .image
 image::./openscad/geoTest.png[]
@@ -227,6 +242,32 @@ include::./midletoninset.scad[]
 ----
 
 
+=== Object - mountingplateaircraftmotor
+
+
+
+.image
+image::./openscad/mountingplateaircraftmotor.png[]
+
+.Openscad source
+----
+include::./mountingplateaircraftmotor.scad[]
+----
+
+
+=== Object - schuko
+
+
+
+.image
+image::./openscad/schuko.png[]
+
+.Openscad source
+----
+include::./schuko.scad[]
+----
+
+
 === Object - screen_mounting_tabs
 
 
@@ -253,6 +294,19 @@ include::./spool.scad[]
 ----
 
 
+=== Object - steeringaxle
+
+
+
+.image
+image::./openscad/steeringaxle.png[]
+
+.Openscad source
+----
+include::./steeringaxle.scad[]
+----
+
+
 === Object - strikeplate
 
 
@@ -276,5 +330,18 @@ image::./openscad/tesa.png[]
 .Openscad source
 ----
 include::./tesa.scad[]
+----
+
+
+=== Object - vsagcrd
+
+
+
+.image
+image::./openscad/vsagcrd.png[]
+
+.Openscad source
+----
+include::./vsagcrd.scad[]
 ----
 
