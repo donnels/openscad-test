@@ -28,6 +28,9 @@ include::./CasingLED.scad[]
 === Object - Hose_Adaptor
 
 
+Not one of mine:
+Created by Paul Tibble - 18/7/19            
+* https://www.thingiverse.com/Paul_Tibble/about
 
 .image
 image::./openscad/Hose_Adaptor.png[]
