@@ -34,7 +34,7 @@ _EOF_
 
         cat >>../index.adoc <<_EOF_
 
-+=== Object - ${short}
+==== Object - ${short}
 
 $descriptionText
 

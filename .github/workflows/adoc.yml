@@ -39,7 +39,6 @@ jobs:
       - name: run openscad container against this repo
         run: |
           cd openscad
-          basename -s ".test" "test123.test"
           for scadfile in *.scad
           do
           echo "${scadfile}"
