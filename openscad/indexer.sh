@@ -32,18 +32,18 @@ _EOF_
             unset descriptionText
         fi
 
-        cat >>index.adoc <<_EOF_
+        cat >>../index.adoc <<_EOF_
 
 +=== Object - ${short}
 
 $descriptionText
 
 .image
-image::./openscad/${short}.png[]
+image::./openscad/${directory}/${short}.png[]
 
 .Openscad source
 ----
-include::./${file}[]
+include::./${directory}/${file}[]
 ----
 
 _EOF_
