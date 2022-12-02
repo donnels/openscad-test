@@ -48,4 +48,6 @@ include::./${file}[]
 
 _EOF_
 
+    done
+    cd -
 done
