@@ -41,14 +41,14 @@ include::./Axle/Axle.scad[]
 === Howth-cieling-spots - Project
 
 
-The spots for the ceiling in Howth needed replacing and the replacement spots had a few millimeters to little radius so that they didn't cover the hole properly in all places.
-The lampp ring was a quick fix that turned out quite well and looks good.
+The spots for the ceiling in Howth needed replacing and the replacement spots had a few millimeters too little radius so that they didn't cover the hole properly in all places.
+The lamp ring was a quick fix that turned out quite well and looks good.
 
 
 ==== lampRing - 3D Object
 
 
-This object is not very complex and it's really just a few cylinders laid on top of one another with a few holes cut in for the lamp.
+This object is not very complex and it's really just a few cylinders laid on top of one another with a few holes cut out for the lamp.
 
 .image
 image::./openscad/Howth-cieling-spots/lampRing.png[]
