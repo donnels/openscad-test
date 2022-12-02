@@ -361,6 +361,8 @@ include::./monitor/screen_mounting_tabs.scad[]
 ==== Library-container - 3D Object
 
 
+This is the Library for the case.
+I sourced the methods out so as to be able to re-use them better.
 
 .image
 image::./openscad/odroid-case/Library-container.png[]
