@@ -1,5 +1,46 @@
 
-+=== Object - Test
+==== Object - Axle
+
+required a screw and didn't have one.
+
+.image
+image::./openscad/Axle//Axle.png[]
+
+.Openscad source
+----
+include::./Axle//Axle.scad[]
+----
+
+
+==== Object - ikeabung
+
+This was a replacement foot for an IKEA shelf.
+
+The actual foot was screwed in with a bolt on the underside.
+
+.image
+image::./openscad/Ikea-Repair//ikeabung.png[]
+
+.Openscad source
+----
+include::./Ikea-Repair//ikeabung.scad[]
+----
+
+
+==== Object - fridgeDoorInterimHandle
+
+
+
+.image
+image::./openscad/Liebherr//fridgeDoorInterimHandle.png[]
+
+.Openscad source
+----
+include::./Liebherr//fridgeDoorInterimHandle.scad[]
+----
+
+
+==== Object - Test
 
 Just a simple example and also used as the logo for this repo.
 
@@ -12,7 +53,44 @@ include::./Test//Test.scad[]
 ----
 
 
-+=== Object - KitchenDoorHoleStopper
+==== Object - fastener
+
+This is a fastener for a writing Desk.
+The idea is to add a magnet to hold it up and to print it so that it does not require a bearing.
+
+* V1 is the first prototype for a first print test and fitting test
+** fits well and axle didn't print free so need update
+* V2 added a better axle but didn't get printed
+* V3 added a better cutout and is printed
+** The cutout is currently a dummy pending getting the axle to work to try it out with magnets taped into place
+** axle prints freely so moving on to screw holes, magnets, and covers
+* V4 Added final OCD logo and screw caps etc.
+** Mounted and working.
+
+.image
+image::./openscad/desk//fastener.png[]
+
+.Openscad source
+----
+include::./desk//fastener.scad[]
+----
+
+
+==== Object - geoTest
+
+This is not one of mine and I just kiked it as a good example.
+I did correct some mistakes in it though.
+
+.image
+image::./openscad/geo-test//geoTest.png[]
+
+.Openscad source
+----
+include::./geo-test//geoTest.scad[]
+----
+
+
+==== Object - KitchenDoorHoleStopper
 
 
 
@@ -25,7 +103,7 @@ include::./kitchen-door//KitchenDoorHoleStopper.scad[]
 ----
 
 
-+=== Object - strikeplate
+==== Object - strikeplate
 
 
 
@@ -38,7 +116,20 @@ include::./kitchen-door//strikeplate.scad[]
 ----
 
 
-+=== Object - midletoninset
+==== Object - CasingLED
+
+
+
+.image
+image::./openscad/led-Casing//CasingLED.png[]
+
+.Openscad source
+----
+include::./led-Casing//CasingLED.scad[]
+----
+
+
+==== Object - midletoninset
 
 
 
@@ -51,7 +142,7 @@ include::./midleton//midletoninset.scad[]
 ----
 
 
-+=== Object - internal-volume
+==== Object - internal-volume
 
 the internal Volume of a presentation box to test ideas on.
 
@@ -64,7 +155,7 @@ include::./midleton2//internal-volume.scad[]
 ----
 
 
-+=== Object - steeringaxle
+==== Object - steeringaxle
 
 
 
@@ -77,7 +168,20 @@ include::./modelTruckRepair//steeringaxle.scad[]
 ----
 
 
-+=== Object - screen_mounting_tabs
+==== Object - buttonBack
+
+Button backing for the monitor.
+
+.image
+image::./openscad/monitor//buttonBack.png[]
+
+.Openscad source
+----
+include::./monitor//buttonBack.scad[]
+----
+
+
+==== Object - screen_mounting_tabs
 
 
 
@@ -90,7 +194,22 @@ include::./monitor//screen_mounting_tabs.scad[]
 ----
 
 
-+=== Object - RPi_zero_mount
+==== Object - case
+
+A case for an odroid handgeld console and accessories.
+
+The edges are rounded and there are cutouts for the parts that protrude from the console.
+
+.image
+image::./openscad/odroid-case//case.png[]
+
+.Openscad source
+----
+include::./odroid-case//case.scad[]
+----
+
+
+==== Object - RPi_zero_mount
 
 This also is NOT one of mine but I've cleaned it up a bit as it wasn't displaying correctly. I needed it for a pi cluster and as it's quite good I didn't reinvent the wheel here.
 
@@ -104,7 +223,7 @@ include::./piZero//RPi_zero_mount.scad[]
 ----
 
 
-+=== Object - schuko
+==== Object - schuko
 
 
 
@@ -117,7 +236,7 @@ include::./schuko//schuko.scad[]
 ----
 
 
-+=== Object - tesa
+==== Object - tesa
 
 
 
@@ -127,5 +246,18 @@ image::./openscad/tesa//tesa.png[]
 .Openscad source
 ----
 include::./tesa//tesa.scad[]
+----
+
+
+==== Object - Knurl
+
+
+
+.image
+image::./openscad/thumb-screw//Knurl.png[]
+
+.Openscad source
+----
+include::./thumb-screw//Knurl.scad[]
 ----
 
