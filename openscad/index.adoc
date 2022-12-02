@@ -200,6 +200,24 @@ include::./desk/fastener.scad[]
 ----
 
 
+=== fritzring - Project
+
+
+
+
+==== fritzcolaadapter - 3D Object
+
+
+
+.image
+image::./openscad/fritzring/fritzcolaadapter.png[]
+
+.Openscad source
+----
+include::./fritzring/fritzcolaadapter.scad[]
+----
+
+
 === geo-test - Project
 
 
@@ -410,6 +428,36 @@ include::./piZero/RPi_zero_mount.scad[]
 === rePhone - Project
 
 
+* rephone components and case design
+* Stl files added from thingiverse
+* Scad file also as holder for stls from thingiverse
+* Reference material only for now
+
+
+==== RePhone_ALL - 3D Object
+
+
+
+.image
+image::./openscad/rePhone/RePhone_ALL.png[]
+
+.Openscad source
+----
+include::./rePhone/RePhone_ALL.scad[]
+----
+
+
+==== RePhone_handset - 3D Object
+
+
+
+.image
+image::./openscad/rePhone/RePhone_handset.png[]
+
+.Openscad source
+----
+include::./rePhone/RePhone_handset.scad[]
+----
 
 
 ==== xadow - 3D Object
