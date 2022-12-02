@@ -63,14 +63,18 @@ See the online or pdf versions for the images as te readme is realy only the sou
 
 include::./openscad/index.adoc[]
 
+[appendix]
 == To do
 
-* Right now the github source is not perfect as the readme does not display the images when viewed in github.
-* Need to add further process steps for the images like meshlabserver to do furhter processing:
-** glass rendering
-** cleaning up the mesh
-** Simplifying the mesh
-** Stats
-* Need to add animation options.
-* [x] Need to add text display option for each item.
-* Need to add view parameters as options.
+Right now the github source is not perfect as the readme does not display the images when viewed in github.
+
+* [ ] Need to either add a readme in the directories or fix asciidoc to deal with asciidoc not showing in github
+* [ ] Need to add further process steps for the images like meshlabserver to do furhter processing:
+** Stuff (,glass rendering, wireframe, mesh magic, stats, etc.)
+* [ ] Need to add subdirectories to pool projects together
+** [x] build index for subdirs
+** [ ] need to make the scad build fit to the subdir model
+** [ ] add check for empty directory (no scad files)
+* [ ] Need to add animation options
+* [x] Need to add text display option for each item
+* [ ] Need to add view parameters as options
