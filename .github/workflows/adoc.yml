@@ -48,8 +48,8 @@ jobs:
           cd $(dirname $file)
           echo "build it"
           echo "directory= $dir netto file= $file scadfile= $scadfile" 
-          #docker run --rm --name "openscad" --volume $PWD:/data $container_openscad openscad -o "/data/${file}.stl" "/data/${scadfile}"
-          #docker run --rm --name "openscad" --volume $PWD:/data $container_openscad openscad --colorscheme Tomorrow -o "/data/${file}.png" "/data/${scadfile}"
+          docker run --rm --name "openscad" --volume $PWD:/data $container_openscad openscad -o "/data/${file}.stl" "/data/${scadfile}"
+          docker run --rm --name "openscad" --volume $PWD:/data $container_openscad openscad --colorscheme Tomorrow -o "/data/${file}.png" "/data/${scadfile}"
           echo "back to previous"
           cd -
           echo
