@@ -55,11 +55,11 @@ endif::env-github[]
 // MAIN DOC
 //
 
-test repo for building openscad files into different outputs
-This is still work in progress but can already build a png and stl of each scad file in the opescad directory.
+Experimental repo for building openscad files into different outputs.
+This is still work in progress but can already build a png and stl of each scad file in the opescad directories.
 See the online or pdf versions for the images as te readme is realy only the source and right now is not WYSIWYG!
 
-== Objects
+== Output
 
 include::./openscad/index.adoc[]
 
@@ -73,8 +73,9 @@ Right now the github source is not perfect as the readme does not display the im
 ** Stuff (,glass rendering, wireframe, mesh magic, stats, etc.)
 * [ ] Need to add subdirectories to pool projects together
 ** [x] build index for subdirs
-** [ ] need to make the scad build fit to the subdir model
+** [x] need to make the scad build fit to the subdir model
 ** [ ] add check for empty directory (no scad files)
+*** [x] only build scad files and only run container with scad files
 * [ ] Need to add animation options
 * [x] Need to add text display option for each item
 * [ ] Need to add view parameters as options
