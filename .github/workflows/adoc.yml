@@ -41,17 +41,18 @@ jobs:
           cd openscad
           find . -name "*.scad" -type f | while read filename
           do  
+          echo "looping into $filename"
           scadfile="$(basename "$filename")"
           file="$(basename -s".scad" "$filename")"
           dir="$(dirname "$filename")"
-          echo "directory= $dir netto file= $file scadfile= $scadfile" 
           cd $(dirname $file)
           echo "build it"
           echo "directory= $dir netto file= $file scadfile= $scadfile" 
           #docker run --rm --name "openscad" --volume $PWD:/data $container_openscad openscad -o "/data/${file}.stl" "/data/${scadfile}"
           #docker run --rm --name "openscad" --volume $PWD:/data $container_openscad openscad --colorscheme Tomorrow -o "/data/${file}.png" "/data/${scadfile}"
-          echo
+          echo "back to previous"
           cd -
+          echo
           done
           . ./indexer.sh
         env:
