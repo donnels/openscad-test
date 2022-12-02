@@ -4,12 +4,15 @@
 
 
 
-=== Project - Test/
++=== Object - Test
 
+Just a simple example and also used as the logo for this repo.
 
+.image
+image::./openscad/Test.png[]
 
-
-=== Project - Test/
-
-
+.Openscad source
+----
+include::./Test.scad[]
+----
 
