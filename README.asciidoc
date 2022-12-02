@@ -78,3 +78,4 @@ Right now the github source is not perfect as the readme does not display the im
 * [ ] Need to add animation options
 * [x] Need to add text display option for each item
 * [ ] Need to add view parameters as options
+* [ ] Allow adding photos to the objects or projects to show makes
