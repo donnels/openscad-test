@@ -2,12 +2,12 @@
 //DOC Formatiing and style
 :title-page:
 :toc: right
-:sectnums:
+:!sectnums:
 :sectnumlevels: 5
 :toclevels: 5
 :data-uri:
 :allow-uri-read: true
-:doctype: article
+:doctype: paper
 //set bookflag in main document if adding chapters etc that will be built solo AND integrated
 :book-flag: true
 :icons: font

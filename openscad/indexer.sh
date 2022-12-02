@@ -7,6 +7,7 @@ rm -f index.adoc 2>/dev/null
 for directory in */
 do
     cd $directory
+    directory="$(echo "$directory" | cut -d "/" -f1)"
     dirDescription="description.txt"       
     if [[ -f "$dirDescription" ]]; then
         dirDescriptionText="$(cat $dirDescription)"
@@ -15,7 +16,7 @@ do
     fi
     cat >>../index.adoc <<_EOF_
 
-=== Project - $directory
+=== $directory - Project
 
 $dirDescriptionText
 
@@ -34,7 +35,7 @@ _EOF_
 
         cat >>../index.adoc <<_EOF_
 
-==== Object - ${short}
+==== ${short} - 3D Object
 
 $descriptionText
 
