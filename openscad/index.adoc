@@ -1,10 +1,10 @@
 
-=== Project - Amplifier/
+=== Amplifier - Project
 
 
 
 
-==== Object - VacuumPreAmplifierBase
+==== VacuumPreAmplifierBase - 3D Object
 
 .vacuumpreamp
 
@@ -15,148 +15,148 @@ Have a nice wooden box that is looking for some use as a housing The pre-amp is 
 I've created an openscad model of the Box based on some measurments with a calliper. The model is designed to help asses where to drill holes and to print a guide to drill the holes. The preamp has a power input (12v~) an in and an output (headphone jack) and a Volume potentiometer. Also the housing is to expose the Vacuum Tubes to the interested viewer. Since the lid is hinged and the relative position of the tubes to the lid, when opening, is difficult to eyeball the model was created to try out different Hole placments as well as providing a template for Drill guides.
 
 .image
-image::./openscad/Amplifier//VacuumPreAmplifierBase.png[]
+image::./openscad/Amplifier/VacuumPreAmplifierBase.png[]
 
 .Openscad source
 ----
-include::./Amplifier//VacuumPreAmplifierBase.scad[]
+include::./Amplifier/VacuumPreAmplifierBase.scad[]
 ----
 
 
-=== Project - Axle/
+=== Axle - Project
 
 
 
 
-==== Object - Axle
+==== Axle - 3D Object
 
 required a screw and didn't have one.
 
 .image
-image::./openscad/Axle//Axle.png[]
+image::./openscad/Axle/Axle.png[]
 
 .Openscad source
 ----
-include::./Axle//Axle.scad[]
+include::./Axle/Axle.scad[]
 ----
 
 
-=== Project - Howth-cieling-spots/
+=== Howth-cieling-spots - Project
 
 
 
 
-==== Object - lampRing
+==== lampRing - 3D Object
 
 
 
 .image
-image::./openscad/Howth-cieling-spots//lampRing.png[]
+image::./openscad/Howth-cieling-spots/lampRing.png[]
 
 .Openscad source
 ----
-include::./Howth-cieling-spots//lampRing.scad[]
+include::./Howth-cieling-spots/lampRing.scad[]
 ----
 
 
-=== Project - Ikea-Repair/
+=== Ikea-Repair - Project
 
 
 
 
-==== Object - ikeabung
+==== ikeabung - 3D Object
 
 This was a replacement foot for an IKEA shelf.
 
 The actual foot was screwed in with a bolt on the underside.
 
 .image
-image::./openscad/Ikea-Repair//ikeabung.png[]
+image::./openscad/Ikea-Repair/ikeabung.png[]
 
 .Openscad source
 ----
-include::./Ikea-Repair//ikeabung.scad[]
+include::./Ikea-Repair/ikeabung.scad[]
 ----
 
 
-=== Project - Liebherr/
+=== Liebherr - Project
 
 
 
 
-==== Object - fridgeDoorInterimHandle
+==== fridgeDoorInterimHandle - 3D Object
 
 
 
 .image
-image::./openscad/Liebherr//fridgeDoorInterimHandle.png[]
+image::./openscad/Liebherr/fridgeDoorInterimHandle.png[]
 
 .Openscad source
 ----
-include::./Liebherr//fridgeDoorInterimHandle.scad[]
+include::./Liebherr/fridgeDoorInterimHandle.scad[]
 ----
 
 
-=== Project - Model-Plane/
+=== Model-Plane - Project
 
 
 
 
-==== Object - mountingplateaircraftmotor
+==== mountingplateaircraftmotor - 3D Object
 
 
 
 .image
-image::./openscad/Model-Plane//mountingplateaircraftmotor.png[]
+image::./openscad/Model-Plane/mountingplateaircraftmotor.png[]
 
 .Openscad source
 ----
-include::./Model-Plane//mountingplateaircraftmotor.scad[]
+include::./Model-Plane/mountingplateaircraftmotor.scad[]
 ----
 
 
-=== Project - Test/
+=== Test - Project
 
 
 
 
-==== Object - Test
+==== Test - 3D Object
 
 Just a simple example and also used as the logo for this repo.
 
 .image
-image::./openscad/Test//Test.png[]
+image::./openscad/Test/Test.png[]
 
 .Openscad source
 ----
-include::./Test//Test.scad[]
+include::./Test/Test.scad[]
 ----
 
 
-=== Project - VSAGCRD-Logo/
+=== VSAGCRD-Logo - Project
 
 
 
 
-==== Object - vsagcrd
+==== vsagcrd - 3D Object
 
 
 
 .image
-image::./openscad/VSAGCRD-Logo//vsagcrd.png[]
+image::./openscad/VSAGCRD-Logo/vsagcrd.png[]
 
 .Openscad source
 ----
-include::./VSAGCRD-Logo//vsagcrd.scad[]
+include::./VSAGCRD-Logo/vsagcrd.scad[]
 ----
 
 
-=== Project - Vacuum-rig-adapter/
+=== Vacuum-rig-adapter - Project
 
 
 
 
-==== Object - Hose_Adaptor
+==== Hose_Adaptor - 3D Object
 
 
 Not one of mine:
@@ -164,20 +164,20 @@ Created by Paul Tibble - 18/7/19
 * https://www.thingiverse.com/Paul_Tibble/about
 
 .image
-image::./openscad/Vacuum-rig-adapter//Hose_Adaptor.png[]
+image::./openscad/Vacuum-rig-adapter/Hose_Adaptor.png[]
 
 .Openscad source
 ----
-include::./Vacuum-rig-adapter//Hose_Adaptor.scad[]
+include::./Vacuum-rig-adapter/Hose_Adaptor.scad[]
 ----
 
 
-=== Project - desk/
+=== desk - Project
 
 
 
 
-==== Object - fastener
+==== fastener - 3D Object
 
 This is a fastener for a writing Desk.
 The idea is to add a magnet to hold it up and to print it so that it does not require a bearing.
@@ -192,287 +192,287 @@ The idea is to add a magnet to hold it up and to print it so that it does not re
 ** Mounted and working.
 
 .image
-image::./openscad/desk//fastener.png[]
+image::./openscad/desk/fastener.png[]
 
 .Openscad source
 ----
-include::./desk//fastener.scad[]
+include::./desk/fastener.scad[]
 ----
 
 
-=== Project - geo-test/
+=== geo-test - Project
 
 
 
 
-==== Object - geoTest
+==== geoTest - 3D Object
 
 This is not one of mine and I just kiked it as a good example.
 I did correct some mistakes in it though.
 
 .image
-image::./openscad/geo-test//geoTest.png[]
+image::./openscad/geo-test/geoTest.png[]
 
 .Openscad source
 ----
-include::./geo-test//geoTest.scad[]
+include::./geo-test/geoTest.scad[]
 ----
 
 
-=== Project - kitchen-door/
+=== kitchen-door - Project
 
 
 
 
-==== Object - KitchenDoorHoleStopper
+==== KitchenDoorHoleStopper - 3D Object
 
 
 
 .image
-image::./openscad/kitchen-door//KitchenDoorHoleStopper.png[]
+image::./openscad/kitchen-door/KitchenDoorHoleStopper.png[]
 
 .Openscad source
 ----
-include::./kitchen-door//KitchenDoorHoleStopper.scad[]
+include::./kitchen-door/KitchenDoorHoleStopper.scad[]
 ----
 
 
-==== Object - strikeplate
+==== strikeplate - 3D Object
 
 
 
 .image
-image::./openscad/kitchen-door//strikeplate.png[]
+image::./openscad/kitchen-door/strikeplate.png[]
 
 .Openscad source
 ----
-include::./kitchen-door//strikeplate.scad[]
+include::./kitchen-door/strikeplate.scad[]
 ----
 
 
-=== Project - led-Casing/
+=== led-Casing - Project
 
 
 
 
-==== Object - CasingLED
+==== CasingLED - 3D Object
 
 
 
 .image
-image::./openscad/led-Casing//CasingLED.png[]
+image::./openscad/led-Casing/CasingLED.png[]
 
 .Openscad source
 ----
-include::./led-Casing//CasingLED.scad[]
+include::./led-Casing/CasingLED.scad[]
 ----
 
 
-=== Project - midleton/
+=== midleton - Project
 
 
 
 
-==== Object - midletoninset
+==== midletoninset - 3D Object
 
 
 
 .image
-image::./openscad/midleton//midletoninset.png[]
+image::./openscad/midleton/midletoninset.png[]
 
 .Openscad source
 ----
-include::./midleton//midletoninset.scad[]
+include::./midleton/midletoninset.scad[]
 ----
 
 
-=== Project - midleton2/
+=== midleton2 - Project
 
 
 
 
-==== Object - internal-volume
+==== internal-volume - 3D Object
 
 the internal Volume of a presentation box to test ideas on.
 
 .image
-image::./openscad/midleton2//internal-volume.png[]
+image::./openscad/midleton2/internal-volume.png[]
 
 .Openscad source
 ----
-include::./midleton2//internal-volume.scad[]
+include::./midleton2/internal-volume.scad[]
 ----
 
 
-=== Project - modelTruckRepair/
+=== modelTruckRepair - Project
 
 
 
 
-==== Object - steeringaxle
+==== steeringaxle - 3D Object
 
 
 
 .image
-image::./openscad/modelTruckRepair//steeringaxle.png[]
+image::./openscad/modelTruckRepair/steeringaxle.png[]
 
 .Openscad source
 ----
-include::./modelTruckRepair//steeringaxle.scad[]
+include::./modelTruckRepair/steeringaxle.scad[]
 ----
 
 
-=== Project - monitor/
+=== monitor - Project
 
 
 
 
-==== Object - buttonBack
+==== buttonBack - 3D Object
 
 Button backing for the monitor.
 
 .image
-image::./openscad/monitor//buttonBack.png[]
+image::./openscad/monitor/buttonBack.png[]
 
 .Openscad source
 ----
-include::./monitor//buttonBack.scad[]
+include::./monitor/buttonBack.scad[]
 ----
 
 
-==== Object - screen_mounting_tabs
+==== screen_mounting_tabs - 3D Object
 
 
 
 .image
-image::./openscad/monitor//screen_mounting_tabs.png[]
+image::./openscad/monitor/screen_mounting_tabs.png[]
 
 .Openscad source
 ----
-include::./monitor//screen_mounting_tabs.scad[]
+include::./monitor/screen_mounting_tabs.scad[]
 ----
 
 
-=== Project - odroid-case/
+=== odroid-case - Project
 
 
 
 
-==== Object - Library-container
+==== Library-container - 3D Object
 
 
 
 .image
-image::./openscad/odroid-case//Library-container.png[]
+image::./openscad/odroid-case/Library-container.png[]
 
 .Openscad source
 ----
-include::./odroid-case//Library-container.scad[]
+include::./odroid-case/Library-container.scad[]
 ----
 
 
-==== Object - case
+==== case - 3D Object
 
 A case for an odroid handgeld console and accessories.
 
 The edges are rounded and there are cutouts for the parts that protrude from the console.
 
 .image
-image::./openscad/odroid-case//case.png[]
+image::./openscad/odroid-case/case.png[]
 
 .Openscad source
 ----
-include::./odroid-case//case.scad[]
+include::./odroid-case/case.scad[]
 ----
 
 
-=== Project - piZero/
+=== piZero - Project
 
 
 
 
-==== Object - RPi_zero_mount
+==== RPi_zero_mount - 3D Object
 
 This also is NOT one of mine but I've cleaned it up a bit as it wasn't displaying correctly. I needed it for a pi cluster and as it's quite good I didn't reinvent the wheel here.
 
 
 .image
-image::./openscad/piZero//RPi_zero_mount.png[]
+image::./openscad/piZero/RPi_zero_mount.png[]
 
 .Openscad source
 ----
-include::./piZero//RPi_zero_mount.scad[]
+include::./piZero/RPi_zero_mount.scad[]
 ----
 
 
-=== Project - schuko/
+=== schuko - Project
 
 
 
 
-==== Object - schuko
+==== schuko - 3D Object
 
 
 
 .image
-image::./openscad/schuko//schuko.png[]
+image::./openscad/schuko/schuko.png[]
 
 .Openscad source
 ----
-include::./schuko//schuko.scad[]
+include::./schuko/schuko.scad[]
 ----
 
 
-=== Project - spool-holder/
+=== spool-holder - Project
 
 
 
 
-==== Object - spool
+==== spool - 3D Object
 
 
 
 .image
-image::./openscad/spool-holder//spool.png[]
+image::./openscad/spool-holder/spool.png[]
 
 .Openscad source
 ----
-include::./spool-holder//spool.scad[]
+include::./spool-holder/spool.scad[]
 ----
 
 
-=== Project - tesa/
+=== tesa - Project
 
 
 
 
-==== Object - tesa
+==== tesa - 3D Object
 
 
 
 .image
-image::./openscad/tesa//tesa.png[]
+image::./openscad/tesa/tesa.png[]
 
 .Openscad source
 ----
-include::./tesa//tesa.scad[]
+include::./tesa/tesa.scad[]
 ----
 
 
-=== Project - thumb-screw/
+=== thumb-screw - Project
 
 
 
 
-==== Object - Knurl
+==== Knurl - 3D Object
 
 
 
 .image
-image::./openscad/thumb-screw//Knurl.png[]
+image::./openscad/thumb-screw/Knurl.png[]
 
 .Openscad source
 ----
-include::./thumb-screw//Knurl.scad[]
+include::./thumb-screw/Knurl.scad[]
 ----
 
