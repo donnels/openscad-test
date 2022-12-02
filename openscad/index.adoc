@@ -1,0 +1,478 @@
+
+=== Project - Amplifier/
+
+
+
+
+==== Object - VacuumPreAmplifierBase
+
+.vacuumpreamp
+
+housing a retro vacuum tube china preamp.
+
+Have a nice wooden box that is looking for some use as a housing The pre-amp is a cheap vaccum tube type sourced from aliexpress https://a.aliexpress.com/_B0MVMZ
+
+I've created an openscad model of the Box based on some measurments with a calliper. The model is designed to help asses where to drill holes and to print a guide to drill the holes. The preamp has a power input (12v~) an in and an output (headphone jack) and a Volume potentiometer. Also the housing is to expose the Vacuum Tubes to the interested viewer. Since the lid is hinged and the relative position of the tubes to the lid, when opening, is difficult to eyeball the model was created to try out different Hole placments as well as providing a template for Drill guides.
+
+.image
+image::./openscad/Amplifier//VacuumPreAmplifierBase.png[]
+
+.Openscad source
+----
+include::./Amplifier//VacuumPreAmplifierBase.scad[]
+----
+
+
+=== Project - Axle/
+
+
+
+
+==== Object - Axle
+
+required a screw and didn't have one.
+
+.image
+image::./openscad/Axle//Axle.png[]
+
+.Openscad source
+----
+include::./Axle//Axle.scad[]
+----
+
+
+=== Project - Howth-cieling-spots/
+
+
+
+
+==== Object - lampRing
+
+
+
+.image
+image::./openscad/Howth-cieling-spots//lampRing.png[]
+
+.Openscad source
+----
+include::./Howth-cieling-spots//lampRing.scad[]
+----
+
+
+=== Project - Ikea-Repair/
+
+
+
+
+==== Object - ikeabung
+
+This was a replacement foot for an IKEA shelf.
+
+The actual foot was screwed in with a bolt on the underside.
+
+.image
+image::./openscad/Ikea-Repair//ikeabung.png[]
+
+.Openscad source
+----
+include::./Ikea-Repair//ikeabung.scad[]
+----
+
+
+=== Project - Liebherr/
+
+
+
+
+==== Object - fridgeDoorInterimHandle
+
+
+
+.image
+image::./openscad/Liebherr//fridgeDoorInterimHandle.png[]
+
+.Openscad source
+----
+include::./Liebherr//fridgeDoorInterimHandle.scad[]
+----
+
+
+=== Project - Model-Plane/
+
+
+
+
+==== Object - mountingplateaircraftmotor
+
+
+
+.image
+image::./openscad/Model-Plane//mountingplateaircraftmotor.png[]
+
+.Openscad source
+----
+include::./Model-Plane//mountingplateaircraftmotor.scad[]
+----
+
+
+=== Project - Test/
+
+
+
+
+==== Object - Test
+
+Just a simple example and also used as the logo for this repo.
+
+.image
+image::./openscad/Test//Test.png[]
+
+.Openscad source
+----
+include::./Test//Test.scad[]
+----
+
+
+=== Project - VSAGCRD-Logo/
+
+
+
+
+==== Object - vsagcrd
+
+
+
+.image
+image::./openscad/VSAGCRD-Logo//vsagcrd.png[]
+
+.Openscad source
+----
+include::./VSAGCRD-Logo//vsagcrd.scad[]
+----
+
+
+=== Project - Vacuum-rig-adapter/
+
+
+
+
+==== Object - Hose_Adaptor
+
+
+Not one of mine:
+Created by Paul Tibble - 18/7/19            
+* https://www.thingiverse.com/Paul_Tibble/about
+
+.image
+image::./openscad/Vacuum-rig-adapter//Hose_Adaptor.png[]
+
+.Openscad source
+----
+include::./Vacuum-rig-adapter//Hose_Adaptor.scad[]
+----
+
+
+=== Project - desk/
+
+
+
+
+==== Object - fastener
+
+This is a fastener for a writing Desk.
+The idea is to add a magnet to hold it up and to print it so that it does not require a bearing.
+
+* V1 is the first prototype for a first print test and fitting test
+** fits well and axle didn't print free so need update
+* V2 added a better axle but didn't get printed
+* V3 added a better cutout and is printed
+** The cutout is currently a dummy pending getting the axle to work to try it out with magnets taped into place
+** axle prints freely so moving on to screw holes, magnets, and covers
+* V4 Added final OCD logo and screw caps etc.
+** Mounted and working.
+
+.image
+image::./openscad/desk//fastener.png[]
+
+.Openscad source
+----
+include::./desk//fastener.scad[]
+----
+
+
+=== Project - geo-test/
+
+
+
+
+==== Object - geoTest
+
+This is not one of mine and I just kiked it as a good example.
+I did correct some mistakes in it though.
+
+.image
+image::./openscad/geo-test//geoTest.png[]
+
+.Openscad source
+----
+include::./geo-test//geoTest.scad[]
+----
+
+
+=== Project - kitchen-door/
+
+
+
+
+==== Object - KitchenDoorHoleStopper
+
+
+
+.image
+image::./openscad/kitchen-door//KitchenDoorHoleStopper.png[]
+
+.Openscad source
+----
+include::./kitchen-door//KitchenDoorHoleStopper.scad[]
+----
+
+
+==== Object - strikeplate
+
+
+
+.image
+image::./openscad/kitchen-door//strikeplate.png[]
+
+.Openscad source
+----
+include::./kitchen-door//strikeplate.scad[]
+----
+
+
+=== Project - led-Casing/
+
+
+
+
+==== Object - CasingLED
+
+
+
+.image
+image::./openscad/led-Casing//CasingLED.png[]
+
+.Openscad source
+----
+include::./led-Casing//CasingLED.scad[]
+----
+
+
+=== Project - midleton/
+
+
+
+
+==== Object - midletoninset
+
+
+
+.image
+image::./openscad/midleton//midletoninset.png[]
+
+.Openscad source
+----
+include::./midleton//midletoninset.scad[]
+----
+
+
+=== Project - midleton2/
+
+
+
+
+==== Object - internal-volume
+
+the internal Volume of a presentation box to test ideas on.
+
+.image
+image::./openscad/midleton2//internal-volume.png[]
+
+.Openscad source
+----
+include::./midleton2//internal-volume.scad[]
+----
+
+
+=== Project - modelTruckRepair/
+
+
+
+
+==== Object - steeringaxle
+
+
+
+.image
+image::./openscad/modelTruckRepair//steeringaxle.png[]
+
+.Openscad source
+----
+include::./modelTruckRepair//steeringaxle.scad[]
+----
+
+
+=== Project - monitor/
+
+
+
+
+==== Object - buttonBack
+
+Button backing for the monitor.
+
+.image
+image::./openscad/monitor//buttonBack.png[]
+
+.Openscad source
+----
+include::./monitor//buttonBack.scad[]
+----
+
+
+==== Object - screen_mounting_tabs
+
+
+
+.image
+image::./openscad/monitor//screen_mounting_tabs.png[]
+
+.Openscad source
+----
+include::./monitor//screen_mounting_tabs.scad[]
+----
+
+
+=== Project - odroid-case/
+
+
+
+
+==== Object - Library-container
+
+
+
+.image
+image::./openscad/odroid-case//Library-container.png[]
+
+.Openscad source
+----
+include::./odroid-case//Library-container.scad[]
+----
+
+
+==== Object - case
+
+A case for an odroid handgeld console and accessories.
+
+The edges are rounded and there are cutouts for the parts that protrude from the console.
+
+.image
+image::./openscad/odroid-case//case.png[]
+
+.Openscad source
+----
+include::./odroid-case//case.scad[]
+----
+
+
+=== Project - piZero/
+
+
+
+
+==== Object - RPi_zero_mount
+
+This also is NOT one of mine but I've cleaned it up a bit as it wasn't displaying correctly. I needed it for a pi cluster and as it's quite good I didn't reinvent the wheel here.
+
+
+.image
+image::./openscad/piZero//RPi_zero_mount.png[]
+
+.Openscad source
+----
+include::./piZero//RPi_zero_mount.scad[]
+----
+
+
+=== Project - schuko/
+
+
+
+
+==== Object - schuko
+
+
+
+.image
+image::./openscad/schuko//schuko.png[]
+
+.Openscad source
+----
+include::./schuko//schuko.scad[]
+----
+
+
+=== Project - spool-holder/
+
+
+
+
+==== Object - spool
+
+
+
+.image
+image::./openscad/spool-holder//spool.png[]
+
+.Openscad source
+----
+include::./spool-holder//spool.scad[]
+----
+
+
+=== Project - tesa/
+
+
+
+
+==== Object - tesa
+
+
+
+.image
+image::./openscad/tesa//tesa.png[]
+
+.Openscad source
+----
+include::./tesa//tesa.scad[]
+----
+
+
+=== Project - thumb-screw/
+
+
+
+
+==== Object - Knurl
+
+
+
+.image
+image::./openscad/thumb-screw//Knurl.png[]
+
+.Openscad source
+----
+include::./thumb-screw//Knurl.scad[]
+----
+
