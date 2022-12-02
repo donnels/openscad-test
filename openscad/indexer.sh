@@ -13,7 +13,7 @@ do
     else
         unset dirDescriptionText
     fi
-    cat >>index.adoc <<_EOF_
+    cat >>../index.adoc <<_EOF_
 
 === Project - $directory
 
