@@ -1,0 +1,131 @@
+
++=== Object - Test
+
+Just a simple example and also used as the logo for this repo.
+
+.image
+image::./openscad/Test//Test.png[]
+
+.Openscad source
+----
+include::./Test//Test.scad[]
+----
+
+
++=== Object - KitchenDoorHoleStopper
+
+
+
+.image
+image::./openscad/kitchen-door//KitchenDoorHoleStopper.png[]
+
+.Openscad source
+----
+include::./kitchen-door//KitchenDoorHoleStopper.scad[]
+----
+
+
++=== Object - strikeplate
+
+
+
+.image
+image::./openscad/kitchen-door//strikeplate.png[]
+
+.Openscad source
+----
+include::./kitchen-door//strikeplate.scad[]
+----
+
+
++=== Object - midletoninset
+
+
+
+.image
+image::./openscad/midleton//midletoninset.png[]
+
+.Openscad source
+----
+include::./midleton//midletoninset.scad[]
+----
+
+
++=== Object - internal-volume
+
+the internal Volume of a presentation box to test ideas on.
+
+.image
+image::./openscad/midleton2//internal-volume.png[]
+
+.Openscad source
+----
+include::./midleton2//internal-volume.scad[]
+----
+
+
++=== Object - steeringaxle
+
+
+
+.image
+image::./openscad/modelTruckRepair//steeringaxle.png[]
+
+.Openscad source
+----
+include::./modelTruckRepair//steeringaxle.scad[]
+----
+
+
++=== Object - screen_mounting_tabs
+
+
+
+.image
+image::./openscad/monitor//screen_mounting_tabs.png[]
+
+.Openscad source
+----
+include::./monitor//screen_mounting_tabs.scad[]
+----
+
+
++=== Object - RPi_zero_mount
+
+This also is NOT one of mine but I've cleaned it up a bit as it wasn't displaying correctly. I needed it for a pi cluster and as it's quite good I didn't reinvent the wheel here.
+
+
+.image
+image::./openscad/piZero//RPi_zero_mount.png[]
+
+.Openscad source
+----
+include::./piZero//RPi_zero_mount.scad[]
+----
+
+
++=== Object - schuko
+
+
+
+.image
+image::./openscad/schuko//schuko.png[]
+
+.Openscad source
+----
+include::./schuko//schuko.scad[]
+----
+
+
++=== Object - tesa
+
+
+
+.image
+image::./openscad/tesa//tesa.png[]
+
+.Openscad source
+----
+include::./tesa//tesa.scad[]
+----
+
