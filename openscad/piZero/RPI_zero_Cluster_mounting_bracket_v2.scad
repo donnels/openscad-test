@@ -62,10 +62,10 @@ module stack_joins(x, y, z)
 			translate([-39,-21.5, mount_h/2 + mount_h * 0.35]) { cylinder(h=mount_h, r=Rp, center=true); }
 			translate([ 39,-21.5, mount_h/2 + mount_h * 0.35]) { cylinder(h=mount_h, r=Rp, center=true); }
 
-			translate([ 39, 21.5, mount_h + mount_h * 0.35]) { sphere(r=Rp, center=true); }
-			translate([-39, 21.5, mount_h + mount_h * 0.35]) { sphere(r=Rp, center=true); }
-			translate([-39,-21.5, mount_h + mount_h * 0.35]) { sphere(r=Rp, center=true); }
-			translate([ 39,-21.5, mount_h + mount_h * 0.35]) { sphere(r=Rp, center=true); }
+			translate([ 39, 21.5, mount_h + mount_h * 0.35]) { sphere(r=Rp); }
+			translate([-39, 21.5, mount_h + mount_h * 0.35]) { sphere(r=Rp); }
+			translate([-39,-21.5, mount_h + mount_h * 0.35]) { sphere(r=Rp); }
+			translate([ 39,-21.5, mount_h + mount_h * 0.35]) { sphere(r=Rp); }
 		}
 		union()
 		{
