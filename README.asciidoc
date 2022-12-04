@@ -68,15 +68,20 @@ include::./openscad/index.adoc[]
 
 Right now the github source is not perfect as the readme does not display the images when viewed in github.
 
-* [ ] Need to either add a readme in the directories or fix asciidoc to deal with asciidoc not showing in github
-* [ ] Need to add further process steps for the images like meshlabserver to do furhter processing:
-** Stuff (,glass rendering, wireframe, mesh magic, stats, etc.)
-* [ ] Need to add subdirectories to pool projects together
+* [ ] Add a readme in the directories or fix asciidoc to deal with asciidoc not showing in github
+* [ ] Split the build scruipts to handle scad/plantuml/asciidoc in separate steps depending on changes
+** [x] The scad build already ony builds scad files that exist and is fed by find
+*** [ ] Feed with a list of changed scad files instead of the more simple find
+* [ ] Add further process steps for the images like meshlabserver to do furhter processing:
+** Stuff (glass rendering, wireframe, mesh magic, stats, etc.)
+* [x] Need to add subdirectories to pool projects together
 ** [x] build index for subdirs
 ** [x] need to make the scad build fit to the subdir model
-** [ ] add check for empty directory (no scad files)
-*** [x] only build scad files and only run container with scad files
-* [ ] Need to add animation options
+** [x] add check for empty directory (no scad files)
+*** [x] only build scad files and only run container with scad files (empties ignored)
+* [ ] Add further optional scad steps
+** [ ] Need to add view parameters as options
+** [ ] Need to add animation options
 * [x] Need to add text display option for each item
-* [ ] Need to add view parameters as options
 * [ ] Allow adding photos to the objects or projects to show makes
+* [ ] investigate including a js or similar stl viewer for html
