@@ -9,7 +9,8 @@ wres=50; // Resolution of the Spot
 
 latx=48.782345; lonx=9.180819;
 
-rotate(a=[0,0,270]) { import("geody_earthmap.stl", convexity=4); } // download from https://www.geody.com/geody_earthmap.stl
+rotate(a=[0,0,270]) { import("geody_earthmap.stl", convexity=4); } 
+// download from https://www.geody.com/geody_earthmap.stl
 // sphere(r=wwrad, $fn=wres); // Test Planet
 
 translate([(-wradp)*cos(latx)*cos(lonx),(-wradp)*cos(latx)*sin(lonx),wradp*sin(latx)]){sphere(r=wrad, $fn=wres);}

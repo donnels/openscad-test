@@ -200,6 +200,24 @@ include::./desk/fastener.scad[]
 ----
 
 
+=== fritzring - Project
+
+
+
+
+==== fritzcolaadapter - 3D Object
+
+
+
+.image
+image::./openscad/fritzring/fritzcolaadapter.png[]
+
+.Openscad source
+----
+include::./fritzring/fritzcolaadapter.scad[]
+----
+
+
 === geo-test - Project
 
 
@@ -391,6 +409,37 @@ include::./odroid-case/case.scad[]
 === piZero - Project
 
 
+* Required for a rpi zero cluster
+* need to add a few extra parts
+** a holder for a USB hub
+** A holder for the PSU
+** some extra stuff
+
+
+==== RPI_zero_Cluster_mounting_bracket - 3D Object
+
+
+
+.image
+image::./openscad/piZero/RPI_zero_Cluster_mounting_bracket.png[]
+
+.Openscad source
+----
+include::./piZero/RPI_zero_Cluster_mounting_bracket.scad[]
+----
+
+
+==== RPI_zero_Cluster_mounting_bracket_v2 - 3D Object
+
+
+
+.image
+image::./openscad/piZero/RPI_zero_Cluster_mounting_bracket_v2.png[]
+
+.Openscad source
+----
+include::./piZero/RPI_zero_Cluster_mounting_bracket_v2.scad[]
+----
 
 
 ==== RPi_zero_mount - 3D Object
@@ -404,6 +453,54 @@ image::./openscad/piZero/RPi_zero_mount.png[]
 .Openscad source
 ----
 include::./piZero/RPi_zero_mount.scad[]
+----
+
+
+=== rePhone - Project
+
+
+* rephone components and case design
+* Stl files added from thingiverse
+* Scad file also as holder for stls from thingiverse
+* Reference material only for now
+
+
+==== RePhone_ALL - 3D Object
+
+
+
+.image
+image::./openscad/rePhone/RePhone_ALL.png[]
+
+.Openscad source
+----
+include::./rePhone/RePhone_ALL.scad[]
+----
+
+
+==== RePhone_handset - 3D Object
+
+
+
+.image
+image::./openscad/rePhone/RePhone_handset.png[]
+
+.Openscad source
+----
+include::./rePhone/RePhone_handset.scad[]
+----
+
+
+==== xadow - 3D Object
+
+
+
+.image
+image::./openscad/rePhone/xadow.png[]
+
+.Openscad source
+----
+include::./rePhone/xadow.scad[]
 ----
 
 
