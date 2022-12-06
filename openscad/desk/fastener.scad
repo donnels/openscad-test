@@ -49,6 +49,7 @@ module magnetCap(){
 module screwCap() {
 	//screwcap axle
 	cylinder(h=2,d=7.5);
+    //REMOVE FOR PRINT!!!! JUST FOR DEMO
 	translate([0,0,2]) cylinder(h=1,d=axleD);
 }
 
@@ -56,6 +57,7 @@ module screwCap() {
 difference () {
 	clip();
 	axle(1,1);
+    #translate ([0,-mainD/2-.1,-.01]) cube([mainLength/4,mainH,12]);
 }
 
 //add the axle and drill a hole in it for a srew
