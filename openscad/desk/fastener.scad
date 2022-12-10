@@ -56,6 +56,8 @@ module screwCap() {
 difference () {
 	clip();
 	axle(1,1);
+	//REMOVE FOR PRINT!!!! JUST A CUTOUT FOR DEMO
+	#translate ([0,-mainD/2-.1,-.01]) cube([mainLength/4,mainH,12]);
 }
 
 //add the axle and drill a hole in it for a srew
