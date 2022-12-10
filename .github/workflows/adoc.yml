@@ -41,11 +41,11 @@ jobs:
         run: |
           git diff --name-only $GITHUB_SHA
           CHANGED_FILES=$(git diff --name-only $GITHUB_SHA)
-          echo "$CHANGED_FILES"
-          echo "$GITHUB_SHA"
+          echo "changed files var: $CHANGED_FILES"
+          echo "githubsha var: $GITHUB_SHA"
           for FILE in $CHANGED_FILES; do
           if [[ $FILE == *.scad ]]; then
-          echo "${FILE%.*}.stl $FILE"
+          echo "testing the build: ${FILE%.*}.stl $FILE"
           fi
           done
 
