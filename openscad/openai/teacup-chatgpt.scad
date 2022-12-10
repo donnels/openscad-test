@@ -23,4 +23,7 @@ translate([-60, 30, 0]) {
   rotate([0, 90, 0]) {
     difference() {
       cylinder(r=50, h=50);
-      cylinder(r=10, h=30
+      cylinder(r=10, h=30);
+      }
+      }
+      }
