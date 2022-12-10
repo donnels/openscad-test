@@ -40,9 +40,10 @@ jobs:
         id: part-build-scad
         run: |
           CHANGED_FILES=$(git diff --name-only $GITHUB_SHA)
+          echo "$CHANGED_FILES"
           for FILE in $CHANGED_FILES; do
           if [[ $FILE == *.scad ]]; then
-          echo ${FILE%.*}.stl $FILE
+          echo "${FILE%.*}.stl $FILE"
           fi
           done
 
@@ -59,8 +60,8 @@ jobs:
           cd "$dir"
           echo "build it"
           echo "directory= $dir netto file= $file scadfile= $scadfile" 
-          docker run --rm --name "openscad" --volume "$PWD":/data $container_openscad openscad -o "/data/${file}.stl" "/data/${scadfile}"
-          docker run --rm --name "openscad" --volume "$PWD":/data $container_openscad openscad --colorscheme Tomorrow -o "/data/${file}.png" "/data/${scadfile}"
+          #docker run --rm --name "openscad" --volume "$PWD":/data $container_openscad openscad -o "/data/${file}.stl" "/data/${scadfile}"
+          #docker run --rm --name "openscad" --volume "$PWD":/data $container_openscad openscad --colorscheme Tomorrow -o "/data/${file}.png" "/data/${scadfile}"
           echo "back to previous"
           cd -
           echo
