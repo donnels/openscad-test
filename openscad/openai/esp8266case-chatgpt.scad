@@ -3,6 +3,7 @@ translate([0, 0, 5]) {
   cube([30, 20, 10]);
 }
 
+
 // Create the sides of the case
 translate([0, 0, 15]) {
   cube([30, 20, 10]);
