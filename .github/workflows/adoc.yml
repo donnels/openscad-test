@@ -39,8 +39,10 @@ jobs:
       - name: Conditioanl Scad build
         id: part-build-scad
         run: |
+          git diff --name-only $GITHUB_SHA
           CHANGED_FILES=$(git diff --name-only $GITHUB_SHA)
           echo "$CHANGED_FILES"
+          echo "$GITHUB_SHA"
           for FILE in $CHANGED_FILES; do
           if [[ $FILE == *.scad ]]; then
           echo "${FILE%.*}.stl $FILE"
