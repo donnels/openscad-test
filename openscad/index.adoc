@@ -408,6 +408,50 @@ include::./odroid-case/case.scad[]
 ----
 
 
+=== openai - Project
+
+
+
+
+==== esp8266case-chatgpt - 3D Object
+
+
+
+.image
+image::./openscad/openai/esp8266case-chatgpt.png[]
+
+.Openscad source
+----
+include::./openai/esp8266case-chatgpt.scad[]
+----
+
+
+==== solar-generator-chatgpt - 3D Object
+
+
+
+.image
+image::./openscad/openai/solar-generator-chatgpt.png[]
+
+.Openscad source
+----
+include::./openai/solar-generator-chatgpt.scad[]
+----
+
+
+==== teacup-chatgpt - 3D Object
+
+
+
+.image
+image::./openscad/openai/teacup-chatgpt.png[]
+
+.Openscad source
+----
+include::./openai/teacup-chatgpt.scad[]
+----
+
+
 === piZero - Project
 
 
