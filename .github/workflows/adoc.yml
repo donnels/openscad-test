@@ -36,6 +36,16 @@ jobs:
           container_asciidoc: ghcr.io/donnels/asciidoc:main
           container_openscad: ghcr.io/donnels/openscad:main
 
+      - name: Conditioanl Scad build
+        id: part-build-scad
+        run: |
+          CHANGED_FILES=$(git diff --name-only $GITHUB_SHA)
+          for FILE in $CHANGED_FILES; do
+          if [[ $FILE == *.scad ]]; then
+          echo ${FILE%.*}.stl $FILE
+          fi
+          done
+
       - name: run openscad container against this repo
         run: |
           cd openscad

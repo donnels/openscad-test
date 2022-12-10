@@ -3,6 +3,7 @@ translate([0, 0, 5]) {
   cube([200, 100, 10]);
 }
 
+
 // Create the solar panels of the solar generator
 translate([0, 0, 15]) {
   for (i = [0:3]) {
