@@ -62,10 +62,10 @@ jobs:
           cd "$dir"
           echo "build it"
           echo "directory= $dir netto file= $file scadfile= $scadfile" 
-          if [[ -f ${file}.png ]] && [[ -nt ${scadfile} ]]; then
+          if [[ -f ${file}.png ]] && [[ ${file}.png -nt ${scadfile} ]]; then
           docker run --rm --name "openscad" --volume "$PWD":/data $container_openscad openscad --colorscheme Tomorrow -o "/data/${file}.png" "/data/${scadfile}"
           fi
-          if [[ -f ${file}.stl ]] && [[ -nt ${scadfile} ]]; then
+          if [[ -f ${file}.stl ]] && [[ ${file}.stl -nt ${scadfile} ]]; then
           docker run --rm --name "openscad" --volume "$PWD":/data $container_openscad openscad -o "/data/${file}.stl" "/data/${scadfile}"
           fi
           echo "back to previous"
