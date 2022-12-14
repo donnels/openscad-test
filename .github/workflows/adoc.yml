@@ -51,17 +51,12 @@ jobs:
 
       - name: run openscad container against this repo
         run: |
-          cd openscad
-          find . -name "*.scad" -type f | while read filename
+          cd openscad ; find . -name "*.scad" -type f | while read filename
           do  
           echo "looping into $filename"
-          scadfile="$(basename "$filename")"
-          file="$(basename -s".scad" "$filename")"
-          dir="$(dirname "$filename")"
-          echo "Moving into $dir"
-          cd "$dir"
-          echo "build it"
-          echo "directory= $dir netto file= $file scadfile= $scadfile" 
+          scadfile="$(basename "$filename")" ; file="$(basename -s".scad" "$filename")" ; dir="$(dirname "$filename")"
+          echo "Moving into $dir" ; cd "$dir" ; echo "build it" ; echo "directory= $dir netto file= $file scadfile= $scadfile" 
+          #This isnt working properly... need to check the file dates befreo and after
           if [[ -f ${file}.png && ${file}.png -nt ${scadfile} ]]; then
           docker run --rm --name "openscad-png" --volume "$PWD":/data $container_openscad openscad --colorscheme Tomorrow -o "/data/${file}.png" "/data/${scadfile}" &
           else
@@ -73,7 +68,7 @@ jobs:
           echo "skipped ${file}.stl as it is newer than ${scadfile}"
           fi
           wait
-          echo "back to previous" && cd - && echo
+          echo "back to previous" ; cd - ; echo
           done
           . ./indexer.sh
         env:
