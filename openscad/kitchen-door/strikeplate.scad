@@ -2,7 +2,7 @@ $fn=100;
 SPlength=170;
 SPwidth=28;
 SPmaterialStrength=2;
-;
+
 module strikePlate () {
     cube ([SPlength,SPwidth,SPmaterialStrength]);
     translate ([0,0,-10])
@@ -20,4 +20,3 @@ difference(){
     translate([85,10.5,-0.1]) screw();
     translate([SPlength-8.5,10.5,-0.1]) screw();
 }
-;
