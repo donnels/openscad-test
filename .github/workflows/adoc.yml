@@ -62,11 +62,15 @@ jobs:
           cd "$dir"
           echo "build it"
           echo "directory= $dir netto file= $file scadfile= $scadfile" 
-          if [[ -f ${file}.png ]] && [[ ${file}.png -nt ${scadfile} ]]; then
+          if [[ -f ${file}.png && ${file}.png -nt ${scadfile} ]]; then
           docker run --rm --name "openscad" --volume "$PWD":/data $container_openscad openscad --colorscheme Tomorrow -o "/data/${file}.png" "/data/${scadfile}"
+          else
+          echo "skipped ${file}.png as it is newer than ${scadfile}"
           fi
-          if [[ -f ${file}.stl ]] && [[ ${file}.stl -nt ${scadfile} ]]; then
+          if [[ -f ${file}.stl && ${file}.stl -nt ${scadfile} ]]; then
           docker run --rm --name "openscad" --volume "$PWD":/data $container_openscad openscad -o "/data/${file}.stl" "/data/${scadfile}"
+          else
+          echo "skipped ${file}.stl as it is newer than ${scadfile}"
           fi
           echo "back to previous"
           cd -
