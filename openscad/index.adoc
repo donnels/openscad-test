@@ -172,6 +172,24 @@ include::./Vacuum-rig-adapter/Hose_Adaptor.scad[]
 ----
 
 
+=== cookie-press - Project
+
+
+
+
+==== star - 3D Object
+
+Just a test to see if one can print shapes for a cookie press.
+
+.image
+image::./openscad/cookie-press/star.png[]
+
+.Openscad source
+----
+include::./cookie-press/star.scad[]
+----
+
+
 === desk - Project
 
 
