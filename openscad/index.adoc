@@ -634,6 +634,24 @@ include::./tesa/tesa.scad[]
 ----
 
 
+=== tests - Project
+
+
+
+
+==== notmine1 - 3D Object
+
+
+
+.image
+image::./openscad/tests/notmine1.png[]
+
+.Openscad source
+----
+include::./tests/notmine1.scad[]
+----
+
+
 === thumb-screw - Project
 
 
