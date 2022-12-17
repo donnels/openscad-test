@@ -1256,10 +1256,10 @@ rotate_extrude(angle = 360, convexity = 10) create_profile();
 <pre>$fn=100;
 
 points=8;
-innerR=8;
-outerR=16;
-fittingD=61;
-fittingH=4;
+innerR=6;
+outerR=12;
+fittingD=51;
+fittingH=3;
 
 module Star(p=5, r1=6, r2=12) {
     s = [for(i=[0:p*2]) [(i % 2 == 0 ? r1 : r2)*cos(180*i/p), (i % 2 == 0 ? r1 : r2)*sin(180*i/p)]];
@@ -1534,7 +1534,7 @@ color ([1,1,1]) {
 SPlength=170;
 SPwidth=28;
 SPmaterialStrength=2;
-;
+
 module strikePlate () {
     cube ([SPlength,SPwidth,SPmaterialStrength]);
     translate ([0,0,-10])
@@ -1551,8 +1551,7 @@ difference(){
     translate([8.5,10.5,-0.1]) screw();
     translate([85,10.5,-0.1]) screw();
     translate([SPlength-8.5,10.5,-0.1]) screw();
-}
-;</pre>
+}</pre>
 </div>
 </div>
 </div>
@@ -3392,7 +3391,7 @@ knob();</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-12-17 13:12:50 UTC
+Last updated 2022-12-17 23:38:46 UTC
 </div>
 </div>
 </body>
