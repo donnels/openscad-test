@@ -57,7 +57,7 @@ endif::env-github[]
 
 Experimental repo for building openscad files into different outputs.
 This is still work in progress but can already build a png and stl of each scad file in the opescad directories.
-See the online or pdf versions for the images as te readme is realy only the source and right now is not WYSIWYG!
+See the online or pdf versions for the images as the readme is realy only the source and right now is not WYSIWYG!
 
 == Output
 
