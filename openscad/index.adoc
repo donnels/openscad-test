@@ -492,19 +492,6 @@ include::./openai/teacup-chatgpt.scad[]
 ** some extra stuff
 
 
-==== RPI_zero_Cluster_mounting_bracket - 3D Object
-
-
-
-.image
-image::./openscad/piZero/RPI_zero_Cluster_mounting_bracket.png[]
-
-.Openscad source
-----
-include::./piZero/RPI_zero_Cluster_mounting_bracket.scad[]
-----
-
-
 ==== RPI_zero_Cluster_mounting_bracket_v2 - 3D Object
 
 
