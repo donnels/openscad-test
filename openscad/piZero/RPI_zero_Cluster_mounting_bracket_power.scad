@@ -81,8 +81,20 @@ module stack_joins(x, y, z)
 	}
 }
 module power_brick(offX,offY,offZ) {
-	x=130; y=67; z=31.5;
-	translate ([offX-x/2,offY-y/2,offZ-z]) cube([x,y,z]);
+	x=130; y=67; z=31.5;d=8;
+	translate ([offX-x/2,offY-y/2,offZ-z/2]) cube([x,y,z]);
+	#union() {
+		hull() {
+			translate([x/2+d/2,y/2+d/2,z/2+d/2]) sphere(d=d);
+			translate([x/2+d/2,-y/2-d/2,z/2+d/2]) sphere(d=d);
+			translate([-x/2-d/2,y/2+d/2,z/2+d/2]) sphere(d=d);
+			translate([-x/2-d/2,-y/2-d/2,z/2+d/2]) sphere(d=d);
+		}
+		translate([x/2+d/2,y/2+d/2,-z/2]) cylinder(h=y/2+d/4,d=d);
+		translate([x/2+d/2,-y/2-d/2,-z/2]) cylinder(h=y/2+d/4,d=d);
+		translate([-x/2-d/2,y/2+d/2,-z/2]) cylinder(h=y/2+d/4,d=d);
+		translate([-x/2-d/2,-y/2-d/2,-z/2]) cylinder(h=y/2+d/4,d=d);
+	}
 }
 module usb_hub(offX,offY,offZ) {
 	x=12.5; y=31.5; z=75;
@@ -90,8 +102,8 @@ module usb_hub(offX,offY,offZ) {
 }
 module model()
 {
-	usb_hub(-60,-16,20);
-	#power_brick(0,0,15);
+	usb_hub(-60,-16,25);
+	power_brick(0,0,0);
 	*mount(0, 0, 0);
 	stack_joins(0, 0, 0);
 }
