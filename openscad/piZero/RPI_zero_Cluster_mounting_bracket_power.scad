@@ -2,7 +2,7 @@
 //needs the mounting posts to sit the cluster on top of
 //requires a base for the power brick and a holder for the USB hub whic can sit upright next to the cluster
 
-$fn = 100;
+$fn = 50;
 
 module mount(x, y, z)
 {
@@ -45,7 +45,7 @@ module mount(x, y, z)
 
 }
 
-module stack_joins(x, y, z)
+module stack_joins()
 {
 	mount_h = 20;
 	Ro=4;		
@@ -80,10 +80,11 @@ module stack_joins(x, y, z)
 		}
 	}
 }
-module power_brick(offX,offY,offZ) {
-	x=130; y=67; z=31.5;d=8;
-	translate ([offX-x/2,offY-y/2,offZ-z/2]) cube([x,y,z]);
-	#union() {
+module power_brk(x,y,z,d) {
+	translate ([-x/2,-y/2,-z/2]) cube([x,y,z]);
+}
+module power_brick(x,y,z,d) {
+	union() {
 		hull() {
 			translate([x/2+d/2,y/2+d/2,z/2+d/2]) sphere(d=d);
 			translate([x/2+d/2,-y/2-d/2,z/2+d/2]) sphere(d=d);
@@ -96,17 +97,96 @@ module power_brick(offX,offY,offZ) {
 		translate([-x/2-d/2,-y/2-d/2,-z/2]) cylinder(h=y/2+d/4,d=d);
 	}
 }
-module usb_hub(offX,offY,offZ) {
-	x=12.5; y=31.5; z=75;
-	translate ([offX,offY,offZ]) cube([x,y,z]);
-}
-module model()
-{
-	usb_hub(-60,-16,25);
-	power_brick(0,0,0);
-	*mount(0, 0, 0);
-	stack_joins(0, 0, 0);
+module usb_hub(x,y,z,d) {
+	*cube([x,y,z]);
+	FBL=[-d/2,-d/2,0];
+	FBR=[x+d/2,-d/2,0];
+	FTL=[-d/2,-d/2,z+d/2];
+	FTR=[x+d/2,-d/2,z];
+	BBL=[-d/2,+d/2+y,0];
+	BBR=[x+d/2,+d/2+y,0];
+	BTL=[-d/2,+d/2+y,z];
+	BTR=[x+d/2,+d/2+y,z+d/2];	
+	//xleft
+	hull () {
+		translate(FBL) sphere(d=d);
+		translate(BTL) sphere(d=d);
+	}
+	hull () {
+		translate(FTL) sphere(d=d);
+		translate(BBL) sphere(d=d);	
+	}
+	//xright
+	hull () {
+		translate(FBR) sphere(d=d);
+		translate(BTR) sphere(d=d);
+	}
+	hull () {
+		translate(FTR) sphere(d=d);
+		translate(BBR) sphere(d=d);
+	}
+	//BACK CROSS
+	hull () {
+		translate(BBL) sphere(d=d);	
+		translate(BTR) sphere(d=d);
+	}
+	hull () {
+		translate(BTL) sphere(d=d);
+		translate(BBR) sphere(d=d);
+	}
+	//top front2back
+	hull () {
+		translate(FTL) sphere(d=d);
+		translate(BTL) sphere(d=d);
+	}
+	hull () {
+		translate(FTR) sphere(d=d);
+		translate(BTR) sphere(d=d);	
+	}
+	//top left2right
+	hull () {
+		translate(BTL) sphere(d=d);
+		translate(BTR) sphere(d=d);	
+	}
+	hull () {
+		translate(FTL) sphere(d=d);
+		translate(FTR) sphere(d=d);
+	}
+	//bottom front2back
+	hull () {
+		translate(FBL) sphere(d=d);
+		translate(BBL) sphere(d=d);
+	}
+	hull () {
+		translate(FBR) sphere(d=d);
+		translate(BBR) sphere(d=d);	
+	}
+	//bottom left2right
+	hull () {
+		translate(BBL) sphere(d=d);
+		translate(BBR) sphere(d=d);	
+	}
+	hull () {
+		translate(FBL) sphere(d=d);
+		translate(FBR) sphere(d=d);
+	}
 }
 
-model();
+BRKx=130; BRKy=67; BRKz=31.5;BRKd=8;
+HUBx=12.5; HUBy=31.5; HUBz=75;
+
+//display the stuff
+
+//case
+*translate([0,0,-5]) {
+	translate([((BRKx/2)-(HUBx/2)+(BRKd/4)-BRKd),-HUBy/2,BRKz/2+BRKd]) usb_hub(HUBx,HUBy,HUBz,BRKd);
+	power_brick(BRKx,BRKy,BRKz,BRKd);
+}
+
+//the stack pins
+*difference() {
+	stack_joins();
+	translate([0,0,-5]) power_brk(BRKx,BRKy,BRKz,BRKd);
+}
+usb_hub(HUBx,HUBy,HUBz,BRKd);
 
