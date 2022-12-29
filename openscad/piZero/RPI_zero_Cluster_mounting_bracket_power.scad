@@ -80,10 +80,19 @@ module stack_joins(x, y, z)
 		}
 	}
 }
-
+module power_brick(offX,offY,offZ) {
+	x=130; y=67; z=31.5;
+	translate ([offX-x/2,offY-y/2,offZ-z]) cube([x,y,z]);
+}
+module usb_hub(offX,offY,offZ) {
+	x=12.5; y=31.5; z=75;
+	translate ([offX,offY,offZ]) cube([x,y,z]);
+}
 module model()
 {
-	mount(0, 0, 0);
+	usb_hub(-60,-16,20);
+	#power_brick(0,0,15);
+	*mount(0, 0, 0);
 	stack_joins(0, 0, 0);
 }
 
