@@ -195,6 +195,19 @@ include::./cookie-press/star.scad[]
 
 
 
+==== koord-rund - 3D Object
+
+
+
+.image
+image::./openscad/coords/koord-rund.png[]
+
+.Openscad source
+----
+include::./coords/koord-rund.scad[]
+----
+
+
 ==== koordinaten - 3D Object
 
 
