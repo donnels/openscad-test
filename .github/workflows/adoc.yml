@@ -36,19 +36,22 @@ jobs:
           container_asciidoc: ghcr.io/donnels/asciidoc:main
           container_openscad: ghcr.io/donnels/openscad:main
 
-      - name: Conditioanl Scad build
+      - name: Conditional Scad build
         id: part-build-scad
         run: |
-          git diff --name-only $GITHUB_SHA
-          CHANGED_FILES=$(git diff --name-only $GITHUB_SHA)
-          echo "changed files var: $CHANGED_FILES"
-          echo "githubsha var: $GITHUB_SHA"
-          for FILE in $CHANGED_FILES; do
-          if [[ $FILE == *.scad ]]; then
-          echo "testing the build: ${FILE%.*}.stl $FILE"
-          fi
-          done
-
+          git diff-tree -r --no-commit-id --summary ${{ github.sha }} \
+          | awk -F' ' '{
+            # ensure we are not trying to process deleted files
+            # only process scad files
+            # do not try to process our theme or custom config
+            if ( $1 !~ /^delete$/ && $4 ~ /\.scad$/ && $4 !~ /(theme|config)\.scad$/ )
+            {
+              # only print the file name and strip newlines for spaces
+              printf "::set-output name=files::" "%s ", $4
+            }
+          }
+          END { print "" } # ensure we do print a newline at the end
+          '
       - name: run openscad container against this repo
         run: |
           cd openscad ; find . -name "*.scad" -type f | while read filename
@@ -56,17 +59,9 @@ jobs:
           echo "looping into $filename"
           scadfile="$(basename "$filename")" ; file="$(basename -s".scad" "$filename")" ; dir="$(dirname "$filename")"
           echo "Moving into $dir" ; cd "$dir" ; echo "build it" ; echo "directory= $dir netto file= $file scadfile= $scadfile" 
-          #This isnt working properly... need to check the file dates befreo and after
-          if [[ -f ${file}.png && ${file}.png -nt ${scadfile} ]]; then
+          #This isnt working properly... need to check the file dates before and after
           docker run --rm --name "openscad-png" --volume "$PWD":/data $container_openscad openscad --colorscheme Tomorrow -o "/data/${file}.png" "/data/${scadfile}" &
-          else
-          echo "skipped ${file}.png as it is newer than ${scadfile}"
-          fi
-          if [[ -f ${file}.stl && ${file}.stl -nt ${scadfile} ]]; then
           docker run --rm --name "openscad-stl" --volume "$PWD":/data $container_openscad openscad -o "/data/${file}.stl" "/data/${scadfile}" &
-          else
-          echo "skipped ${file}.stl as it is newer than ${scadfile}"
-          fi
           wait
           echo "back to previous" ; cd - ; echo
           done
