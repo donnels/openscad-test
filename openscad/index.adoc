@@ -678,6 +678,19 @@ include::./solar/balcony.scad[]
 ----
 
 
+==== smallpv - 3D Object
+
+
+
+.image
+image::./openscad/solar/smallpv.png[]
+
+.Openscad source
+----
+include::./solar/smallpv.scad[]
+----
+
+
 === spool-holder - Project
 
 
