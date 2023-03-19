@@ -660,6 +660,24 @@ include::./schuko/schuko.scad[]
 ----
 
 
+=== solar - Project
+
+
+
+
+==== balcony - 3D Object
+
+
+
+.image
+image::./openscad/solar/balcony.png[]
+
+.Openscad source
+----
+include::./solar/balcony.scad[]
+----
+
+
 === spool-holder - Project
 
 
