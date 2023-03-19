@@ -26,6 +26,13 @@ blech2OffY=blech1OffY;
 panelW=1.755*10*100;//m
 panelH=1.10*10*100;//m
 panelD=30;//mm
+
+module HandRail() {
+    color([.6,.6,.6])
+        translate (railOff)
+            cube([handRailD,handRailL,handRailH]);
+}
+
 module HandRail() {
     color([.6,.6,.6])
         translate (railOff)
