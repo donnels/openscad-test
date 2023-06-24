@@ -17,18 +17,18 @@ solarHpos=floorOffset+kaercherH+kaercherHeadRoom+uprightY;
 opposite = sin(solarAngle) * solarY;
 adjacent = cos(solarAngle) * solarY;
 
+// PARAMETRIC PART
 //upright FL
 cube([uprightX,uprightY,solarHpos]);
 //upright FR
 translate([solarX-uprightX,0,0]) cube([uprightX,uprightY,solarHpos]);
 echo("2x front upright lengths= ",solarHpos);
 
-
 // Panel / roof
 translate([0,0,solarHpos])rotate([solarAngle,0,0])cube([solarX,solarY,solarZ]);
 
 // Kaercher bounding box
-translate ([uprightX+10,70,floorOffset]) color([1,1,0])cube([kaercherX,kaercherY,kaercherH]);
+translate ([solarX/2-kaercherX/2,adjacent/2-kaercherY/2,floorOffset]) color([1,1,0])cube([kaercherX,kaercherY,kaercherH]);
 
 //upright BL
 translate([0,adjacent-uprightY,0]) cube([uprightX,uprightY,solarHpos+opposite]);
