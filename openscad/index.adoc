@@ -172,6 +172,24 @@ include::./Vacuum-rig-adapter/Hose_Adaptor.scad[]
 ----
 
 
+=== balcony-storage - Project
+
+
+
+
+==== microshed - 3D Object
+
+
+
+.image
+image::./openscad/balcony-storage/microshed.png[]
+
+.Openscad source
+----
+include::./balcony-storage/microshed.scad[]
+----
+
+
 === cmount - Project
 
 
