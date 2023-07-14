@@ -1,3 +1,6 @@
+// A little cabinet for outside with a solar roof
+
+// Variables
 uprightX=40;
 uprightY=60;
 uprightIndent=uprightY/3;
@@ -38,19 +41,22 @@ echo("2x back upright lengths= ",solarHpos+opposite);
 
 //floor
 //sides
-translate([0,IuprightIndent,floorOffset-floorH-uprightY]) cube([uprightX,adjacent-(2*uprightY)+(2*uprightIndent),uprightY]);
-translate([solarX-uprightX,IuprightIndent,floorOffset-floorH-uprightY]) cube([uprightX,adjacent-(2*uprightY)+(2*uprightIndent),uprightY]);
+echo("FOR bottom shelf - cut in BL/BR/FR/FL at height of ", floorOffset-floorH-uprightY," cut to depth of ", uprightIndent, " and length of ",uprightY," at the long INSIDE side");
+color([1,0,0]) translate([0,IuprightIndent,floorOffset-floorH-uprightY]) cube([uprightX,adjacent-(2*uprightY)+(2*uprightIndent),uprightY]);
+color([1,0,0]) translate([solarX-uprightX,IuprightIndent,floorOffset-floorH-uprightY]) cube([uprightX,adjacent-(2*uprightY)+(2*uprightIndent),uprightY]);
 echo("2x bottom sides length= ",adjacent-(2*uprightY)+(2*uprightIndent));
 //bottom floor board
 translate([0,uprightY,floorOffset-floorH]) cube([solarX,adjacent-(2*uprightY),floorH]);
 echo("1x floor board XxY= ",solarX,adjacent-(2*uprightY));
 
 //bottom back
-translate([0,adjacent-uprightX,floorOffset-uprightY+(1.5*uprightY)]) cube([solarX,uprightX,uprightY]);
+echo("FOR bottom back - cut in BL/BR at height of ", floorOffset-uprightY+(1.5*uprightY)," cut to depth of ", uprightX, " and length of ",uprightY," at the long BACK side");
+color([1,0,0]) translate([0,adjacent-uprightX,floorOffset-uprightY+(1.5*uprightY)]) cube([solarX,uprightX,uprightY]);
 //top back
-translate([0,adjacent-uprightX,floorOffset+kaercherH+kaercherHeadRoom-uprightY]) cube([solarX,uprightX,uprightY]);
+echo("FOR top shelf - cut in BL/BR/FR/FL at height of ", floorOffset+kaercherH+kaercherHeadRoom-uprightY," cut to depth of ", uprightX, " and length of ",uprightY," at the long OUTSIDE side");
+color([1,0,0]) translate([0,adjacent-uprightX,floorOffset+kaercherH+kaercherHeadRoom-uprightY]) cube([solarX,uprightX,uprightY]);
 //top front
-translate([0,0,floorOffset+kaercherH+kaercherHeadRoom-uprightY]) cube([solarX,uprightX,uprightY]);
+color([1,0,0]) translate([0,0,floorOffset+kaercherH+kaercherHeadRoom-uprightY]) cube([solarX,uprightX,uprightY]);
 echo("3x back and front length= ",solarX);
 
 //top shelf board
