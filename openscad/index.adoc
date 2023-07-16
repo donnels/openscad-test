@@ -678,6 +678,24 @@ include::./schuko/schuko.scad[]
 ----
 
 
+=== shutterholders - Project
+
+
+
+
+==== shutterholder - 3D Object
+
+
+
+.image
+image::./openscad/shutterholders/shutterholder.png[]
+
+.Openscad source
+----
+include::./shutterholders/shutterholder.scad[]
+----
+
+
 === solar - Project
 
 
