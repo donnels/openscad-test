@@ -190,6 +190,24 @@ include::./balcony-storage/microshed.scad[]
 ----
 
 
+=== bins - Project
+
+
+
+
+==== strutinsert - 3D Object
+
+
+
+.image
+image::./openscad/bins/strutinsert.png[]
+
+.Openscad source
+----
+include::./bins/strutinsert.scad[]
+----
+
+
 === cmount - Project
 
 
