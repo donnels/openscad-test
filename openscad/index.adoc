@@ -172,6 +172,73 @@ include::./Vacuum-rig-adapter/Hose_Adaptor.scad[]
 ----
 
 
+=== balcony-storage - Project
+
+
+
+
+==== microshed - 3D Object
+
+
+
+.image
+image::./openscad/balcony-storage/microshed.png[]
+
+.Openscad source
+----
+include::./balcony-storage/microshed.scad[]
+----
+
+
+=== bins - Project
+
+
+
+
+==== strutinsert - 3D Object
+
+
+
+.image
+image::./openscad/bins/strutinsert.png[]
+
+.Openscad source
+----
+include::./bins/strutinsert.scad[]
+----
+
+
+=== cmount - Project
+
+
+
+
+==== 2cmount - 3D Object
+
+
+
+.image
+image::./openscad/cmount/2cmount.png[]
+
+.Openscad source
+----
+include::./cmount/2cmount.scad[]
+----
+
+
+==== cmoint - 3D Object
+
+
+
+.image
+image::./openscad/cmount/cmoint.png[]
+
+.Openscad source
+----
+include::./cmount/cmoint.scad[]
+----
+
+
 === cookie-press - Project
 
 
@@ -626,6 +693,55 @@ image::./openscad/schuko/schuko.png[]
 .Openscad source
 ----
 include::./schuko/schuko.scad[]
+----
+
+
+=== shutterholders - Project
+
+
+
+
+==== shutterholder - 3D Object
+
+
+
+.image
+image::./openscad/shutterholders/shutterholder.png[]
+
+.Openscad source
+----
+include::./shutterholders/shutterholder.scad[]
+----
+
+
+=== solar - Project
+
+
+
+
+==== balcony - 3D Object
+
+
+
+.image
+image::./openscad/solar/balcony.png[]
+
+.Openscad source
+----
+include::./solar/balcony.scad[]
+----
+
+
+==== smallpv - 3D Object
+
+
+
+.image
+image::./openscad/solar/smallpv.png[]
+
+.Openscad source
+----
+include::./solar/smallpv.scad[]
 ----
 
 
