@@ -115,6 +115,24 @@ include::./Model-Plane/mountingplateaircraftmotor.scad[]
 ----
 
 
+=== SWD - Project
+
+
+
+
+==== swd-cube - 3D Object
+
+
+
+.image
+image::./openscad/SWD/swd-cube.png[]
+
+.Openscad source
+----
+include::./SWD/swd-cube.scad[]
+----
+
+
 === Test - Project
 
 
