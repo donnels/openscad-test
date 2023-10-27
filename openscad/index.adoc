@@ -786,6 +786,19 @@ include::./spool-holder/spool.scad[]
 
 
 
+==== crossguard - 3D Object
+
+
+
+.image
+image::./openscad/sword/crossguard.png[]
+
+.Openscad source
+----
+include::./sword/crossguard.scad[]
+----
+
+
 === tesa - Project
 
 
