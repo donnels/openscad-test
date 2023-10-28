@@ -7,12 +7,12 @@ crossGuardInnerD=60;
 crossGuardInnerH=30;
 
 module crossGuard() {
-cylinder(h=crossGuardH,d=corossGuardD);
-cylinder(h=crossGuardMidH,d=corossGuardMidD);
-cylinder(h=crossGuardInnerH,d=corossGuardInnerD);
+cylinder(h=crossGuardH,d=crossGuardD);
+cylinder(h=crossGuardMidH,d=crossGuardMidD);
+cylinder(h=crossGuardInnerH,d=crossGuardInnerD);
 }
 
 difference() {
   color("gold") crossGuard();
-  translate([0,0,-.1]) cylinder(h=crossGuardInnerH+.2,d=10);
+  #translate([0,0,-.1]) cylinder(h=crossGuardInnerH+.2,d=10);
 }
