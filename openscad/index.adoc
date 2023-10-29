@@ -830,6 +830,32 @@ include::./sword/halloween2.scad[]
 ----
 
 
+==== halloween2_final - 3D Object
+
+
+
+.image
+image::./openscad/sword/halloween2_final.png[]
+
+.Openscad source
+----
+include::./sword/halloween2_final.scad[]
+----
+
+
+==== halloween_final - 3D Object
+
+
+
+.image
+image::./openscad/sword/halloween_final.png[]
+
+.Openscad source
+----
+include::./sword/halloween_final.scad[]
+----
+
+
 === tesa - Project
 
 
