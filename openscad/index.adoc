@@ -804,6 +804,19 @@ include::./sword/crossguard.scad[]
 ----
 
 
+==== halloween - 3D Object
+
+
+
+.image
+image::./openscad/sword/halloween.png[]
+
+.Openscad source
+----
+include::./sword/halloween.scad[]
+----
+
+
 === tesa - Project
 
 
