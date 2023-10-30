@@ -786,6 +786,19 @@ include::./spool-holder/spool.scad[]
 
 
 
+==== blade - 3D Object
+
+
+
+.image
+image::./openscad/sword/blade.png[]
+
+.Openscad source
+----
+include::./sword/blade.scad[]
+----
+
+
 ==== crossguard - 3D Object
 
 This is for a plastic play sword to make it more like a naruto sword.
@@ -804,55 +817,29 @@ include::./sword/crossguard.scad[]
 ----
 
 
-==== halloween - 3D Object
+==== handle - 3D Object
 
 
 
 .image
-image::./openscad/sword/halloween.png[]
+image::./openscad/sword/handle.png[]
 
 .Openscad source
 ----
-include::./sword/halloween.scad[]
+include::./sword/handle.scad[]
 ----
 
 
-==== halloween2 - 3D Object
+==== hilt - 3D Object
 
 
 
 .image
-image::./openscad/sword/halloween2.png[]
+image::./openscad/sword/hilt.png[]
 
 .Openscad source
 ----
-include::./sword/halloween2.scad[]
-----
-
-
-==== halloween2_final - 3D Object
-
-
-
-.image
-image::./openscad/sword/halloween2_final.png[]
-
-.Openscad source
-----
-include::./sword/halloween2_final.scad[]
-----
-
-
-==== halloween_final - 3D Object
-
-
-
-.image
-image::./openscad/sword/halloween_final.png[]
-
-.Openscad source
-----
-include::./sword/halloween_final.scad[]
+include::./sword/hilt.scad[]
 ----
 
 
