@@ -1,15 +1,19 @@
 $fn=100;
 crossGuardD=130;
-crossGuardH=20;
+crossGuardH=15;
 crossGuardMidD=100;
-crossGuardMidH=25;
+crossGuardMidH=20;
 crossGuardInnerD=60;
 crossGuardInnerH=30;
+eps = 0.01;
+handleR = 10;
+handleTR = 45;
+handleL = 250;
 
 module crossGuard() {
-cylinder(h=crossGuardH,d=crossGuardD);
-cylinder(h=crossGuardMidH,d=crossGuardMidD);
-cylinder(h=crossGuardInnerH,d=crossGuardInnerD);
+    cylinder(h=crossGuardH,d=crossGuardD);
+    cylinder(h=crossGuardMidH,d=crossGuardMidD);
+    cylinder(h=crossGuardInnerH,d=crossGuardInnerD);
 }
 
 //
@@ -44,14 +48,88 @@ module blade(h) {
   poly_blade(h, min_line_mm(0.601957), 100.0);
   }
 
+//handle part
+module handleTube(cylH) {
+    difference(){
+        cylinder(h=cylH,r=handleR);
+        translate([0,0,-eps]) cylinder(h=10,d=10);
+        translate([0,0,cylH-10+eps]) cylinder(h=10,d=10); 
+    }
+}
+
+module hilt2(height,diameter,waist){
+    //hilt measurments
+    //somewhat rough as hilt is not prefect elipse
+    //diameter=36;
+    //waist=26;
+    //height=10;
+    scale([waist/diameter,1])cylinder(h=height,d=diameter);
+}
+
+//90 degree turn
+//rotate_extrude(angle=90, convexity=10) translate([20, 0]) circle(handleD);
+//straight
+//translate([20, eps, 0]) rotate([90, 0, 0]) cylinder(r=handleD, h=80+eps);
+   
+//handle bend
+module handleBend(turnR,handleR){
+    bound=turnR+handleR+1;
+    difference() {
+        intersection() {
+            translate([0,0,0])rotate_extrude()translate([turnR,0,0])circle(r=handleR);
+            translate([0,0,-handleR])cube ([bound,bound,handleR*2]);
+        }
+        //two holes for mounting
+        translate([-eps,handleTR,0]) rotate([0,90,0]) cylinder(h=10,d=10);
+        translate([handleTR,10-eps,0]) rotate([90,0,0]) cylinder(h=10,d=10);
+    }
+}
+
 difference() {
     //test fitting only
     //cylinder(h=30,d=34);
     //real crossguard - uncomment when the test verison is commented
     color("gold") crossGuard();
     translate([0,0,-0.1]) rotate([0,0,6]) blade(5.11);
-    hiltS=.55;
-    scale([hiltS,hiltS,1]) translate([0,0,5-.1]) rotate([0,0,-189]) hilt(30);
-    translate([0,-130/2+20-.1,(crossGuardH-6)/2+2.5]) rotate([90,90,0]) cylinder(h=20.1,d=(crossGuardH-6));
-    echo((crossGuardH-6));
+    //hiltS=.55; //WRONG
+    //scale([hiltS,hiltS,1]) translate([0,0,5-.1]) rotate([0,0,-189]) hilt(30);
+    translate([0,0,5]) hilt2(30.01,36,27.5);
+    translate([0,-130/2+20-.1,(crossGuardH-6)/2+2.5]) rotate([90,90,0]) cylinder(h=20.1,d=(10));
+}
+
+//approximation of hilt for scale
+*color("black")translate([0,0,5]) hilt2(290.01,36,27.5);
+//empty hilt shell for testing
+translate([-85,0,0]) union(){
+    difference(){
+        scale([1.1,1.1]) hilt2(30.01,36,27.5);
+        translate([0,0,-.1]) hilt2(30.2,36,27.5);
+    }
+    difference(){
+        hilt2(.5,40,32);
+        translate([0,0,-0.1]) rotate([0,0,6]) blade(5.11);
+    }
+}
+
+
+//two bends
+translate([0,60,0]) handleBend(handleTR,handleR);
+translate ([-2,60,0]) rotate([0,0,90]) handleBend(handleTR,handleR);
+
+//long handle tube
+translate([-11,78,0]) handleTube(handleL-(2*handleTR+handleR));
+
+//mounting pegs
+pegD=9.5;
+pegH=18;
+translate([75,0,0]) cylinder(h=pegH,d=pegD);
+translate([75,11,0]) cylinder(h=pegH,d=pegD);
+translate([75,22,0]) cylinder(h=pegH,d=pegD);
+translate([75,-11,0]) cylinder(h=pegH,d=pegD);
+
+//cross handle tube
+translate([11,78,0]) union() {
+    crosshandleH=130*.75;
+    handleTube(crosshandleH);
+    translate([0,0,crosshandleH]) sphere(r=handleR);
 }
