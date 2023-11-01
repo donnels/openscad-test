@@ -85,7 +85,7 @@ module handleBend(turnR,handleR){
     }
 }
 
-difference() {
+*difference() {
     //test fitting only
     //cylinder(h=30,d=34);
     //real crossguard - uncomment when the test verison is commented
@@ -100,7 +100,7 @@ difference() {
 //approximation of hilt for scale
 *color("black")translate([0,0,5]) hilt2(290.01,36,27.5);
 //empty hilt shell for testing
-translate([-85,0,0]) union(){
+*translate([-85,0,0]) union(){
     difference(){
         scale([1.1,1.1]) hilt2(30.01,36,27.5);
         translate([0,0,-.1]) hilt2(30.2,36,27.5);
@@ -113,22 +113,22 @@ translate([-85,0,0]) union(){
 
 
 //two bends
-translate([0,60,0]) handleBend(handleTR,handleR);
-translate ([-2,60,0]) rotate([0,0,90]) handleBend(handleTR,handleR);
+*translate([0,60,0]) handleBend(handleTR,handleR);
+*translate ([-2,60,0]) rotate([0,0,90]) handleBend(handleTR,handleR);
 
 //long handle tube
-translate([-11,78,0]) handleTube(handleL-(2*handleTR+handleR));
+*translate([-11,78,0]) handleTube(handleL-(2*handleTR+handleR));
 
 //mounting pegs
-pegD=9.5;
-pegH=18;
+pegD=10;
+pegH=19;
 translate([75,0,0]) cylinder(h=pegH,d=pegD);
 translate([75,11,0]) cylinder(h=pegH,d=pegD);
 translate([75,22,0]) cylinder(h=pegH,d=pegD);
 translate([75,-11,0]) cylinder(h=pegH,d=pegD);
 
 //cross handle tube
-translate([11,78,0]) union() {
+*translate([11,78,0]) union() {
     crosshandleH=130*.75;
     handleTube(crosshandleH);
     translate([0,0,crosshandleH]) sphere(r=handleR);
