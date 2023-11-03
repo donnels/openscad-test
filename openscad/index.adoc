@@ -653,6 +653,19 @@ include::./piZero/RPi_zero_mount.scad[]
 
 
 
+==== example-rack - 3D Object
+
+
+
+.image
+image::./openscad/rack/example-rack.png[]
+
+.Openscad source
+----
+include::./rack/example-rack.scad[]
+----
+
+
 ==== include-Modules-v1 - 3D Object
 
 
@@ -663,6 +676,19 @@ image::./openscad/rack/include-Modules-v1.png[]
 .Openscad source
 ----
 include::./rack/include-Modules-v1.scad[]
+----
+
+
+==== include-Settings-rack-42RU-twin-80x120x200 - 3D Object
+
+
+
+.image
+image::./openscad/rack/include-Settings-rack-42RU-twin-80x120x200.png[]
+
+.Openscad source
+----
+include::./rack/include-Settings-rack-42RU-twin-80x120x200.scad[]
 ----
 
 
