@@ -431,7 +431,12 @@ module railSection (LabelYN,RailYN,Color,RU,RailFBLR) {
     }
 }
 
-
+if (library) {} else  {
+	echo("trying to compile a library!");
+	linear_extrude(height = 4) {
+		text("trying to compile a library!");
+		}
+	}
 
 // User Data
 // after this
