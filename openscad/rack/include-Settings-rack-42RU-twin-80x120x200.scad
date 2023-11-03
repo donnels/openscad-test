@@ -25,7 +25,7 @@ Rack1B=[RackWidth*0,(RackDepth*($t))-RackDepth,0]+RowOffset0;
 Rack2B=[RackWidth*0,(RackDepth*($t))-RackDepth,0]+RowOffset0;
 
 // Title
-translate([0,-50,-100]) logo();
+//translate([0,-50,-100]) logo();
 translate([350,-50,-100]) floatLabel(floorLevelTitle,FloatLabelColorTitle,60,LabelT);
 
 // Don't modify these. Instead USE them in the section to generate the racks below
