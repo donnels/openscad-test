@@ -684,6 +684,24 @@ include::./piZero/RPi_zero_mount.scad[]
 ----
 
 
+=== powercover - Project
+
+
+
+
+==== corner-powercover - 3D Object
+
+
+
+.image
+image::./openscad/powercover/corner-powercover.png[]
+
+.Openscad source
+----
+include::./powercover/corner-powercover.scad[]
+----
+
+
 === rack - Project
 
 
