@@ -79,6 +79,24 @@ include::./Ikea-Repair/ikeabung.scad[]
 ----
 
 
+=== Jetson - Project
+
+
+
+
+==== power-ring - 3D Object
+
+
+
+.image
+image::./openscad/Jetson/power-ring.png[]
+
+.Openscad source
+----
+include::./Jetson/power-ring.scad[]
+----
+
+
 === Liebherr - Project
 
 
@@ -112,6 +130,24 @@ image::./openscad/Model-Plane/mountingplateaircraftmotor.png[]
 .Openscad source
 ----
 include::./Model-Plane/mountingplateaircraftmotor.scad[]
+----
+
+
+=== RollHolder - Project
+
+
+
+
+==== rollholder - 3D Object
+
+
+
+.image
+image::./openscad/RollHolder/rollholder.png[]
+
+.Openscad source
+----
+include::./RollHolder/rollholder.scad[]
 ----
 
 
