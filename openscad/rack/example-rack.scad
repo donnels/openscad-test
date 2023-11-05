@@ -1,15 +1,13 @@
 // Defintions for a populated Rack
 // Requires the include files to be present in order to work
-include <include-Modules-v1.scad>;
-library="true"; //set this to remove the warning when compiling the library on its own
 include <include-Settings-rack-42RU-twin-80x120x200.scad>;
-settings="true"; //set this to remove the warning when compiling the settings on their own
 
 // Title
 floorLevelTitle = "Example twin rack";
 rackTopTitle1 = "Rack A";
 rackTopTitle2 = "Rack B";
 useAirFlowYN = "true";
+useRaisedFloorYN="true";
 
 // Generate Devices RACK 1
 translate(Rack1) placeInRack(1,StandardRackUnitWidth,1*StandardRackUnitHeight,65,RackUnitColor,"Cable Guide","none","none","front-outside");

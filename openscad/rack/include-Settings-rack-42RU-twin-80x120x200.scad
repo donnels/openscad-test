@@ -1,10 +1,18 @@
 //42 RU twinrack 80x120x200
+// Requires the include files to be present in order to work
+include <include-Modules-v1.scad>;
+library="true"; //set this to remove the warning when compiling the library on its own
 //Rack Dimension Variables
 NumRackUnits=42;
 RackRackUnitDepth=900;
 RackWidth=800;
 RackDepth=1200;
 RackHeight=2000;
+
+//default titles
+floorLevelTitle = "Empty Rack from settings file";
+rackTopTitle1 = "Rack A";
+rackTopTitle2 = "Rack B";
 
 //first Rail mount hole offset from floor (normally one RU is enough for visuals Exact amount can also be entered)
 RailHeightOffset=StandardRackUnitHeight;
@@ -29,18 +37,12 @@ Rack2B=[RackWidth*0,(RackDepth*($t))-RackDepth,0]+RowOffset0;
 translate([350,-50,-100]) floatLabel(floorLevelTitle,FloatLabelColorTitle,60,LabelT);
 
 // Don't modify these. Instead USE them in the section to generate the racks below
-RackSidebarInfoON="true";
-RackSidebarInfoOFF="false";
+RackBSidebarInfoON="true";
+RackASidebarInfoON="false";
 
 //Generate Racks
-positionRack(Rack1,RackWidth,RackHeight,RackDepth,RackFrameThickness,RackColor,rackTopTitle1,RackSidebarInfoOFF);
-positionRack(Rack2,RackWidth,RackHeight,RackDepth,RackFrameThickness,RackColor,rackTopTitle2,RackSidebarInfoON);
+positionRack(Rack1,RackWidth,RackHeight,RackDepth,RackFrameThickness,RackColor,rackTopTitle1,RackASidebarInfoON);
+positionRack(Rack2,RackWidth,RackHeight,RackDepth,RackFrameThickness,RackColor,rackTopTitle2,RackBSidebarInfoON);
 
-useAirFlowYN="true";
 
-if (settings) {} else  {
-	echo("trying to compile settings!");
-	linear_extrude(height = 4) {
-		text("trying to compile settings!");
-		}
-	}
+
