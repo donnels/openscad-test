@@ -1,25 +1,26 @@
 $fn=360;
 plateH = 2.5 ;
 topInsideH = 6 ;
-topInsideD = 18.2 ;
+topInsideD = 18.35 ;
 topInsideR = topInsideD/2 ;
 insideD = 17.5 ;
-insideH = 10 ;
-lipH = .15 ;
+insideH = 40 ;
+lipH = .08 ;
 lipW = .5 ;
+lipOffH = 2.2 ;
 headH = 2 ;
 headD = 26.5 ;
-plateHoleD = 19.1 ;
+plateHoleD = 19.22 ;
 plateHoleH = 3 ;
 //diameter of top inside
 color("grey") translate([0,0,-plateH]) cylinder(h=6+plateH,d=topInsideD);
 //diameter of inside
-color("blue") translate([0,0,5]) cylinder(h=insideH,d=insideD);
+color("grey") translate([0,0,5]) cylinder(h=insideH,d=insideD);
 //Lip
-*color("red") translate([0,0,3]) cylinder(h=lipW,r1=topInsideR+lipH,r2=topInsideR);
-*color("red") translate([0,0,3-lipW]) cylinder(h=lipW,r2=topInsideR+lipH,r1=topInsideR);
+color("red") translate([0,0,lipOffH]) cylinder(h=lipW,r1=topInsideR+lipH,r2=topInsideR);
+color("red") translate([0,0,lipOffH-lipW]) cylinder(h=lipW,r2=topInsideR+lipH,r1=topInsideR);
 //mount ring
-color("red") translate([0,0,-plateHoleH]) cylinder(h=plateHoleH,d=plateHoleD);
+color("grey") translate([0,0,-plateHoleH]) cylinder(h=plateHoleH,d=plateHoleD);
 
 //head
 color("grey") translate([0,0,-(headH+plateH)]) cylinder(h=headH,d=headD);
