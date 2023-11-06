@@ -64,7 +64,7 @@ jobs:
           scadfile="$(basename "$filename")" ; file="$(basename -s".scad" "$filename")" ; dir="$(dirname "$filename")"
           echo "Moving into $dir" ; cd "$dir" ; echo "build it" ; echo "directory= $dir netto file= $file scadfile= $scadfile" 
           #This isnt working properly... need to check the file dates before and after
-          docker run --rm --name "openscad-png" --volume "$PWD":/data $container_openscad openscad --colorscheme Tomorrow -o "/data/${file}.png" "/data/${scadfile}" &
+          docker run --rm --name "openscad-png" --volume "$PWD":/data $container_openscad openscad --imgsize 1280,720 --colorscheme Tomorrow -o "/data/${file}.png" "/data/${scadfile}" &
           docker run --rm --name "openscad-stl" --volume "$PWD":/data $container_openscad openscad -o "/data/${file}.stl" "/data/${scadfile}" &
           wait
           echo "back to previous" ; cd - ; echo
