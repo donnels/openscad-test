@@ -2,7 +2,7 @@
 $fn=36;
 coverR = 100 ;
 cableD = 10 ;
-shellT = .8 ;
+shellT = 1 ;
 cornerR = 20 ;
 sideH = 7; 
 //the shell to fit in the corner of oscar's room
