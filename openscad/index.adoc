@@ -187,6 +187,37 @@ include::./Test/Test.scad[]
 ----
 
 
+=== ThingsByOthers - Project
+
+
+
+
+==== SQ11-15 - 3D Object
+
+
+
+.image
+image::./openscad/ThingsByOthers/SQ11-15.png[]
+
+.Openscad source
+----
+include::./ThingsByOthers/SQ11-15.scad[]
+----
+
+
+==== notmine1 - 3D Object
+
+
+
+.image
+image::./openscad/ThingsByOthers/notmine1.png[]
+
+.Openscad source
+----
+include::./ThingsByOthers/notmine1.scad[]
+----
+
+
 === VSAGCRD-Logo - Project
 
 
@@ -527,6 +558,19 @@ image::./openscad/monitor/buttonBack.png[]
 .Openscad source
 ----
 include::./monitor/buttonBack.scad[]
+----
+
+
+==== housing - 3D Object
+
+
+
+.image
+image::./openscad/monitor/housing.png[]
+
+.Openscad source
+----
+include::./monitor/housing.scad[]
 ----
 
 
@@ -943,24 +987,6 @@ image::./openscad/tesa/tesa.png[]
 .Openscad source
 ----
 include::./tesa/tesa.scad[]
-----
-
-
-=== tests - Project
-
-
-
-
-==== notmine1 - 3D Object
-
-
-
-.image
-image::./openscad/tests/notmine1.png[]
-
-.Openscad source
-----
-include::./tests/notmine1.scad[]
 ----
 
 
