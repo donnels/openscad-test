@@ -293,6 +293,19 @@ include::./balcony-storage/microshed.scad[]
 
 
 
+==== draft-holder - 3D Object
+
+
+
+.image
+image::./openscad/bins/draft-holder.png[]
+
+.Openscad source
+----
+include::./bins/draft-holder.scad[]
+----
+
+
 ==== strutinsert - 3D Object
 
 
