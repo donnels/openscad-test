@@ -7,7 +7,7 @@ insideD = 17.5 ;
 insideH = 40 ;
 lipH = .08 ;
 lipW = .5 ;
-lipOffH = 2.2 ;
+lipOffH = 2.4 ;
 headH = 2 ;
 headD = 26.5 ;
 plateHoleD = 19.22 ;
@@ -20,7 +20,7 @@ color("grey") translate([0,0,5]) cylinder(h=insideH,d=insideD);
 color("red") translate([0,0,lipOffH]) cylinder(h=lipW,r1=topInsideR+lipH,r2=topInsideR);
 color("red") translate([0,0,lipOffH-lipW]) cylinder(h=lipW,r2=topInsideR+lipH,r1=topInsideR);
 //mount ring
-color("grey") translate([0,0,-plateHoleH]) cylinder(h=plateHoleH,d=plateHoleD);
+color("grey") translate([0,0,-plateHoleH+.1]) cylinder(h=plateHoleH+.1,d=plateHoleD);
 
 //head
 color("grey") translate([0,0,-(headH+plateH)]) cylinder(h=headH,d=headD);
