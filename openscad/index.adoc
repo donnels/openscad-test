@@ -218,6 +218,19 @@ include::./ThingsByOthers/notmine1.scad[]
 ----
 
 
+==== velcro - 3D Object
+
+
+
+.image
+image::./openscad/ThingsByOthers/velcro.png[]
+
+.Openscad source
+----
+include::./ThingsByOthers/velcro.scad[]
+----
+
+
 === VSAGCRD-Logo - Project
 
 
@@ -725,6 +738,19 @@ image::./openscad/piZero/RPi_zero_mount.png[]
 .Openscad source
 ----
 include::./piZero/RPi_zero_mount.scad[]
+----
+
+
+==== piZeroCluster-power - 3D Object
+
+
+
+.image
+image::./openscad/piZero/piZeroCluster-power.png[]
+
+.Openscad source
+----
+include::./piZero/piZeroCluster-power.scad[]
 ----
 
 
