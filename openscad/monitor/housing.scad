@@ -1,8 +1,9 @@
+boardThick=2;
+boardWidth=107;
+boardDepth=55;
+holeRad=2;
+
 module hdmiBoard(ext) {
-    boardThick=2;
-    boardWidth=107;
-    boardDepth=55;
-    holeRad=2;
     Extrude=ext; //extrude the ports or set to 0 for real board
     difference(){
         $fn=100;
@@ -22,10 +23,6 @@ module hdmiBoard(ext) {
 }
 
 module pillars(ext) {
-    boardThick=2;
-    boardWidth=107;
-    boardDepth=55;
-    holeRad=2;
     $fn=100;
     translate([2+holeRad,5+holeRad,-.01]) cylinder(h=boardThick+.1,r=holeRad);
     translate([2+holeRad,boardDepth-2.5-holeRad,-.01]) cylinder(h=boardThick+.1,r=holeRad);
@@ -96,6 +93,7 @@ difference() {
     housing(122,61,25,2,2,1.5,1.5,4); //width,depth,height,wallThick,floorThick,inRad,pillarThick,off
     translate([7,3,5]) hdmiBoard(20);
 }
-#translate([7,4,5]) hdmiBoard(0);
-translate([0,0,70]) plate(122,61,2,1.5,4); //width,depth,height,inRad,Off
+translate([7,4,2]) pillars();
+*translate([7,4,5]) hdmiBoard(0);
+*translate([0,0,70]) plate(122,61,2,1.5,4); //width,depth,height,inRad,Off
 
