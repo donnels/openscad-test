@@ -520,6 +520,19 @@ include::./led-Casing/CasingLED.scad[]
 
 
 
+==== internal-volume - 3D Object
+
+the internal Volume of a presentation box to test ideas on.
+
+.image
+image::./openscad/midleton/internal-volume.png[]
+
+.Openscad source
+----
+include::./midleton/internal-volume.scad[]
+----
+
+
 ==== midletoninset - 3D Object
 
 
@@ -530,24 +543,6 @@ image::./openscad/midleton/midletoninset.png[]
 .Openscad source
 ----
 include::./midleton/midletoninset.scad[]
-----
-
-
-=== midleton2 - Project
-
-
-
-
-==== internal-volume - 3D Object
-
-the internal Volume of a presentation box to test ideas on.
-
-.image
-image::./openscad/midleton2/internal-volume.png[]
-
-.Openscad source
-----
-include::./midleton2/internal-volume.scad[]
 ----
 
 
@@ -792,7 +787,7 @@ include::./powercover/corner-powercover.scad[]
 
 ==== example-rack - 3D Object
 
-
+This is an openscad library and some examples used to display racks.
 
 .image
 image::./openscad/rack/example-rack.png[]
@@ -826,6 +821,19 @@ image::./openscad/rack/include-Settings-rack-42RU-twin-80x120x200.png[]
 .Openscad source
 ----
 include::./rack/include-Settings-rack-42RU-twin-80x120x200.scad[]
+----
+
+
+==== logo-VSR - 3D Object
+
+
+
+.image
+image::./openscad/rack/logo-VSR.png[]
+
+.Openscad source
+----
+include::./rack/logo-VSR.scad[]
 ----
 
 
