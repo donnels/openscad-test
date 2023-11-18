@@ -1,6 +1,7 @@
 //42 RU twinrack 80x120x200
 // Requires the include files to be present in order to work
 include <include-Modules-v1.scad>;
+include <logo-VSR.scad>;
 library="true"; //set this to remove the warning when compiling the library on its own
 //Rack Dimension Variables
 NumRackUnits=42;
@@ -33,8 +34,8 @@ Rack1B=[RackWidth*0,(RackDepth*($t))-RackDepth,0]+RowOffset0;
 Rack2B=[RackWidth*0,(RackDepth*($t))-RackDepth,0]+RowOffset0;
 
 // Title
-//translate([0,-50,-100]) logo();
-translate([350,-50,-100]) floatLabel(floorLevelTitle,FloatLabelColorTitle,60,LabelT);
+translate([0,0,-.5]) logo();
+translate([300,50,-10]) floatLabel(floorLevelTitle,FloatLabelColorTitle,60,LabelT);
 
 // Don't modify these. Instead USE them in the section to generate the racks below
 RackBSidebarInfoON="true";
