@@ -62,4 +62,6 @@ module logo() {
     translate([0,0,0]) cube([imgW,depth*2,2]);
 }
 
-//logo();
+if (library) {} else  {
+	logo();
+	}
