@@ -484,6 +484,19 @@ include::./kitchen-door/KitchenDoorHoleStopper.scad[]
 ----
 
 
+==== skirtingpatch - 3D Object
+
+
+
+.image
+image::./openscad/kitchen-door/skirtingpatch.png[]
+
+.Openscad source
+----
+include::./kitchen-door/skirtingpatch.scad[]
+----
+
+
 ==== strikeplate - 3D Object
 
 
