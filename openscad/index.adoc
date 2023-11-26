@@ -903,6 +903,19 @@ include::./rePhone/xadow.scad[]
 
 
 
+==== schuko-plug - 3D Object
+
+
+
+.image
+image::./openscad/schuko/schuko-plug.png[]
+
+.Openscad source
+----
+include::./schuko/schuko-plug.scad[]
+----
+
+
 ==== schuko - 3D Object
 
 
