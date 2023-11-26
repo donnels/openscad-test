@@ -20,10 +20,10 @@ ssd1306X = 26.9 ;
 ssd1306Y = 27.9 ;
 ssd1306PCBZ = 1.7 ;
 ssd1306mountD = 2 ;
-LCDX = 26.8 ; // left to right
-LCDY = 19.2 ; // topR to bottomR
+LCDX = 27.5 ; // left to right
+LCDY = 20 ; // topR to bottomR
 LCDZ = 2 ; // height from PCB
-LCDflexW = 12 ; //flex cable width
+LCDflexW = 13 ; //flex cable width
 LCDflexH = 3 ; //flex cable length from LCD to edge
 LCDdim = [LCDX,LCDY,LCDZ]; //Dimensions
 
@@ -98,11 +98,12 @@ module ssd1306Harness(shrink) {
 //cover
 difference() {
     //top cover
-    cylinder(h=1,d=plugTopD,center=true);
+    cylinder(h=.5,d=plugTopD,center=true);
     //LCD assumed to be dead center
     cube(LCDdim,center=true);
     //flex cable
-    #cube([LCDflexW ,LCDflexH,4],center=true);
+    translate([0,-LCDY/2-LCDflexH/2+diffWiggle,0])
+        cube([LCDflexW ,LCDflexH+diffWiggle,4],center=true);
     //add mounting holes
-    ssd1306Holes(5,1.7);
+    ssd1306Holes(5,ssd1306mountD+.3);
 }
