@@ -14,8 +14,61 @@ cutCube = 8;
 cubeXY = plugBottomD-(plugSideCutH+9);
 cubeFloor = 2;
 pinR = 9.5 ; //The distance from the center that the pins should be at
+
+//ssd1306 variables
+ssd1306X = 26.9 ;
+ssd1306Y = 27.9 ;
+ssd1306PCBZ = 1.7 ;
+ssd1306mountD = 2 ;
+LCDX = 26.8 ; // left to right
+LCDY = 19.2 ; // topR to bottomR
+LCDZ = 2 ; // height from PCB
+LCDflexW = 12 ; //flex cable width
+LCDflexH = 3 ; //flex cable length from LCD to edge
+LCDdim = [LCDX,LCDY,LCDZ]; //Dimensions
+
+module ssd1306Holes(height,diameter) {
+    //mounting holes - no need to zdiff as centered
+    //relative positions
+        mPosTR = [ssd1306X/2-2,ssd1306Y/2-2,0];
+        mPosTL = [-ssd1306X/2+2,ssd1306Y/2-2,0];
+        mPosBR = [ssd1306X/2-2,-ssd1306Y/2+2,0];
+        mPosBL = [-ssd1306X/2+2,-ssd1306Y/2+2,0];
+    //absolute positions plus offset on PCB - UNUSED
+        topDiff = 22.8 ; // TL to TR hole center - top diff=bottomDiff
+        sideDiff = 23.5 ; // TR to BR hole center - LeftDiff=rightDiff
+        leftOff = .8 ; //left hole is .8mm in
+        topOff = 1 ; // top hole is 1mm down
+    translate (mPosTR) cylinder(h=height,d=diameter,center=true);
+    translate (mPosTL) cylinder(h=height,d=diameter,center=true);
+    translate (mPosBR) cylinder(h=height,d=diameter,center=true);
+    translate (mPosBL) cylinder(h=height,d=diameter,center=true);
+}
+
+module ssd1306(shrink) {
+    difference() {
+        //ssd1306 PCB
+        cube([ssd1306X-shrink,ssd1306Y-shrink,ssd1306PCBZ],center=true);
+        //holes only needed for initial tests to see if alligned
+        *ssd1306Holes(ssd1306PCBZ+diffWiggle,ssd1306mountD);
+    }
+}
+
+//ssd1306 mounting harness
+module ssd1306Harness(shrink) {
+    difference() {
+        ssd1306(shrink);
+        cube([22,22,ssd1306PCBZ+diffWiggle],center=true);
+        translate([0,12,0]) cube([15,3,ssd1306PCBZ+diffWiggle],center=true);
+        translate([0,0,0]) cube([25,6,ssd1306PCBZ+diffWiggle],center=true);
+    }
+    //add mounting pegs
+    translate([0,0,2.5]) ssd1306Holes(5,1.7);
+}
+
 //plug inset
-difference () {
+
+*difference () {
     union() {
         difference() {
             cylinder(h=plugBottomH,d=plugBottomD);
@@ -36,9 +89,20 @@ difference () {
     //plug holes for cabling where pins should be
     translate([pinR,0,0])translate(zdiff) cylinder(h=cubeFloor+diffWiggle,d=6);
     translate([-pinR,0,0])translate(zdiff) cylinder(h=cubeFloor+diffWiggle,d=6);
+    translate([0,0,plugTopOff+1]) ssd1306(-1);
+    translate([0,0,plugTopOff+2]) ssd1306(-1);
 }
 
+*translate([0,0,plugTopOff-.7]) ssd1306Harness(1);
 
-//handle to extract test
-//REMOVE after testing
-cylinder(h=25,d=4);
+//cover
+difference() {
+    //top cover
+    cylinder(h=1,d=plugTopD,center=true);
+    //LCD assumed to be dead center
+    cube(LCDdim,center=true);
+    //flex cable
+    #cube([LCDflexW ,LCDflexH,4],center=true);
+    //add mounting holes
+    ssd1306Holes(5,1.7);
+}
