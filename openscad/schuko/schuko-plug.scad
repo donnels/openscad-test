@@ -93,7 +93,7 @@ difference () {
     translate([0,0,plugTopOff+2]) ssd1306(-1);
 }
 
-*translate([0,0,plugTopOff-.7]) ssd1306Harness(1);
+translate([0,0,plugTopOff-.7]) ssd1306Harness(1);
 
 //cover
 translate([0,0,23]) difference() {
