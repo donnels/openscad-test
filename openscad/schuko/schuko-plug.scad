@@ -68,7 +68,7 @@ module ssd1306Harness(shrink) {
 
 //plug inset
 
-*difference () {
+difference () {
     union() {
         difference() {
             cylinder(h=plugBottomH,d=plugBottomD);
@@ -96,7 +96,7 @@ module ssd1306Harness(shrink) {
 *translate([0,0,plugTopOff-.7]) ssd1306Harness(1);
 
 //cover
-difference() {
+translate([0,0,20]) difference() {
     //top cover
     cylinder(h=.5,d=plugTopD,center=true);
     //LCD assumed to be dead center
