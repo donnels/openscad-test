@@ -96,7 +96,7 @@ difference () {
 *translate([0,0,plugTopOff-.7]) ssd1306Harness(1);
 
 //cover
-translate([0,0,20]) difference() {
+translate([0,0,23]) difference() {
     //top cover
     cylinder(h=.5,d=plugTopD,center=true);
     //LCD assumed to be dead center
