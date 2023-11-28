@@ -5,6 +5,9 @@ plugTopD = 42; //diameter of top cover
 plugTopH = 2; //2mm rim height of top cover
 plugTopOff = 16.8 ; //from bottom to top rim
 diffWiggle = .2;
+diffWiggleX = [diffWiggle, 0, 0];
+diffWiggleY = [0, diffWiggle, 0];
+diffWiggleZ = [0, 0, diffWiggle];
 plugBottomD = 38;
 plugBottomH = plugTopOff;
 plugSideCutH = 3;
@@ -25,7 +28,9 @@ LCDY = 20 ; // topR to bottomR
 LCDZ = 2 ; // height from PCB
 LCDflexW = 13 ; //flex cable width
 LCDflexH = 3 ; //flex cable length from LCD to edge
+LCDmask = 4; //how much to cover up at the bottom
 LCDdim = [LCDX,LCDY,LCDZ]; //Dimensions
+LCDdimXY = [LCDX, LCDY, 0]; //XY Dimensions only without Z
 
 module ssd1306Holes(height,diameter) {
     //mounting holes - no need to zdiff as centered
@@ -96,14 +101,40 @@ difference () {
 translate([0,0,plugTopOff-.7]) ssd1306Harness(1);
 
 //cover
-translate([0,0,23]) difference() {
-    //top cover
-    cylinder(h=.5,d=plugTopD,center=true);
-    //LCD assumed to be dead center
-    cube(LCDdim,center=true);
-    //flex cable
-    translate([0,-LCDY/2-LCDflexH/2+diffWiggle,0])
-        cube([LCDflexW ,LCDflexH+diffWiggle,4],center=true);
-    //add mounting holes
-    ssd1306Holes(5,ssd1306mountD+.3);
+coverThick = .5 ;
+rimH = 1.5 ;
+vieportThick = .5 ;
+rimThick = 1;
+translate([0,0,30]) union() {
+    translate([0,0,+coverThick/2]) difference() {
+        //top cover
+        cylinder(h=coverThick, d=plugTopD, center=true);
+        //LCD assumed to be dead center
+        cube(LCDdimXY +[0, 0, coverThick + diffWiggle], center=true);
+        //flex cable
+        translate([0, -LCDY /2 - LCDflexH /2 + diffWiggle, 0])
+            cube([LCDflexW, LCDflexH+diffWiggle, coverThick + diffWiggle], center=true);
+        //subtract mounting holes
+        ssd1306Holes(coverThick + diffWiggle,ssd1306mountD+.3);
+    }
 }
+
+module vectorBox(){
+    //just a small demonstrator for vector subtraction and addition
+    inSize = 10 ;
+    inSizeX = [inSize,0,0] ;
+    inSizeY = [0,inSize,0] ;
+    inSizeZ = [0,0,inSize] ;
+    wallThick = .5;
+    offset = wallThick * 2 ;
+    offsetA = [offset,offset,offset] ;
+    offsetX = [offset,0,0] ;
+    offsetY = [0,offset,0] ;
+    offsetZ = [0,0,offset] ;
+    difference() {
+        cube(inSizeX + inSizeY + inSizeZ + offsetA);
+        translate((offsetX + offsetZ)/2 - diffWiggleY/2) 
+            cube(inSizeX + inSizeY + inSizeZ + offsetY + diffWiggleY);
+    }
+}
+*vectorBox();
