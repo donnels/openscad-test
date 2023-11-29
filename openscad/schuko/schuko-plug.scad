@@ -25,6 +25,7 @@ ssd1306off = [2,2,0] ;
 ssd1306XY = [ssd1306X,ssd1306Y,0] ;
 ssd1306PCBH = 1.7 ;
 ssd1306PCBZ = [0, 0, ssd1306PCBH] ;
+ssd1306PCBdim = ssd1306PCBZ + ssd1306XY ;
 ssd1306mountD = 2 ;
 LCDX = 27.5 ; // left to right
 LCDY = 20 ; // topR to bottomR
@@ -33,9 +34,10 @@ LCDflexW = 13 ; //flex cable width
 LCDflexH = 3 ; //flex cable length from LCD to edge
 LCDmask = 4; //how much to cover up at the bottom
 LCDdim = [LCDX,LCDY,LCDZ]; //Dimensions
+FLEXdim = [LCDflexW,LCDflexH,LCDdim.z]; //Dimensions
 LCDdimXY = [LCDX, LCDY, 0]; //XY Dimensions only without Z
 
-module ssd1306Holes(XYdimensions,offset,height,diameter) {
+module pegs(XYdimensions,offset,height,diameter) {
     //mounting holes - no need to zdiff as centered
     //relative positions
         TR= [ [+1, 0, 0], [0, +1, 0], [0, 0, 0] ];
@@ -53,112 +55,106 @@ module ssd1306Holes(XYdimensions,offset,height,diameter) {
     translate (mPosBL) cylinder(h = height, d = diameter, center = true);
 }
 
-module ssd1306(shrink) {
+module ssd1306(PCBdim,LCDdim,FLEXdim,PCBwiggle,LCDwiggle) {
+    difference() {
+        union() {
+            //PCB
+            translate( [0, 0, PCBdim.z/2] )  color("green") cube(PCBdim + PCBwiggle, center = true);
+            //LCD
+            translate( [0, 0, PCBdim.z + LCDdim.z/2] ) color("black") cube(LCDdim + LCDwiggle, center = true);
+            //FLEX
+            translate( [0, -LCDdim.y/2 - FLEXdim.y/2, PCBdim.z + FLEXdim.z/2] ) color("brown") cube(FLEXdim, center = true);
+        }
+        translate( [0, 0, PCBdim.z/2] ) pegs(ssd1306XY, ssd1306off, PCBdim.z + diffWiggle, 2);
+    }
+}
+
+
+module PCB(resize) {
     difference() {
         //ssd1306 PCB
-        cube([ssd1306X-shrink,ssd1306Y-shrink,0]+ ssd1306PCBZ,center=true);
+        cube( ssd1306XY + ssd1306PCBZ + resize, center = true );
         //holes only needed for initial tests to see if alligned
-        *ssd1306Holes(ssd1306XY,ssd1306off,ssd1306PCBH+diffWiggle,ssd1306mountD);
+        *pegs(ssd1306XY,ssd1306off,ssd1306PCBH+diffWiggle,ssd1306mountD);
     }
 }
 
 //ssd1306 mounting harness
-module ssd1306Harness(shrink) {
+module ssd1306Harness(resize) {
+    pegD = 1.7 ;
+    pegH = 5 ;
+    pegZ = [0, 0, pegH] ;
     difference() {
-        ssd1306(shrink);
-        cube([22,22,diffWiggle] + ssd1306PCBZ,center=true);
-        translate([0,12,0]) cube([15,3,diffWiggle] + ssd1306PCBZ,center=true);
-        translate([0,0,0]) cube([25,6,diffWiggle] + ssd1306PCBZ,center=true);
+        PCB(resize);
+        cube([22,22,diffWiggle] + ssd1306PCBZ, center=true);
+        translate([0, 12, 0]) cube([15, 3, diffWiggle] + ssd1306PCBZ, center=true);
+        translate([0, 0, 0]) cube([25, 6, diffWiggle] + ssd1306PCBZ, center=true);
     }
     //add mounting pegs
-    translate([0,0,2.5]) ssd1306Holes(ssd1306XY,ssd1306off,5,1.7);
+    translate( pegZ/2 + ssd1306PCBZ/2 ) pegs(ssd1306XY,ssd1306off,pegH,pegD);
 }
 
-//plug inset
-
-difference () {
+module cover() {
+    //cover
+    coverThick = .5 ;
+    rimH = 1.5 ;
+    vieportThick = .5 ;
+    rimThick = 1;
     union() {
-        difference() {
-            cylinder(h=plugBottomH,d=plugBottomD);
-                cutOffTR=[(plugBottomD/2)-plugSideCutH,plugSideCutW/2,0];
-                cutOffTL=[-((plugBottomD/2)+plugSideCutH)+plugSideCutH,plugSideCutW/2,0];
-                cutOffBR=[(plugBottomD/2)-plugSideCutH,-(plugSideCutW/2)-cutCube,0];
-                cutOffBL=[-((plugBottomD/2)+plugSideCutH)+plugSideCutH,-plugSideCutW/2-cutCube,0];
-                cutCube=[plugSideCutH,cutCube,plugBottomH+diffWiggle];
-            translate(cutOffTR+zdiff)cube(cutCube);
-            translate(cutOffTL+zdiff)cube(cutCube);
-            translate(cutOffBR+zdiff)cube(cutCube);
-            translate(cutOffBL+zdiff)cube(cutCube);
+        translate([0,0,+coverThick/2]) difference() {
+            //top cover
+            cylinder(h=coverThick, d=plugTopD, center=true);
+            //LCD assumed to be dead center
+            cube(LCDdimXY + [0, 0, coverThick + diffWiggle], center=true);
+            //flex cable
+            translate([0, -LCDY/2 - LCDflexH/2 + diffWiggle, 0])
+                cube([LCDflexW, LCDflexH + diffWiggle, coverThick + diffWiggle], center=true);
+            //subtract mounting holes
+            pegs(ssd1306XY,ssd1306off,coverThick + diffWiggle,ssd1306mountD+.3);
         }
-        translate([0,0,plugTopOff]) cylinder(h=plugTopH, d=plugTopD);
-    }
-    //cube cutout
-    translate([0,0,height/2+cubeFloor])cube([cubeXY,cubeXY,height],center=true);
-    //plug holes for cabling where pins should be
-    translate([pinR,0,0])translate(zdiff) cylinder(h=cubeFloor+diffWiggle,d=6);
-    translate([-pinR,0,0])translate(zdiff) cylinder(h=cubeFloor+diffWiggle,d=6);
-    translate([0,0,plugTopOff+1]) ssd1306(-1);
-    translate([0,0,plugTopOff+2]) ssd1306(-1);
-}
-
-translate([0,0,plugTopOff-.7]) ssd1306Harness(1);
-
-//cover
-coverThick = .5 ;
-rimH = 1.5 ;
-vieportThick = .5 ;
-rimThick = 1;
-translate([0,0,30]) union() {
-    translate([0,0,+coverThick/2]) difference() {
-        //top cover
-        cylinder(h=coverThick, d=plugTopD, center=true);
-        //LCD assumed to be dead center
-        cube(LCDdimXY +[0, 0, coverThick + diffWiggle], center=true);
-        //flex cable
-        translate([0, -LCDY /2 - LCDflexH /2 + diffWiggle, 0])
-            cube([LCDflexW, LCDflexH+diffWiggle, coverThick + diffWiggle], center=true);
-        //subtract mounting holes
-        ssd1306Holes(ssd1306XY,[2, 2, 0],coverThick + diffWiggle,ssd1306mountD+.3);
     }
 }
 
-module vectorBox(){
-    //just a small demonstrator for vector subtraction and addition
-    // as things can get complicated with single unit variables the below shows how it can be abstracted and simplified
-
-    //inside side length
-    inSize = 10 ;
-    //wall thickness
-    wallThick = .5;
-
-    //the vectors predefined
-    inSizeA = [inSize,inSize,inSize] ;
-    inSizeX = [inSize,0,0] ;
-    inSizeY = [0,inSize,0] ;
-    inSizeZ = [0,0,inSize] ;
-    offset = wallThick * 2 ;
-    offsetA = [offset,offset,offset] ;
-    offsetX = [offset,0,0] ;
-    offsetY = [0,offset,0] ;
-    offsetZ = [0,0,offset] ;
-    offsetZY = offsetZ + offsetY ;
-    offsetZX = offsetZ + offsetX ;
-    offsetXY = offestX + offsetY ;
-    
-    difference() {
-        //total volume cube
-        cube(inSizeA + offsetA);
-        //inside volume cube
-        translate((offsetZX)/2 - diffWiggleY/2) 
-            cube(inSizeA + offsetY + diffWiggleY);
+module plug() {
+    //plug inset
+    difference () {
+        union() {
+            difference() {
+                cylinder(h=plugBottomH,d=plugBottomD);
+                    cutOffTR=[(plugBottomD/2)-plugSideCutH,plugSideCutW/2,0];
+                    cutOffTL=[-((plugBottomD/2)+plugSideCutH)+plugSideCutH,plugSideCutW/2,0];
+                    cutOffBR=[(plugBottomD/2)-plugSideCutH,-(plugSideCutW/2)-cutCube,0];
+                    cutOffBL=[-((plugBottomD/2)+plugSideCutH)+plugSideCutH,-plugSideCutW/2-cutCube,0];
+                    cutCube=[plugSideCutH,cutCube,plugBottomH+diffWiggle];
+                translate(cutOffTR+zdiff)cube(cutCube);
+                translate(cutOffTL+zdiff)cube(cutCube);
+                translate(cutOffBR+zdiff)cube(cutCube);
+                translate(cutOffBL+zdiff)cube(cutCube);
+            }
+            translate([0,0,plugTopOff]) cylinder(h=plugTopH, d=plugTopD);
+        }
+        //cube cutout
+        translate([0,0,height/2+cubeFloor])cube([cubeXY,cubeXY,height],center=true);
+        //punch holes for cabling where pins should be
+        translate([pinR,0,0])translate(zdiff) cylinder(h=cubeFloor+diffWiggle,d=6);
+        translate([-pinR,0,0])translate(zdiff) cylinder(h=cubeFloor+diffWiggle,d=6);
+        translate([0,0,plugTopOff+1]) PCB([1, 1, 0]);
+        translate([0,0,plugTopOff+2]) PCB([1, 1, 0]);
     }
 
+    //harness
+    translate([0,0,plugTopOff-.7]) ssd1306Harness([-1, -1, 0]);
 }
-*vectorBox();
+// OUTPUT
+plug();
+translate([0,0,25]) ssd1306 ( ssd1306PCBdim, LCDdim, FLEXdim, [0, 0, 0], [0, 0, 0] );
+translate([0,0,33]) cover();
 
-#translate([0,0,21]) color ([0,1,0]) difference(){ 
+//aprroximation of the ssd1306
+*translate([0,0,21]) difference(){ 
     hull() {
-        ssd1306Holes(ssd1306XY,[0,0,0],1.7,.1);
+        pegs(ssd1306XY,[0,0,0],1.7,.1);
     }
-    ssd1306Holes(ssd1306XY,[2,2,0],5,1.7);
+    pegs(ssd1306XY,ssd1306off,5,1.7);
 }
+
