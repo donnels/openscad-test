@@ -37,10 +37,14 @@ LCDdimXY = [LCDX, LCDY, 0]; //XY Dimensions only without Z
 module ssd1306Holes(height,diameter) {
     //mounting holes - no need to zdiff as centered
     //relative positions
-        mPosTR = ssd1306XY/2 + [-2,-2,0];
-        mPosTL = ssd1306XY/2 + [+2,-2,0];
-        mPosBR = ssd1306XY/2 + [-2,+2,0];
-        mPosBL = ssd1306XY/2 + [+2,+2,0];
+        TR= [[+1,0,0],[0,+1,0],[0,0,0]];
+        TL= [[-1,0,0],[0,+1,0],[0,0,0]];
+        BR= [[+1,0,0],[0,-1,0],[0,0,0]];
+        BL= [[-1,0,0],[0,-1,0],[0,0,0]];
+        mPosTR = TR * ssd1306XY/2 + [-2, -2, 0];
+        mPosTL = TL * ssd1306XY/2 + [+2, -2, 0];
+        mPosBR = BR * ssd1306XY/2 + [-2, +2, 0];
+        mPosBL = BL * ssd1306XY/2 + [+2, +2, 0];
     //absolute positions plus offset on PCB - UNUSED
         topDiff = 22.8 ; // TL to TR hole center - top diff=bottomDiff
         sideDiff = 23.5 ; // TR to BR hole center - LeftDiff=rightDiff
