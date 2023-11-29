@@ -21,6 +21,7 @@ pinR = 9.5 ; //The distance from the center that the pins should be at
 //ssd1306 variables
 ssd1306X = 26.9 ;
 ssd1306Y = 27.9 ;
+ssd1306off = [2,2,0] ; 
 ssd1306XY = [ssd1306X,ssd1306Y,0] ;
 ssd1306PCBH = 1.7 ;
 ssd1306PCBZ = [0, 0, ssd1306PCBH] ;
@@ -34,26 +35,22 @@ LCDmask = 4; //how much to cover up at the bottom
 LCDdim = [LCDX,LCDY,LCDZ]; //Dimensions
 LCDdimXY = [LCDX, LCDY, 0]; //XY Dimensions only without Z
 
-module ssd1306Holes(height,diameter) {
+module ssd1306Holes(XYdimensions,offset,height,diameter) {
     //mounting holes - no need to zdiff as centered
     //relative positions
-        TR= [[+1,0,0],[0,+1,0],[0,0,0]];
-        TL= [[-1,0,0],[0,+1,0],[0,0,0]];
-        BR= [[+1,0,0],[0,-1,0],[0,0,0]];
-        BL= [[-1,0,0],[0,-1,0],[0,0,0]];
-        mPosTR = TR * ssd1306XY/2 + [-2, -2, 0];
-        mPosTL = TL * ssd1306XY/2 + [+2, -2, 0];
-        mPosBR = BR * ssd1306XY/2 + [-2, +2, 0];
-        mPosBL = BL * ssd1306XY/2 + [+2, +2, 0];
-    //absolute positions plus offset on PCB - UNUSED
-        topDiff = 22.8 ; // TL to TR hole center - top diff=bottomDiff
-        sideDiff = 23.5 ; // TR to BR hole center - LeftDiff=rightDiff
-        leftOff = .8 ; //left hole is .8mm in
-        topOff = 1 ; // top hole is 1mm down
-    translate (mPosTR) cylinder(h=height,d=diameter,center=true);
-    translate (mPosTL) cylinder(h=height,d=diameter,center=true);
-    translate (mPosBR) cylinder(h=height,d=diameter,center=true);
-    translate (mPosBL) cylinder(h=height,d=diameter,center=true);
+        TR= [ [+1, 0, 0], [0, +1, 0], [0, 0, 0] ];
+        TL= [ [-1, 0, 0], [0, +1, 0], [0, 0, 0] ];
+        BR= [ [+1, 0, 0], [0, -1, 0], [0, 0, 0] ];
+        BL= [ [-1, 0, 0], [0, -1, 0], [0, 0, 0] ];
+        // move to TR then move back towards BL by offset etc 
+        mPosTR = (TR * XYdimensions/2) + (offset * BL) ;
+        mPosTL = (TL * XYdimensions/2) + (offset * BR) ;
+        mPosBR = (BR * XYdimensions/2) + (offset * TL) ;
+        mPosBL = (BL * XYdimensions/2) + (offset * TR) ;
+    translate (mPosTR) cylinder(h = height, d = diameter, center = true);
+    translate (mPosTL) cylinder(h = height, d = diameter, center = true);
+    translate (mPosBR) cylinder(h = height, d = diameter, center = true);
+    translate (mPosBL) cylinder(h = height, d = diameter, center = true);
 }
 
 module ssd1306(shrink) {
@@ -61,7 +58,7 @@ module ssd1306(shrink) {
         //ssd1306 PCB
         cube([ssd1306X-shrink,ssd1306Y-shrink,0]+ ssd1306PCBZ,center=true);
         //holes only needed for initial tests to see if alligned
-        *ssd1306Holes(ssd1306PCBH+diffWiggle,ssd1306mountD);
+        *ssd1306Holes(ssd1306XY,ssd1306off,ssd1306PCBH+diffWiggle,ssd1306mountD);
     }
 }
 
@@ -74,7 +71,7 @@ module ssd1306Harness(shrink) {
         translate([0,0,0]) cube([25,6,diffWiggle] + ssd1306PCBZ,center=true);
     }
     //add mounting pegs
-    translate([0,0,2.5]) ssd1306Holes(5,1.7);
+    translate([0,0,2.5]) ssd1306Holes(ssd1306XY,ssd1306off,5,1.7);
 }
 
 //plug inset
@@ -121,7 +118,7 @@ translate([0,0,30]) union() {
         translate([0, -LCDY /2 - LCDflexH /2 + diffWiggle, 0])
             cube([LCDflexW, LCDflexH+diffWiggle, coverThick + diffWiggle], center=true);
         //subtract mounting holes
-        ssd1306Holes(coverThick + diffWiggle,ssd1306mountD+.3);
+        ssd1306Holes(ssd1306XY,[2, 2, 0],coverThick + diffWiggle,ssd1306mountD+.3);
     }
 }
 
@@ -158,3 +155,10 @@ module vectorBox(){
 
 }
 *vectorBox();
+
+#translate([0,0,21]) color ([0,1,0]) difference(){ 
+    hull() {
+        ssd1306Holes(ssd1306XY,[0,0,0],1.7,.1);
+    }
+    ssd1306Holes(ssd1306XY,[2,2,0],5,1.7);
+}
