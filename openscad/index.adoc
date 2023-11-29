@@ -187,6 +187,19 @@ include::./Test/Test.scad[]
 ----
 
 
+==== Thinkpad_logo - 3D Object
+
+
+
+.image
+image::./openscad/Test/Thinkpad_logo.png[]
+
+.Openscad source
+----
+include::./Test/Thinkpad_logo.scad[]
+----
+
+
 ==== vectorbox-test - 3D Object
 
 
