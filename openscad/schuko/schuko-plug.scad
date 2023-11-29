@@ -21,6 +21,7 @@ pinR = 9.5 ; //The distance from the center that the pins should be at
 //ssd1306 variables
 ssd1306X = 26.9 ;
 ssd1306Y = 27.9 ;
+ssd1306XY = [ssd1306X,ssd1306Y,0] ;
 ssd1306PCBZ = 1.7 ;
 ssd1306mountD = 2 ;
 LCDX = 27.5 ; // left to right
@@ -35,10 +36,10 @@ LCDdimXY = [LCDX, LCDY, 0]; //XY Dimensions only without Z
 module ssd1306Holes(height,diameter) {
     //mounting holes - no need to zdiff as centered
     //relative positions
-        mPosTR = [ssd1306X/2-2,ssd1306Y/2-2,0];
-        mPosTL = [-ssd1306X/2+2,ssd1306Y/2-2,0];
-        mPosBR = [ssd1306X/2-2,-ssd1306Y/2+2,0];
-        mPosBL = [-ssd1306X/2+2,-ssd1306Y/2+2,0];
+        mPosTR = ssd1306XY/2 + [-2,-2,0];
+        mPosTL = ssd1306XY/2 + [+2,-2,0];
+        mPosBR = ssd1306XY/2 + [-2,+2,0];
+        mPosBL = ssd1306XY/2 + [+2,+2,0];
     //absolute positions plus offset on PCB - UNUSED
         topDiff = 22.8 ; // TL to TR hole center - top diff=bottomDiff
         sideDiff = 23.5 ; // TR to BR hole center - LeftDiff=rightDiff
@@ -53,7 +54,7 @@ module ssd1306Holes(height,diameter) {
 module ssd1306(shrink) {
     difference() {
         //ssd1306 PCB
-        cube([ssd1306X-shrink,ssd1306Y-shrink,ssd1306PCBZ],center=true);
+        cube([ssd1306X-shrink,ssd1306Y-shrink,0]+ ssd1306PCBZ,center=true);
         //holes only needed for initial tests to see if alligned
         *ssd1306Holes(ssd1306PCBZ+diffWiggle,ssd1306mountD);
     }
@@ -63,9 +64,9 @@ module ssd1306(shrink) {
 module ssd1306Harness(shrink) {
     difference() {
         ssd1306(shrink);
-        cube([22,22,ssd1306PCBZ+diffWiggle],center=true);
-        translate([0,12,0]) cube([15,3,ssd1306PCBZ+diffWiggle],center=true);
-        translate([0,0,0]) cube([25,6,ssd1306PCBZ+diffWiggle],center=true);
+        cube([22,22,diffWiggle] + ssd1306PCBZ,center=true);
+        translate([0,12,0]) cube([15,3,diffWiggle] + ssd1306PCBZ,center=true);
+        translate([0,0,0]) cube([25,6,diffWiggle] + ssd1306PCBZ,center=true);
     }
     //add mounting pegs
     translate([0,0,2.5]) ssd1306Holes(5,1.7);
@@ -121,20 +122,34 @@ translate([0,0,30]) union() {
 
 module vectorBox(){
     //just a small demonstrator for vector subtraction and addition
+    // as things can get complicated with single unit variables the below shows how it can be abstracted and simplified
+
+    //inside side length
     inSize = 10 ;
+    //wall thickness
+    wallThick = .5;
+
+    //the vectors predefined
+    inSizeA = [inSize,inSize,inSize] ;
     inSizeX = [inSize,0,0] ;
     inSizeY = [0,inSize,0] ;
     inSizeZ = [0,0,inSize] ;
-    wallThick = .5;
     offset = wallThick * 2 ;
     offsetA = [offset,offset,offset] ;
     offsetX = [offset,0,0] ;
     offsetY = [0,offset,0] ;
     offsetZ = [0,0,offset] ;
+    offsetZY = offsetZ + offsetY ;
+    offsetZX = offsetZ + offsetX ;
+    offsetXY = offestX + offsetY ;
+    
     difference() {
-        cube(inSizeX + inSizeY + inSizeZ + offsetA);
-        translate((offsetX + offsetZ)/2 - diffWiggleY/2) 
-            cube(inSizeX + inSizeY + inSizeZ + offsetY + diffWiggleY);
+        //total volume cube
+        cube(inSizeA + offsetA);
+        //inside volume cube
+        translate((offsetZX)/2 - diffWiggleY/2) 
+            cube(inSizeA + offsetY + diffWiggleY);
     }
+
 }
 *vectorBox();
