@@ -187,6 +187,19 @@ include::./Test/Test.scad[]
 ----
 
 
+==== vectorbox-test - 3D Object
+
+
+
+.image
+image::./openscad/Test/vectorbox-test.png[]
+
+.Openscad source
+----
+include::./Test/vectorbox-test.scad[]
+----
+
+
 === ThingsByOthers - Project
 
 
