@@ -5,6 +5,7 @@ plugTopD = 42; //diameter of top cover
 plugTopH = 2; //2mm rim height of top cover
 plugTopOff = 16.8 ; //from bottom to top rim
 diffWiggle = .2;
+diffWiggleA = [diffWiggle, diffWiggle, diffWiggle];
 diffWiggleX = [diffWiggle, 0, 0];
 diffWiggleY = [0, diffWiggle, 0];
 diffWiggleZ = [0, 0, diffWiggle];
@@ -16,7 +17,7 @@ zdiff = [0,0,-diffWiggle/2];
 cutCube = 8;
 cubeXY = plugBottomD-(plugSideCutH+9);
 cubeFloor = 2;
-pinR = 9.5 ; //The distance from the center that the pins should be at
+pinR = 9.5 ; //The distance from the center that the 220v power pins should be at
 
 //ssd1306 variables
 ssd1306X = 26.9 ;
@@ -120,7 +121,9 @@ module plug() {
     difference () {
         union() {
             difference() {
+                //Plug
                 cylinder(h=plugBottomH,d=plugBottomD);
+                //Cut the guide left and right
                     cutOffTR=[(plugBottomD/2)-plugSideCutH,plugSideCutW/2,0];
                     cutOffTL=[-((plugBottomD/2)+plugSideCutH)+plugSideCutH,plugSideCutW/2,0];
                     cutOffBR=[(plugBottomD/2)-plugSideCutH,-(plugSideCutW/2)-cutCube,0];
@@ -131,30 +134,28 @@ module plug() {
                 translate(cutOffBR+zdiff)cube(cutCube);
                 translate(cutOffBL+zdiff)cube(cutCube);
             }
+            // add a top rim
             translate([0,0,plugTopOff]) cylinder(h=plugTopH, d=plugTopD);
         }
-        //cube cutout
-        translate([0,0,height/2+cubeFloor])cube([cubeXY,cubeXY,height],center=true);
-        //punch holes for cabling where pins should be
+        //cube cutout for inner volume
+        translate([0, 0, height/2 + cubeFloor]) cube([cubeXY, cubeXY, height], center = true);
+        //punch holes for cabling where 220v power pins should be
         translate([pinR,0,0])translate(zdiff) cylinder(h=cubeFloor+diffWiggle,d=6);
         translate([-pinR,0,0])translate(zdiff) cylinder(h=cubeFloor+diffWiggle,d=6);
+        //make room for the PCB
         translate([0,0,plugTopOff+1]) PCB([1, 1, 0]);
         translate([0,0,plugTopOff+2]) PCB([1, 1, 0]);
     }
-
-    //harness
+    //add in the harness
     translate([0,0,plugTopOff-.7]) ssd1306Harness([-1, -1, 0]);
 }
+//
 // OUTPUT
-plug();
-translate([0,0,25]) ssd1306 ( ssd1306PCBdim, LCDdim, FLEXdim, [0, 0, 0], [0, 0, 0] );
-translate([0,0,33]) cover();
+//
 
-//aprroximation of the ssd1306
-*translate([0,0,21]) difference(){ 
-    hull() {
-        pegs(ssd1306XY,[0,0,0],1.7,.1);
-    }
-    pegs(ssd1306XY,ssd1306off,5,1.7);
-}
-
+//plug
+    plug();
+//SSD1306 LCD
+    translate([0,0,25]) ssd1306 ( ssd1306PCBdim, LCDdim, FLEXdim, [0, 0, 0], [0, 0, 0] );
+//top cover
+    translate([0,0,33]) cover();
