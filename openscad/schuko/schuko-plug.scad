@@ -22,7 +22,8 @@ pinR = 9.5 ; //The distance from the center that the pins should be at
 ssd1306X = 26.9 ;
 ssd1306Y = 27.9 ;
 ssd1306XY = [ssd1306X,ssd1306Y,0] ;
-ssd1306PCBZ = 1.7 ;
+ssd1306PCBH = 1.7 ;
+ssd1306PCBZ = [0, 0, ssd1306PCBH] ;
 ssd1306mountD = 2 ;
 LCDX = 27.5 ; // left to right
 LCDY = 20 ; // topR to bottomR
@@ -56,7 +57,7 @@ module ssd1306(shrink) {
         //ssd1306 PCB
         cube([ssd1306X-shrink,ssd1306Y-shrink,0]+ ssd1306PCBZ,center=true);
         //holes only needed for initial tests to see if alligned
-        *ssd1306Holes(ssd1306PCBZ+diffWiggle,ssd1306mountD);
+        *ssd1306Holes(ssd1306PCBH+diffWiggle,ssd1306mountD);
     }
 }
 
