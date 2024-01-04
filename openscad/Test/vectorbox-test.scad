@@ -19,7 +19,9 @@ module vectorBox(){
     offsetZ = [0,0,offset] ;
     offsetZY = offsetZ + offsetY ;
     offsetZX = offsetZ + offsetX ;
-    offsetXY = offestX + offsetY ;
+    offsetXY = offsetX + offsetY ;
+    diffWiggle = .1 ;
+    diffWiggleY = [0,diffWiggle,0] ;
     
     difference() {
         //total volume cube
