@@ -16,7 +16,7 @@ bumpRL = 1.25 ;
     bumpRad = cornerR ;
 
 // Temp handle
-cylinder(h=20,d=3);
+* cylinder(h=20,d=3);
 
 hull() {
     //Corners
