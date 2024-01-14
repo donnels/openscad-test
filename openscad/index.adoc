@@ -151,6 +151,19 @@ include::./RollHolder/rollholder.scad[]
 ----
 
 
+==== stopfen - 3D Object
+
+
+
+.image
+image::./openscad/RollHolder/stopfen.png[]
+
+.Openscad source
+----
+include::./RollHolder/stopfen.scad[]
+----
+
+
 === SWD - Project
 
 
