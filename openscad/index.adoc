@@ -598,6 +598,19 @@ include::./midleton/midletoninset.scad[]
 ----
 
 
+==== test - 3D Object
+
+
+
+.image
+image::./openscad/midleton/test.png[]
+
+.Openscad source
+----
+include::./midleton/test.scad[]
+----
+
+
 === modelTruckRepair - Project
 
 
