@@ -1,7 +1,7 @@
 $fn=100;
 screwX=91.5;
 screwY=56.5;
-screwD=2;
+screwD=4;
 
 //inside of midleton wooden box with double doors
 totHeight = 2 ;
@@ -32,4 +32,12 @@ difference() {
 		}
 	}
 	translate([4.1,4.1,0]) cylinder(h=DIM.z+.1,d=screwD,center=true);
+    notchW=10;
+    notchOFF=18;
+    translate ([notchOFF + (notchW/2), 0, 0]) cube([notchW, 2*2, DIM.z + .1], center=true);
+    translate ([DIM.x - notchOFF - (notchW/2), 0, 0]) cube([notchW, 2*2, DIM.z + .1], center=true);
+    translate ([notchOFF + (notchW/2), DIM.y, 0]) cube([notchW, 2*2, DIM.z + .1], center=true);
+    translate ([DIM.x - notchOFF - (notchW/2), DIM.y, 0]) cube([notchW, 2*2, DIM.z + .1], center=true);
+
+
 }
