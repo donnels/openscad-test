@@ -10,7 +10,7 @@ wiggle = [1.25, 1, 1] ;
 volume = dimensions - wiggle ;
 
 // Corner strength
-Blob = [3^,3,3] ;
+Blob = [3,3,3] ;
 // Outside dimensions
 //DIM = [100, 200, 200] ;
 DIM = volume - [0,0,4*(volume.z/5)];
