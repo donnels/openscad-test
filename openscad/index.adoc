@@ -845,6 +845,24 @@ include::./powercover/corner-powercover.scad[]
 ----
 
 
+=== projector - Project
+
+
+
+
+==== lid - 3D Object
+
+
+
+.image
+image::./openscad/projector/lid.png[]
+
+.Openscad source
+----
+include::./projector/lid.scad[]
+----
+
+
 === rack - Project
 
 
