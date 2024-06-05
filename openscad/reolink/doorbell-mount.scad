@@ -1,29 +1,48 @@
 $fn=100;
-baseH=.5;
+baseH=5;
 baseD=100;
 baseL=200;
-translate([0,baseD/2,0]) hull(){
-    cylinder(h=baseH,d=baseD);
-    translate([0,baseL-baseD,0]) cylinder(h=baseH,d=baseD);
-}
+holeSpacing=95;
+screwSpacing=75;
+mountD=2.5;
+flaringD1=3.5;
+flaringD2=7;
 module BLOCKTEXT (content,pos) {
 	translate(pos)
 		linear_extrude(height = 2) 
 			text(content, size = 7, direction = "ltr", spacing = 1, valign="center",halign="center");
 }
-BLOCKTEXT("KLINGEL",[0,baseD/4,0]);
-BLOCKTEXT("DONNELLAN",[0,baseL-baseD/4,0]);
 
-screwSpacing=75;
-//bottom screw
-translate([0,baseL/2-screwSpacing/2,0]) cylinder(h=2,d=2);
-translate([-15,baseL/2-screwSpacing/2,0]) cylinder(h=1.5,d=2);
-translate([+15,baseL/2-screwSpacing/2,0]) cylinder(h=1.5,d=2);
-//top screw
-translate([0,baseL/2+screwSpacing/2,0]) cylinder(h=2,d=2);
-translate([-15,baseL/2+screwSpacing/2,0]) cylinder(h=1.5,d=2);
-translate([+15,baseL/2+screwSpacing/2,0]) cylinder(h=1.5,d=2);
+//mounting plate
+module doorbell () {
+	difference () {
+		//plate
+		translate([0,baseD/2,0]) hull(){
+			cylinder(h=baseH,d=baseD);
+			translate([0,baseL-baseD,0]) cylinder(h=baseH,d=baseD);
+		}
+		BLOCKTEXT("KLINGEL",[0,baseD/4,baseH]);
+		BLOCKTEXT("DONNELLAN",[0,baseL-baseD/4,baseH]);
+		//screwholes
+		translate([0,baseL/2-holeSpacing/2,-.1]) cylinder(h=baseH+.2,d=flaringD1);
+		translate([0,baseL/2-holeSpacing/2,baseH-2+.1]) cylinder(h=2,d1=flaringD1,d2=flaringD2);
+		translate([0,baseL/2+holeSpacing/2,-.1]) cylinder(h=baseH+.2,d=flaringD1);
+		translate([0,baseL/2+holeSpacing/2,baseH-2+.1]) cylinder(h=2,d1=flaringD1,d2=flaringD2);
+		//mount holes
+		translate([0.8,baseL/2-screwSpacing/2,0]) rotate([0,-12.5,0]) translate([0,0,-1])cylinder(h=baseH+2,d=mountD);
+		translate([0.8,baseL/2+screwSpacing/2,0]) rotate([0,-12.5,0]) translate([0,0,-1])cylinder(h=baseH+2,d=mountD);
+		//cable truss
+		translate([0,baseL/2-15,-.1]) cylinder(h=baseH+.2,d=30);
+	}
+	//bottom mount tabs
+	translate([-15,baseL/2-screwSpacing/2,baseH]) cylinder(h=1.5,d=2);
+	translate([+15,baseL/2-screwSpacing/2,baseH]) cylinder(h=1.5,d=2);
+	//top mount tabs
+	translate([-15,baseL/2+screwSpacing/2,baseH]) cylinder(h=1.5,d=2);
+	translate([+15,baseL/2+screwSpacing/2,baseH]) cylinder(h=1.5,d=2);
+}
 
+doorbell();
 *translate([0,60,baseH]) color([0,0,0])
 hull(){
     cylinder(h=20,d=50);
