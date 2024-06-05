@@ -21,8 +21,8 @@ module doorbell () {
 			cylinder(h=baseH,d=baseD);
 			translate([0,baseL-baseD,0]) cylinder(h=baseH,d=baseD);
 		}
-		BLOCKTEXT("KLINGEL",[0,baseD/4,baseH]);
-		BLOCKTEXT("DONNELLAN",[0,baseL-baseD/4,baseH]);
+		BLOCKTEXT("KLINGEL",[0,baseD/4,baseH-1.5]);
+		BLOCKTEXT("DONNELLAN",[0,baseL-baseD/4,baseH-1.5]);
 		//screwholes
 		translate([0,baseL/2-holeSpacing/2,-.1]) cylinder(h=baseH+.2,d=flaringD1);
 		translate([0,baseL/2-holeSpacing/2,baseH-2+.1]) cylinder(h=2,d1=flaringD1,d2=flaringD2);
