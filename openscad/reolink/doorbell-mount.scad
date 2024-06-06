@@ -6,8 +6,8 @@ holeSpacing=95;
 screwSpacing=75;
 mountD=2.5;
 flaringD1=3.5;
-flaringH=3.4;
-flaringD2=8.5;
+flaringH=3;
+flaringD2=8;
 module BLOCKTEXT (content,pos) {
 	translate(pos)
 		linear_extrude(height = 2) 
@@ -37,8 +37,8 @@ module doorbell () {
 		BLOCKTEXT("KLINGEL",[0,baseD/4,baseH-1.5]);
 		BLOCKTEXT("DONNELLAN",[0,baseL-baseD/4,baseH-1.5]);
 		//screwholes
-		translate([0,0,-1]+[0,baseL/2-holeSpacing/2,baseH]) ScrewHole(10,8,3,5,3.5);
-		translate([0,0,-1]+[0,baseL/2+holeSpacing/2,baseH]) ScrewHole(10,8,3,5,3.5);
+		translate([0,0,-1]+[0,baseL/2-holeSpacing/2,baseH]) ScrewHole(10,flaringD2,flaringH,5,flaringD1);
+		translate([0,0,-1]+[0,baseL/2+holeSpacing/2,baseH]) ScrewHole(10,flaringD2,flaringH,5,flaringD1);
 		//mount holes
 		translate([1.7,baseL/2-screwSpacing/2,0]) rotate([0,-12.5,0]) translate([0,0,-1])cylinder(h=baseH+2,d=mountD);
 		translate([1.7,baseL/2+screwSpacing/2,0]) rotate([0,-12.5,0]) translate([0,0,-1])cylinder(h=baseH+2,d=mountD);
