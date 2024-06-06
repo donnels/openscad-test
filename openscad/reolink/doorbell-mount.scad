@@ -6,7 +6,7 @@ holeSpacing=95;
 screwSpacing=75;
 mountD=2.5;
 flaringD1=3.5;
-flaringH=3;
+flaringH=3.2;
 flaringD2=8.5;
 module BLOCKTEXT (content,pos) {
 	translate(pos)
@@ -43,7 +43,10 @@ module doorbell () {
 	translate([+15,baseL/2+screwSpacing/2,baseH]) cylinder(h=1.5,d=2);
 }
 
-doorbell();
+//intersection() {
+	doorbell();
+//	translate([0,52.5,0]) cylinder(h=20,d=15);
+//}
 *translate([0,60,baseH]) color([0,0,0])
 hull(){
     cylinder(h=20,d=50);
