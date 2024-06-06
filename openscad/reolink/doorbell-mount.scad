@@ -8,10 +8,12 @@ mountD=2.5;
 flaringD1=3.5;
 flaringH=3;
 flaringD2=8;
+textTop="DONNELLAN";
+textBottom="KLINGEL";
 module BLOCKTEXT (content,pos) {
 	translate(pos)
 		linear_extrude(height = 2) 
-			text(content, size = 7, direction = "ltr", spacing = 1, valign="center",halign="center");
+			text(content, size = 7, direction = "ltr", spacing = 1, valign="center",halign="center", font = "DejaVu Serif:style=bold");
 }
 module ScrewHole (topH,topD,flaringH,shaftH,shaftD) {
 	//screw is relative to the top of the flaring
@@ -34,8 +36,8 @@ module doorbell () {
 			cylinder(h=baseH,d=baseD);
 			translate([0,baseL-baseD,0]) cylinder(h=baseH,d=baseD);
 		}
-		BLOCKTEXT("KLINGEL",[0,baseD/4,baseH-1.5]);
-		BLOCKTEXT("DONNELLAN",[0,baseL-baseD/4,baseH-1.5]);
+		BLOCKTEXT(textBottom,[0,baseD/6,baseH-.25]);
+		BLOCKTEXT(textTop,[0,baseL-baseD/4,baseH-.25]);
 		//screwholes
 		translate([0,0,-1]+[0,baseL/2-holeSpacing/2,baseH]) ScrewHole(10,flaringD2,flaringH,5,flaringD1);
 		translate([0,0,-1]+[0,baseL/2+holeSpacing/2,baseH]) ScrewHole(10,flaringD2,flaringH,5,flaringD1);
