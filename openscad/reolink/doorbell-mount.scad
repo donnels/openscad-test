@@ -6,7 +6,7 @@ holeSpacing=95;
 screwSpacing=75;
 mountD=2.5;
 flaringD1=3.5;
-flaringH=3.2;
+flaringH=3.4;
 flaringD2=8.5;
 module BLOCKTEXT (content,pos) {
 	translate(pos)
