@@ -45,7 +45,8 @@ module doorbell () {
 
 //intersection() {
 	doorbell();
-//	translate([0,52.5,0]) cylinder(h=20,d=15);
+	*translate([0,52.5,0]) cylinder(h=20,d=15);
+	*translate([-5,42.5,0]) cube([10,10,20]);
 //}
 *translate([0,60,baseH]) color([0,0,0])
 hull(){
