@@ -6,7 +6,8 @@ holeSpacing=95;
 screwSpacing=75;
 mountD=2.5;
 flaringD1=3.5;
-flaringD2=7;
+flaringH=3;
+flaringD2=8.5;
 module BLOCKTEXT (content,pos) {
 	translate(pos)
 		linear_extrude(height = 2) 
@@ -25,19 +26,19 @@ module doorbell () {
 		BLOCKTEXT("DONNELLAN",[0,baseL-baseD/4,baseH-1.5]);
 		//screwholes
 		translate([0,baseL/2-holeSpacing/2,-.1]) cylinder(h=baseH+.2,d=flaringD1);
-		translate([0,baseL/2-holeSpacing/2,baseH-2+.1]) cylinder(h=2,d1=flaringD1,d2=flaringD2);
+		translate([0,baseL/2-holeSpacing/2,baseH-flaringH+.1]) cylinder(h=flaringH,d1=flaringD1,d2=flaringD2);
 		translate([0,baseL/2+holeSpacing/2,-.1]) cylinder(h=baseH+.2,d=flaringD1);
-		translate([0,baseL/2+holeSpacing/2,baseH-2+.1]) cylinder(h=2,d1=flaringD1,d2=flaringD2);
+		translate([0,baseL/2+holeSpacing/2,baseH-flaringH+.1]) cylinder(h=flaringH,d1=flaringD1,d2=flaringD2);
 		//mount holes
 		translate([0.8,baseL/2-screwSpacing/2,0]) rotate([0,-12.5,0]) translate([0,0,-1])cylinder(h=baseH+2,d=mountD);
 		translate([0.8,baseL/2+screwSpacing/2,0]) rotate([0,-12.5,0]) translate([0,0,-1])cylinder(h=baseH+2,d=mountD);
 		//cable truss
 		translate([0,baseL/2-15,-.1]) cylinder(h=baseH+.2,d=30);
 	}
-	//bottom mount tabs
+	//bottom mount alignment tabs
 	translate([-15,baseL/2-screwSpacing/2,baseH]) cylinder(h=1.5,d=2);
 	translate([+15,baseL/2-screwSpacing/2,baseH]) cylinder(h=1.5,d=2);
-	//top mount tabs
+	//top mount alignment tabs
 	translate([-15,baseL/2+screwSpacing/2,baseH]) cylinder(h=1.5,d=2);
 	translate([+15,baseL/2+screwSpacing/2,baseH]) cylinder(h=1.5,d=2);
 }
