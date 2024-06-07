@@ -327,6 +327,24 @@ include::./balcony-storage/microshed.scad[]
 ----
 
 
+=== bcn3d - Project
+
+
+
+
+==== bcn3d-cam-mount - 3D Object
+
+
+
+.image
+image::./openscad/bcn3d/bcn3d-cam-mount.png[]
+
+.Openscad source
+----
+include::./bcn3d/bcn3d-cam-mount.scad[]
+----
+
+
 === bins - Project
 
 
