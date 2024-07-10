@@ -84,6 +84,19 @@ include::./Ikea-Repair/ikeabung.scad[]
 
 
 
+==== geekworm - 3D Object
+
+
+
+.image
+image::./openscad/Jetson/geekworm.png[]
+
+.Openscad source
+----
+include::./Jetson/geekworm.scad[]
+----
+
+
 ==== power-ring - 3D Object
 
 
