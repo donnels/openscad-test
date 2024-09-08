@@ -327,6 +327,19 @@ include::./Vacuum-rig-adapter/Hose_Adaptor.scad[]
 
 
 
+==== Solar-equip-cover - 3D Object
+
+
+
+.image
+image::./openscad/balcony-storage/Solar-equip-cover.png[]
+
+.Openscad source
+----
+include::./balcony-storage/Solar-equip-cover.scad[]
+----
+
+
 ==== microshed - 3D Object
 
 
