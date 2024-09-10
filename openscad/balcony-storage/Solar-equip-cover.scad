@@ -82,9 +82,9 @@ module armL() {
     cube([70,baseX,5]);
 }
 
-*shelf();
-*translate([11,50,0]) components();
+#shelf();
+#translate([11,50,0]) components();
 
-*translate([0,212,0]) armL();
+translate([0,212,0]) armL();
 
-cover();
+*cover();
