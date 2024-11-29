@@ -504,6 +504,19 @@ include::./desk/fastener.scad[]
 
 
 
+==== Freez-ring - 3D Object
+
+
+
+.image
+image::./openscad/fritzring/Freez-ring.png[]
+
+.Openscad source
+----
+include::./fritzring/Freez-ring.scad[]
+----
+
+
 ==== fritzcolaadapter - 3D Object
 
 
