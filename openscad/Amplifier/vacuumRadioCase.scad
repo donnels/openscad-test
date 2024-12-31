@@ -24,7 +24,7 @@ module lid(){
 
 
 module pot(text) {
-    x=11;y=11;z=5;
+    x=11;y=10;z=5;
     cylD=6.5;cylH=17;
     zWiggle=.1;
     translate([0,0,z/2-zWiggle]) cube([x,y,z+zWiggle],center=true);
@@ -36,12 +36,13 @@ module pot(text) {
 
 module speaker() {
     zWiggle = .1 ;
-    outerD  = 35.5  ; innerD = 32.5 ;
+    outerD  = 36  ; innerD1 = 32.5 ; innerD2 = 34 ;
     outerH  = 3     ; innerH = 12 ;
-    translate([0,0,9]) cylinder(h=3,d=outerD);
-    cylinder(h=innerH + zWiggle, d=innerD);
+    connectorD = 35.5 ;
+    translate([0,0,9]) cylinder(h=outerH,d=outerD);
+    cylinder(h=innerH + zWiggle, d1=innerD1, d2=innerD2);
     intersection() {
-        color([1,1,1]) cylinder(h=innerH,d=35);
+        color([1,1,1]) cylinder(h=innerH,d=connectorD);
         translate([0,-outerD/4,0]) cube([outerD,outerD/2,innerH]);
     }
 }
