@@ -20,6 +20,19 @@ include::./Amplifier/VacuumPreAmplifierBase.scad[]
 ----
 
 
+==== vacuumRadioCase - 3D Object
+
+
+
+.image
+image::./openscad/Amplifier/vacuumRadioCase.png[]
+
+.Openscad source
+----
+include::./Amplifier/vacuumRadioCase.scad[]
+----
+
+
 === Axle - Project
 
 
