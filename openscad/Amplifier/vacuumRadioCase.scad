@@ -36,7 +36,7 @@ module pot(text) {
 
 module speaker() {
     zWiggle = .1 ;
-    outerD  = 36  ; innerD1 = 32.5 ; innerD2 = 34 ;
+    outerD  = 36.5  ; innerD1 = 32.5 ; innerD2 = 35 ;
     outerH  = 3     ; innerH = 12 ;
     connectorD = 35.5 ;
     translate([0,0,9]) cylinder(h=outerH,d=outerD);
@@ -47,13 +47,23 @@ module speaker() {
     }
 }
 
+module headJack(text) {
+    upperD = 6 ; upperH = 4.8 ;
+    lowerD = 8 ; lowerH = 11 ;
+    nutH   = 2 ; nutD   = 8 ;
+    translate([0,0,lowerH + upperH - nutH]) cylinder(h=nutH , d=nutD);
+    cylinder(h=upperH + lowerH, d=upperD);
+    cylinder(h=lowerH, d=lowerD);
+}
+
 //tests
 difference() {
     zWiggle = .1 ;
     translate ([-20,-60,0]) cube([40,60,zOff+ringH]);
     translate([0,0,-zWiggle]) union(){
-        translate ([-10,-10,0]) pot();
+        translate ([-10,-10,0]) pot("test");
         translate ([0,-40,0]) speaker();
+        translate ([2,-10,-4.5]) headJack("test");
     }
 }
 
