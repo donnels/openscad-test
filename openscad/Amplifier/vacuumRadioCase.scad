@@ -49,9 +49,18 @@ module speaker() {
 
 module headJack(text) {
     upperD = 6 ; upperH = 4.8 ;
-    lowerD = 8 ; lowerH = 11 ;
+    lowerD = 8.5 ; lowerH = 11 ;
     nutH   = 2 ; nutD   = 8 ;
     translate([0,0,lowerH + upperH - nutH]) cylinder(h=nutH , d=nutD);
+    cylinder(h=upperH + lowerH, d=upperD);
+    cylinder(h=lowerH, d=lowerD);
+}
+
+module toggleSwitch(text) {
+    upperD = 6 ; upperH = 4.8 ;
+    lowerD = 8.5 ; lowerH = 11 ;
+    nutH   = 2 ; nutD   = 8 ;
+    translate([0,0,lowerH + upperH - nutH]) cylinder(h=nutH , d=nutD,$fn=6);
     cylinder(h=upperH + lowerH, d=upperD);
     cylinder(h=lowerH, d=lowerD);
 }
@@ -59,11 +68,13 @@ module headJack(text) {
 //tests
 difference() {
     zWiggle = .1 ;
-    translate ([-20,-60,0]) cube([40,60,zOff+ringH]);
+    rigX = 40 ; rigY = 70 ;
+    translate ([-rigX/2,-rigY,0]) cube([rigX,rigY,zOff+ringH]);
     translate([0,0,-zWiggle]) union(){
-        translate ([-10,-10,0]) pot("test");
-        translate ([0,-40,0]) speaker();
-        translate ([2,-10,-4.5]) headJack("test");
+        #translate ([-10,-10,0]) pot("test");
+        #translate ([0,-50,0]) speaker();
+        #translate ([12,-10,-4.5]) headJack("test");
+        #translate ([12,-20,-4.5]) toggleSwitch("test");
     }
 }
 
