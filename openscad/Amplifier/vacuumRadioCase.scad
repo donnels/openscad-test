@@ -10,11 +10,13 @@ innerD = 104 ;
 ringW = 7.3 ;
 ringH = 3 ;
 
+groundZero = 10 ;
+
 xOff = (baseW - innerW) /2 ;
 yOff = (baseD - innerD) /2 ;
 zOff = 6 ;
 
-version = "V6" ;
+version = "V7" ;
 
 module lid(){
     translate([0,0,ringH]) difference(){
@@ -137,8 +139,8 @@ module tubeMount(text) {
     twiddle = [0,0,0] ;
     zWiggle = .1 ;
     upperD = 18.5 ; upperH = 4 ;
-    lowerD = 16.8 ; lowerH = 10 ;
-    screwH = 5 ; screwD = 3 ; screwSpace = 22 ;
+    lowerD = 16.8 ; lowerH = 11 ;
+    screwH = 5 ; screwD = 2.5 ; screwSpace = 22.5 ;
     totH = upperH + lowerH ;
     translate([0,0,-lowerH] + twiddle) {
         translate([0,0,lowerH]) cylinder(h=upperH, d=upperD);
@@ -149,38 +151,91 @@ module tubeMount(text) {
 }
 //tubeMount();
     
-//tests
-difference() {
-    zWiggle = .1 ;
-    rigX = 40 ; rigY = 105 ;
-    translate ([-rigX/2,-rigY,-zOff-ringH]) cube([rigX,rigY,zOff+ringH]);
-    //pot
-    translate ([-10,-10,0]) pot("test");
-    //speaker
-    translate ([0,-60,+zWiggle]) speaker();
-    //jack
-    translate ([12,-10,0]) headJack("test");
-    //toggle
-    translate ([12,-25,0]) toggleSwitch("test");
-    //test text
-    translate([12,-19]) emboss("on",5);
-    translate([12,-31]) emboss("off",5);
-    translate([12,-100]) emboss(version,5);
-    //trimcap
-    translate([0,-90,0]) trimko("test");
-    //tubemount
-    translate([-6,-30,0]) tubeMount("test");
+//tests - demo board with one of each component
+union(){
+    difference() {
+        zWiggle = .1 ;
+        rigX = 40 ; rigY = 105 ;
+        translate ([-rigX/2,-rigY,-zOff-ringH]) cube([rigX,rigY,zOff+ringH]);
+        //pot
+        translate ([-10,-10,0]) pot("test");
+        //speaker
+        translate ([0,-60,+zWiggle]) speaker();
+        //jack
+        translate ([12,-10,0]) headJack("test");
+        //toggle
+        translate ([12,-25,0]) toggleSwitch("test");
+        //test text
+        translate([12,-19,0]) emboss("on",5);
+        translate([12,-31,0]) emboss("off",5);
+        translate([12,-100,0]) emboss(version,5);
+        //trimcap
+        translate([0,-90,0]) trimko("trest");
+        //tubemount
+        translate([-6,-30,0]) tubeMount("test");
+        }
+    *color("red",.5) union(){
+        //pot
+        translate ([-10,-10,0]) pot("test");
+        //speaker
+        translate ([0,-60,.2]) speaker();
+        //jack
+        translate ([12,-10,0]) headJack("test");
+        //toggle
+        translate ([12,-25,0]) toggleSwitch("test");
+        //test text
+        translate([12,-19,0]) emboss("on",5);
+        translate([12,-31,0]) emboss("off",5);
+        translate([12,-100,0]) emboss(version,5);
+        //trimcap
+        translate([0,-90,0]) trimko("test");
+        //tubemount
+        translate([-6,-30,0]) tubeMount("test");
+    }
 }
 
 //normal print
 *difference() {
     zWiggle=.1;
     lid();
-    //pot 1
-    translate([20,baseD/2,0]) pot("pot 1");
-    //pot 2
-    translate([50,baseD/2,0]) pot("pot 2");
-    //speaker
-    translate([100,baseD/2,-zWiggle -2]) speaker();
+    translate([0,0,groundZero]) union(){
+        translate([10,10,0]) emboss(version,5);
+        //pot
+        translate ([45,55,0]) pot("pot1");
+        translate([45,65,0]) emboss("Trim",5);
+        //speaker
+        translate([85,52,0]) emboss("Speaker",5);
+        translate ([85,30,.1]) speaker();
+        //jack
+        translate ([20,55,0]) headJack("jack1");
+        translate([20,65,0]) emboss("Phones",5);
+        //pot
+        translate ([20,25,0]) pot("pot2");
+        translate([20,35,0]) emboss("Vol",5);
+        //toggle batt/ext
+        translate ([20,92,0]) toggleSwitch("toggle");
+        translate([20,106,0]) emboss("Power",5);
+        translate([20,100,0]) emboss("Ext",5);
+        translate([20,82,0]) emboss("Batt",5);
+        //toggle power
+        translate ([45,92,0]) toggleSwitch("toggle");
+        translate([45,106,0]) emboss("Radio",5);
+        translate([45,100,0]) emboss("on",5);
+        translate([45,82,0]) emboss("off",5);
+        //toggle Amp
+        translate ([45,25,0]) toggleSwitch("toggle");
+        translate([45,39,0]) emboss("Amp",5);
+        translate([45,33,0]) emboss("on",5);
+        translate([45,16,0]) emboss("off",5);
+        //trimcap
+        translate([85,82,0]) trimko("test");
+        translate([85,106,0]) emboss("Tune",5);
+        //tubemount Amp
+        translate([140,25,0]) tubeMount("test");
+        translate([140,40,0]) emboss("Amp Tube",5);
+        //tubemount Radio
+        translate([140,90,0]) tubeMount("test");
+        translate([140,105,0]) emboss("Radio Tube",5);
+    }
  
 }
