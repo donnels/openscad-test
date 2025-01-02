@@ -14,6 +14,8 @@ xOff = (baseW - innerW) /2 ;
 yOff = (baseD - innerD) /2 ;
 zOff = 6 ;
 
+version = "V6" ;
+
 module lid(){
     translate([0,0,ringH]) difference(){
         cube([baseW,baseD,baseH]);
@@ -115,7 +117,7 @@ module toggleSwitch(text) {
     upperD = 6 ; upperH = 9 ;
     nutH   = 2 ; nutD   = 8 ;
     toggleH = 10 ; toggleD =1.5 ; toggleAngle = 10 ;
-    toggleBody = [13,12,14] ; toggleBodyOff = [0,0,toggleBody.z/2] ;
+    toggleBody = [12,13,14] ; toggleBodyOff = [0,0,toggleBody.z/2] ;
     totH = toggleBody.z + upperH ;
     translate([0,0,-totH + nutH] + twiddle) {
         //Nut
@@ -123,7 +125,7 @@ module toggleSwitch(text) {
         //upper part
         cylinder(h=upperH + toggleBody.z, d=upperD);
         //toggle
-        translate([0,0,toggleBody.z + upperH]) rotate([0,toggleAngle,0]) cylinder(h=toggleH, d=toggleD);
+        translate([0,0,toggleBody.z + upperH]) rotate([-toggleAngle,0,0]) cylinder(h=toggleH, d=toggleD);
         translate(toggleBodyOff) cube(toggleBody,center=true);
     }
 }
@@ -135,7 +137,7 @@ module tubeMount(text) {
     twiddle = [0,0,0] ;
     zWiggle = .1 ;
     upperD = 18.5 ; upperH = 4 ;
-    lowerD = 16 ; lowerH = 10 ;
+    lowerD = 16.8 ; lowerH = 10 ;
     screwH = 5 ; screwD = 3 ; screwSpace = 22 ;
     totH = upperH + lowerH ;
     translate([0,0,-lowerH] + twiddle) {
@@ -150,12 +152,12 @@ module tubeMount(text) {
 //tests
 difference() {
     zWiggle = .1 ;
-    rigX = 40 ; rigY = 95 ;
-    #translate ([-rigX/2,-rigY,-zOff-ringH]) cube([rigX,rigY,zOff+ringH]);
+    rigX = 40 ; rigY = 105 ;
+    translate ([-rigX/2,-rigY,-zOff-ringH]) cube([rigX,rigY,zOff+ringH]);
     //pot
     translate ([-10,-10,0]) pot("test");
     //speaker
-    translate ([0,-50,+zWiggle]) speaker();
+    translate ([0,-60,+zWiggle]) speaker();
     //jack
     translate ([12,-10,0]) headJack("test");
     //toggle
@@ -163,11 +165,12 @@ difference() {
     //test text
     translate([12,-19]) emboss("on",5);
     translate([12,-31]) emboss("off",5);
+    translate([12,-100]) emboss(version,5);
     //trimcap
-    translate([0,-80,0]) trimko("test");
+    translate([0,-90,0]) trimko("test");
     //tubemount
-    translate([-6,-23,0]) tubeMount("test");
-    }
+    translate([-6,-30,0]) tubeMount("test");
+}
 
 //normal print
 *difference() {
