@@ -1,8 +1,8 @@
 $fn = 100 ;
 mountD = 2.5 ;
 mountH = 5 ;
-xyz = [70,59,1] ;
-xyzH = [0,0,20] ;
+xyz = [70,59.5,1] ;
+xyzH = [0,0,10] ;
 
 module PCBBed(position,pillarH, pillarD) {
     translate([position.x,position.y,0]) cylinder(h=pillarH + xyzH.z, d=pillarD) ;
@@ -34,6 +34,6 @@ module PCBBed(position,pillarH, pillarD) {
         translate([0,position.y,0]) cylinder(h=pillarH, d=pillarD) ;
     }
 }
-q
+
 PCBBed(xyz,mountH,mountD);
 
