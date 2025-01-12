@@ -4,6 +4,20 @@
 
 
 
+==== VacuumPCBbase - 3D Object
+
+The base for the PCB to sit on in the Box.
+It's needed to raise the PCB so that the Tubes are on (better) display out of the top of the lid.
+
+.image
+image::./openscad/Amplifier/VacuumPCBbase.png[]
+
+.Openscad source
+----
+include::./Amplifier/VacuumPCBbase.scad[]
+----
+
+
 ==== VacuumPreAmplifierBase - 3D Object
 
 
@@ -22,7 +36,8 @@ include::./Amplifier/VacuumPreAmplifierBase.scad[]
 
 ==== vacuumRadioCase - 3D Object
 
-
+Mount for the separte Vacuum tube radio kit mounted into a bamboo case.
+This is for the replacement lid with markings and mounting holes for the switches etc.
 
 .image
 image::./openscad/Amplifier/vacuumRadioCase.png[]
