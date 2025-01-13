@@ -4,6 +4,19 @@ $vpt = [80,88,42] ; //viewport translation
 $vpd = 788 ; //viewport camera distance
 
 function select(vector, indices) = [ for (index = indices) vector[index] ];
+// convert hex value aaaaff to openscad rgb values
+function hexCharToDec(c) = 
+    search(c, "0123456789abcdef")[0];
+function hexToDec(hex) = 
+    hexCharToDec(hex[0]) * 16 + hexCharToDec(hex[1]);
+function hexToRGB(hex) = [
+    hexToDec([hex[0], hex[1]]) / 255,
+    hexToDec([hex[2], hex[3]]) / 255,
+    hexToDec([hex[4], hex[5]]) / 255
+];
+
+// example
+//echo(hexToRGB("aaaaff")); // Should output [0.6667, 0.6667, 1]
 
 layer = [0, 0, 10 ] ;
 app1 =      [ "app1" ,    [0,   0,      0] , 7] ;
