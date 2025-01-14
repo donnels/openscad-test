@@ -316,6 +316,19 @@ include::./ThingsByOthers/Terrain.scad[]
 ----
 
 
+==== Topology - 3D Object
+
+
+
+.image
+image::./openscad/ThingsByOthers/Topology.png[]
+
+.Openscad source
+----
+include::./ThingsByOthers/Topology.scad[]
+----
+
+
 ==== notmine1 - 3D Object
 
 
