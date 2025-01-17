@@ -1,6 +1,8 @@
+$t = .12 ;
+rotation = 360 * $t ;
 $fn = 100 ;
-$vpr = [66,0,28] ; //viewport rotation angles in degrees
-$vpt = [80,88,42] ; //viewport translation
+$vpr = [66, 0, 28] ; //viewport rotation angles in degrees
+$vpt = [80, 88, 360 * $t] ; //viewport translation
 $vpd = 788 ; //viewport camera distance
 
 function select(vector, indices) = [ for (index = indices) vector[index] ];
@@ -50,7 +52,7 @@ module stack(device) {
     pos = device[1] ; 
     stackH = device[2] ;
     translate(pos) {
-        translate( (stackH + 2)* layer) rotate([90,0,0]) linear_extrude(1) text(label,valign="center",halign="center");
+        translate( (stackH + 2) * layer) rotate([90, 0, rotation]) linear_extrude(1) text(label, valign="center", halign="center");
         for (i = [stackH:-1:0]) {
             subStack(i);
         }
