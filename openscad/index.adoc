@@ -303,6 +303,32 @@ include::./ThingsByOthers/SQ11-15.scad[]
 ----
 
 
+==== Terrain - 3D Object
+
+
+
+.image
+image::./openscad/ThingsByOthers/Terrain.png[]
+
+.Openscad source
+----
+include::./ThingsByOthers/Terrain.scad[]
+----
+
+
+==== Topology - 3D Object
+
+
+
+.image
+image::./openscad/ThingsByOthers/Topology.png[]
+
+.Openscad source
+----
+include::./ThingsByOthers/Topology.scad[]
+----
+
+
 ==== notmine1 - 3D Object
 
 
