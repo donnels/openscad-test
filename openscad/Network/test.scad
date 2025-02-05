@@ -1,66 +1,73 @@
 $fn = 100 ;
-$vpr = [66,0,28] ; //viewport rotation angles in degrees
+// This part for rotation animation
+//rotate = 360*$t ;
+rotate = 30 ;
+$vpr = [66,0,rotate] ; //viewport rotation angles in degrees
 $vpt = [80,88,42] ; //viewport translation
 $vpd = 788 ; //viewport camera distance
 
 function select(vector, indices) = [ for (index = indices) vector[index] ];
 
-layer = [0, 0, 10 ] ;
+layer = [0, 0, 8 ] ;
 app1 =      [ "app1" ,    [0,   0,      0] , 7] ;
 app2 =      [ "app2" ,    [0,   100,    0] , 7] ;
 switch1 =   [ "switch1" , [100, 0,      0] , 2] ;
 switch2 =   [ "switch2" , [100, 100,    0] , 2] ;
 router1 =   [ "router1" , [200, 0,      0] , 3] ;
 router2 =   [ "router2" , [200, 100,    0] , 3] ;
-layers = [  ["Meta" , 0, [17, 17, layer.z + 1], [0, 0,  0, 0],  [0, 0, 0, 1] ],
-            ["HW"   , 1, [16, 16, layer.z + 1], [0, 0,  1, 1],  [0, 0, 0, .3] ],
-            ["L2"   , 2, [15, 15, layer.z + 1], [1, .7, 0, .5], [1, 1, 0, 1] ],
-            ["L3"   , 3, [14, 14, layer.z + 1], [1, .7, 0, .5], [1, .5, 0, 1] ],
-            ["L4"   , 4, [13, 13, layer.z + 1], [1, .7, 0, .5], [1, 1, 1, 1] ],
-            ["L4"   , 5, [12, 12, layer.z + 1], [1, 1,  1, .5], [1, 1, 1, 1] ],
-            ["L4"   , 6, [11, 11, layer.z + 1], [1, 1,  1, .5], [1, 1, 1, 1] ],
-            ["APP"  , 7, [10, 10, layer.z + 1], [1, 0,  0, .5], [1, 0, 0, .5] ]
+layers = [  ["Meta" , 0, [20, 20, layer.z + 1], [0, 0, 0, .3],       [0, 0, 0, 1],   "hide" ],
+            ["HW"   , 1, [16, 16, layer.z + 1], [0, 1, 1, 1],       [0, 0, 0, .3],  "show" ],
+            ["L2"   , 2, [15, 15, layer.z + 1], [0, 1, 1, .5],      [1, 1, 0, 1],   "show" ],
+            ["L3"   , 3, [14, 14, layer.z + 1], [0, 1, 1, .5],      [1, .5, 0, 1],  "show" ],
+            ["L4"   , 4, [13, 13, layer.z + 1], [0, 1, 1, .5],      [1, 1, 1, 1],   "hide" ],
+            ["L5"   , 5, [13, 13, layer.z + 1], [1, 1, 1, .3],      [1, 1, 1, 1],   "hide" ],
+            ["L6"   , 6, [13, 13, layer.z + 1], [1, 1, 1, .3],      [1, 1, 1, 1],   "hide" ],
+            ["APP"  , 4, [13, 13, layer.z + 1], [1, .5, .5, .5],    [1, 0, 0, .5],  "show" ]
             ];
 
 module subStack(stackLayer) {
-    lib = select(layers , stackLayer) ; var = lib[0] ;
-    label = var[0] ; stackLayer = var[1] ; dimensions = var[2] ; color = var[3] ;
-    echo("stack test: ", label, layer, dimensions);
-    translate(stackLayer * layer + [0, 0, dimensions.z/2] )
-        color(color)
-            cube(dimensions, center = true) ;
+    lib = layers[stackLayer] ;
+    label = lib[0] ; stackLayer = lib[1] ; dimensions = lib[2] ; color = lib[3] ; display = lib[5] ;
+    //echo("stack test: ", label, layer, dimensions);
+    if (display=="show") {
+        translate(stackLayer * layer + [0, 0, dimensions.z/2] )
+            color(color)
+                cube(dimensions, center = true) ;
+    }
 }
 
 module stack(device) {
-    echo(device);
-    label = device[0] ;
-    pos = device[1] ; 
-    stackH = device[2] ;
+    //echo(device);
+    label = device[0] ; pos = device[1] ; stackOSI = device[2] ;
+    lib = layers[stackOSI] ; stackLayer = lib[1] ;
     translate(pos) {
-        translate( (stackH + 2)* layer) rotate([90,0,0]) linear_extrude(1) text(label,valign="center",halign="center");
-        for (i = [stackH:-1:0]) {
+        translate( (stackLayer + 2)* layer) 
+            rotate([90,0,rotate]) 
+                linear_extrude(1) 
+                    text(label,halign="center");
+        for (i = [stackOSI:-1:0]) {
             subStack(i);
         }
     }
 }
 
 module link(vector1,vector2,stackLayer){
-    off = layer / 2 ; echo(off);
-    lib = layers[stackLayer] ;
-    color = lib[4] ;
-    pos1 = vector1[1] + (stackLayer * layer) +  off ; echo(pos1);
-    pos2 = vector2[1] + (stackLayer * layer) +  off ; echo(pos2);
+    off = layer / 2 ; //echo(off);
+    lib = layers[stackLayer] ; //echo("link(stackLayer): ", lib);
+    color = lib[4] ; stackLayer = lib[1] ;
+    pos1 = vector1[1] + (stackLayer * layer) +  off ; //echo(pos1);
+    pos2 = vector2[1] + (stackLayer * layer) +  off ; //echo(pos2);
     color(color) hull(){
         translate(pos1) sphere(d=1);
         translate(pos2) sphere(d=1);
     }
 }
 module cluster(vector1,vector2,stackLayer){
-    off = layer / 2 ; echo(off);
+    off = layer / 2 ; //echo(off);
     lib = layers[stackLayer] ;
     color = lib[4] ;
-    pos1 = vector1[1] + (stackLayer * layer) +  off ; echo(pos1);
-    pos2 = vector2[1] + (stackLayer * layer) +  off ; echo(pos2);
+    pos1 = vector1[1] + (stackLayer * layer) +  off ; //echo(pos1);
+    pos2 = vector2[1] + (stackLayer * layer) +  off ; //echo(pos2);
     color("grey",.3) hull(){
         translate(pos1) cube(18,true);
         translate(pos2) cube(18,true);
